@@ -65,3 +65,5 @@ Text in `backquotes` worden geformateerd als code
 ```
 
 Kijk ook anders even naar de source van deze readme!
+
+PS een kleine toevoeging ter illustratie
