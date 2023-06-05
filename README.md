@@ -3,7 +3,7 @@
 Een voorbeeld repository voor de Cloud Opleiding van TechGrounds.  
 Je kan een voorbeeld uitwerking van een opdracht vinden in [sprint_2 over S3](./sprint_2/S3.md) dat gebruik maakt van [de template](./templates/opdracht.md).
 
-Deze README.md is uiteindelijk ook voor jou. Vervang deze tekst met een introductie over jezelf.
+Deze README.md is uiteindelijk ook voor jou. Vervang deze tekst met een introductie over jezelf. *Ga ik doen*
 
 ## Organization is Key
 Je repository zal uiteindelijk de plek zijn waar je al je uitgewerkte opdrachten en opgedane kennis in plaatst. Zorg ervoor dat je een consistente folder structuur aanmaakt. Hiermee help je ons, jezelf, en je collega's, om elkaars werk te controleren en feedback te geven.
