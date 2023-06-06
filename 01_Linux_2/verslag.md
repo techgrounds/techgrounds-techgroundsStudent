@@ -1,4 +1,4 @@
-# [Directories]
+# Directories
 we gaan aan de slag met files en directories binnen linux aan de hand van de volgende aanwijzingen. 
 
 Find out your current working directory.  
