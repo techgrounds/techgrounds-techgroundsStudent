@@ -13,7 +13,7 @@ Move around your directory tree using both absolute and relative paths.
 
 ## Opdracht
 ### Gebruikte bronnen
-[Plaats hier de bronnen die je hebt gebruikt.]
+Binnen Chatgpt gevraagd: hoe maakt je een nieuwe textfile in ubuntu.
 
 ### Ervaren problemen
 [Geef een korte beschrijving van de problemen waar je tegenaan bent gelopen met je gevonden oplossing.]
