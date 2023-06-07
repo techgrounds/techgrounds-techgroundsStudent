@@ -2,10 +2,12 @@
 
 
 ## Key-terms
-[Schrijf hier een lijst met belangrijke termen met eventueel een korte uitleg.]
+**Pipe**  
+Dit is het symbool om de output van een command de input te maken van een andere command. 
 
-## Opdracht
-### Gebruikte bronnen
+## Opdracht 
+1. Use the echo command and output redirection to write a new sentence into your text file using the command line. The new sentence should contain the word ‘techgrounds’.
+## Gebruikte bronnen
 Wederom chatGPT gebruikt. Ik zal i.c. hieronder de antwoorden van chatGPT plaatsen waar ik mee gewerkt heb.  
 
 In Ubuntu, pipes are a powerful feature of the command-line interface that allows you to connect the output of one command as the input to another command. This enables you to perform complex operations by combining simple commands. The syntax for using a pipe is the vertical bar symbol "|".
@@ -53,8 +55,8 @@ I hope this helps! Let me know if you have any further questions.
 
 
 
-### Ervaren problemen
-[Geef een korte beschrijving van de problemen waar je tegenaan bent gelopen met je gevonden oplossing.]
+## Ervaren problemen
 
-### Resultaat
-[Omschrijf hoe je weet dat je opdracht gelukt is (gebruik screenshots waar nodig).]
+
+## Resultaat
+1. Zie
