@@ -1,0 +1,23 @@
+# Gebruikers & groepen
+Tijd om de eenzaamheid wat te bestrijden en wat nieuwe users aan te maken!
+
+## Key-terms
+ROOT
+
+## Opdracht
+1. Create a new user in your VM. 
+(The new user should be part of an admin group.
+The new user should have a password.
+The new user should be able to use ‘sudo’)
+2. Locate the files that store users, passwords, and groups. See if you can find your newly created user’s data in there.
+
+
+### Gebruikte bronnen
+My friend ChatGPT
+
+### Ervaren problemen
+Ik werk veel met chatGPT, aangezien dit nog opdrachten zijn waar vrij snel duidelijk is of het gewenste resultaat behaald is. Daarnaast is chatGPT behoorlijk behulpzaam en blijft het maar voor stellen om verder te helpen. Ik blijk daar dus ietwat vatbaar voor. 
+
+### Resultaat
+1. Aanshouw [Dit](/00_includes/04.newUser) bestand om te zien hoe ik een nieuwe gebruiker heb toegevoegd. Uit het meerbedoelde bestand volgt ook dat deze nieuwe gebruiker hoort bij de sudo groep en zodoende administratieve taken kan uitvoeren binnen het netwerk. 
+2. 
