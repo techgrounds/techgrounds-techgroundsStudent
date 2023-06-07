@@ -25,8 +25,8 @@ Het feit dat in mijn Home directory geen files waren zorgde voor vertraging. Ik 
 
 ### Resultaat
 1. Working directory is in mijn geval /home/vincent_.
-2. zie bestand in de map waar dit bestand in zit genaamd: '2.all files in home directory'.
-3. zie bestand in de map waar dit bestand in zit genaamd: '3. nieuwe_map_vincent'.
-4. zie bestand in de map waar dit bestand in zit genaamd: '4.textbestand_in_Techgroundsmap'
-5. Volbracht 
+2. Zie bestand in de map waar dit bestand in zit genaamd: '2.all files in home directory'.
+3. Zie bestand in de map waar dit bestand in zit genaamd: '3. nieuwe_map_vincent'.
+4. Zie bestand in de map waar dit bestand in zit genaamd: '4.textbestand_in_Techgroundsmap'
+5. 
 
