@@ -5,7 +5,7 @@ Tijd om de eenzaamheid wat te bestrijden en wat nieuwe users aan te maken!
 **cat**  
 Dit staat voor het woord  concatenate. Met deze prompt verkijg je in de terminal de inhoud van een bestand.  
 **sudo**  
-Binnen je prompts de manier om te verzekeren dat je de grootste bevoegdheid mogelijk hebt. 
+Met deze prompt zorg je ervoor dat je code met de hoogst mogelijke bevoegdheid wordt gelezen. 
 
 
 ## Opdracht
