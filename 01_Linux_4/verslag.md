@@ -2,7 +2,9 @@
 Tijd om de eenzaamheid wat te bestrijden en wat nieuwe users aan te maken!
 
 ## Key-terms
-ROOT
+cat  
+sudo 
+
 
 ## Opdracht
 *1. Create a new user in your VM. 
