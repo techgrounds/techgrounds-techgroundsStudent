@@ -5,7 +5,7 @@ we gaan aan de slag met files en directories binnen linux aan de hand van de vol
 
 ## Key-terms
 1. Nano 
-Dit is een intern tekstverwerkingsprogramma binnen Ubuntu. met de command nano gevolgd door een bestandnaam creeër je een bestand dat daarmee te bewerken is.  
+Dit is een intern tekstverwerkingsprogramma binnen Ubuntu. met de command nano gevolgd door een bestandnaam creëer je een bestand dat daarmee te bewerken is.  
 
 
 ## Opdracht
