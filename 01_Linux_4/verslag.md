@@ -20,4 +20,4 @@ Ik werk veel met chatGPT, aangezien dit nog opdrachten zijn waar vrij snel duide
 
 ### Resultaat
 1. Aanshouw [dit](/00_includes/04.newUser.PNG) bestand om te zien hoe ik een nieuwe gebruiker heb toegevoegd. Uit het meerbedoelde bestand volgt ook dat deze nieuwe gebruiker hoort bij de sudo groep en zodoende administratieve taken kan uitvoeren binnen het netwerk. 
-2. [Hierbij](/00_includes/04.2.amiceLeeft.PNG) de mogelijkheid te zien dat er data is onstaan over de nieuwe gebruiker. Gehighlight is de nieuwe gebruiker, genaamd amice_. 
+2. [Hierbij](/00_includes/04.2.amiceLeeft.PNG) de mogelijkheid te zien dat er data is onstaan is over de nieuwe gebruiker. Gehighlight is de nieuwe gebruiker, genaamd amice_. 
