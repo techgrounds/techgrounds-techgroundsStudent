@@ -1,5 +1,5 @@
-# [Onderwerp]
-[Geef een korte beschrijving van het onderwerp]
+# Werken met tekst binnen linux
+
 
 ## Key-terms
 [Schrijf hier een lijst met belangrijke termen met eventueel een korte uitleg.]
