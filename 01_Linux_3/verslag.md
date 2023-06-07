@@ -6,7 +6,7 @@
 
 ## Opdracht
 ### Gebruikte bronnen
-Wederom chatGPT gebruikt. Ik zal i.c. hieronder het antwoord van chatGPT plaatsen waar ik mee gewerkt heb.  
+Wederom chatGPT gebruikt. Ik zal i.c. hieronder de antwoorden van chatGPT plaatsen waar ik mee gewerkt heb.  
 
 In Ubuntu, pipes are a powerful feature of the command-line interface that allows you to connect the output of one command as the input to another command. This enables you to perform complex operations by combining simple commands. The syntax for using a pipe is the vertical bar symbol "|".
 
@@ -28,6 +28,30 @@ You can use pipes with various commands and combine them to achieve more complex
 Note that pipes work by passing the standard output (stdout) of the preceding command as the standard input (stdin) of the following command. Therefore, not all commands are compatible with pipes, as they may require interactive input or rely on other forms of data transmission.
 
 I hope this helps you understand how to use pipes in Ubuntu! Let me know if you have any further questions.
+
+-------
+
+The pipe command (`|`) is used to redirect the output of one command as the input of another command. However, it does not save the output directly to a file. To save the output of the `echo` command to a text file using the pipe command, you can use the `tee` command. Here's an example:
+
+```bash
+echo "Hello, World!" | tee newfile.txt
+```
+
+In this example, the `echo` command outputs the text "Hello, World!" and the pipe (`|`) redirects that output to the `tee` command. The `tee` command takes the input and saves it to a file specified as an argument (`newfile.txt` in this case). The `tee` command also displays the input on the terminal.
+
+After executing the command, the text "Hello, World!" will be saved in the `newfile.txt` file. If the file doesn't exist, it will be created. If the file already exists, the previous content will be overwritten.
+
+If you want to append the output to an existing file rather than overwriting it, you can use the `-a` option with the `tee` command:
+
+```bash
+echo "Hello, World!" | tee -a existingfile.txt
+```
+
+This command will append the output to the `existingfile.txt` instead of overwriting it.
+
+I hope this helps! Let me know if you have any further questions.
+
+
 
 ### Ervaren problemen
 [Geef een korte beschrijving van de problemen waar je tegenaan bent gelopen met je gevonden oplossing.]
