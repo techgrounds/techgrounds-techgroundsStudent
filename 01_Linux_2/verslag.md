@@ -1,10 +1,10 @@
 # Directories
-we gaan aan de slag met files en directories binnen linux aan de hand van de volgende aanwijzingen. 
+we gaan aan de slag met files en directories binnen ubuntu.
 
 
 
 ## Key-terms
-1. Nano  
+1. **Nano**  
 Dit is een intern tekstverwerkingsprogramma binnen Ubuntu. met de command nano gevolgd door een bestandnaam creëer je een bestand dat daarmee te bewerken is.  
 
 
@@ -28,5 +28,5 @@ Het feit dat in mijn Home directory geen files waren zorgde voor vertraging. Ik 
 2. zie bestand in de map waar dit bestand in zit genaamd: '2.all files in home directory'.
 3. zie bestand in de map waar dit bestand in zit genaamd: '3. nieuwe_map_vincent'.
 4. zie bestand in de map waar dit bestand in zit genaamd: '4.textbestand_in_Techgroundsmap'
-5. Volbracht
+5. Volbracht 
 
