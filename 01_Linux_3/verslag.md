@@ -66,4 +66,4 @@ I hope this helps! Let me know if you have any further questions.
 ## Resultaat
 1. Het bestand beproeving.txt heeft gediend om deze opdracht te vervullen. Zie [hier](/01_Linux_3/1.toevoeging.PNG) om te zien met welke commands ik de tekst daadwerkelijk heb toegevoegd. [Vergelijk](./1.1.Snip.PNG) daarnaast ook om daadwerkelijk te zien dat het gelukt is tekst bij te sluiten. 
 2. Zie [hier](./2.Justone.PNG) hoe ik het gewenste resultaat heb behaald. 
-3. 
+3. Zie [hier](./3.code.PNG) de command gebruikt om dit onderdeel van de opdracht te voltooien. Bekijk [dit](3.nieuwe_file.PNG) om daadwerkelijk het bewijs te zien van het bestand techgrounds.txt inclusief de zin. 
