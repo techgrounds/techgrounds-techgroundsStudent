@@ -19,5 +19,5 @@ My friend ChatGPT
 Ik werk veel met chatGPT, aangezien dit nog opdrachten zijn waar vrij snel duidelijk is of het gewenste resultaat behaald is. Daarnaast is chatGPT behoorlijk behulpzaam en blijft het maar voor stellen om verder te helpen. Ik blijk daar dus ietwat vatbaar voor. 
 
 ### Resultaat
-1. Aanshouw [Dit](/00_includes/04.newUser.PNG) bestand om te zien hoe ik een nieuwe gebruiker heb toegevoegd. Uit het meerbedoelde bestand volgt ook dat deze nieuwe gebruiker hoort bij de sudo groep en zodoende administratieve taken kan uitvoeren binnen het netwerk. 
+1. Aanshouw [Dit](./00_includes/04.newUser.PNG) bestand om te zien hoe ik een nieuwe gebruiker heb toegevoegd. Uit het meerbedoelde bestand volgt ook dat deze nieuwe gebruiker hoort bij de sudo groep en zodoende administratieve taken kan uitvoeren binnen het netwerk. 
 2. 
