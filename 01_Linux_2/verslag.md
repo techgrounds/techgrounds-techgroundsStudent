@@ -22,5 +22,6 @@ Veelal aan de ChatGPT gevraagd wat de prompts waren om de opdrachten uit te voer
 Het feit dat in mijn Home directory geen files waren zorgde voor vertraging. Ik dacht namelijk iets fout te doen bij het listen van de files in meerbedoelde directory. Pas toen ik gebruik maakte van de de command om ook de verborgen bestanden te listen, kwam ik erachter dat ik wel alle files had gelist in eerste instantie. 
 
 ### Resultaat
-Working directory is in mijn geval /home/vincent_:  
+Working directory is in mijn geval /home/vincent_.
+
 
