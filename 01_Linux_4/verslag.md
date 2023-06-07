@@ -13,7 +13,7 @@ The new user should be able to use ‘sudo’)*
 
 
 ### Gebruikte bronnen
-My amice ChatGPT
+Mijn amice ChatGPT
 
 ### Ervaren problemen
 Ik werk veel met chatGPT, aangezien dit nog opdrachten zijn waarbij snel duidelijk is of het gewenste resultaat bereikt is. Daarnaast is chatGPT behoorlijk behulpzaam en blijft het voorstellen doen om verder te helpen. Ik blijk daar ietwat vatbaar voor. 
