@@ -59,4 +59,4 @@ I hope this helps! Let me know if you have any further questions.
 
 
 ## Resultaat
-1. Het bestand beproeving.txt heeft gediend om deze opdracht te vervullen. Zie [hier](/01_Linux_3/1.toevoeging.PNG) om te zien met welke commands ik de tekst daadwerkelijk heb toegevoegd. [Vergelijk](./1.1.Snip.PNG) daarnaast ook het bestand in de map i.c. genaamd '1. Snip van tekstbestandje genaamd beproeving' om daadwerkelijk te zien dat het gelukt is tekst bij te sluiten. 
+1. Het bestand beproeving.txt heeft gediend om deze opdracht te vervullen. Zie [hier](/01_Linux_3/1.toevoeging.PNG) om te zien met welke commands ik de tekst daadwerkelijk heb toegevoegd. [Vergelijk](./1.1.Snip.PNG) daarnaast ook om daadwerkelijk te zien dat het gelukt is tekst bij te sluiten. 
