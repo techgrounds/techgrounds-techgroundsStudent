@@ -16,13 +16,17 @@ Dit is een intern tekstverwerkingsprogramma binnen Ubuntu. met de command nano g
 5. Move around your directory tree using both absolute and relative paths.
 
 ### Gebruikte bronnen
-Veelal aan de ChatGPT gevraagd wat de prompts waren om de opdrachten uit te voeren.  
+1. Veelal aan de ChatGPT gevraagd wat de prompts waren om de opdrachten uit te voeren.  
+2. Peer to peer learning
+
 
 ### Ervaren problemen
 Het feit dat in mijn Home directory geen files waren zorgde voor vertraging. Ik dacht namelijk iets fout te doen bij het listen van de files in meerbedoelde directory. Pas toen ik gebruik maakte van de de command om ook de verborgen bestanden te listen, kwam ik erachter dat ik wel alle files had gelist in eerste instantie. 
 
 ### Resultaat
 1. Working directory is in mijn geval /home/vincent_.
-2. zie bestand in de map waar dit bestand in zit genaamd: 2.all files in home directory.
+2. zie bestand in de map waar dit bestand in zit genaamd: '2.all files in home directory'.
+3. zie bestand in de map waar dit bestand in zit genaamd: '3. nieuwe_map_vincent'.
+4. zie bestand in de map waar dit bestand in zit genaamd: 2.all files in home directory.
 
 
