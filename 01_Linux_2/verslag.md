@@ -1,5 +1,5 @@
 # Directories
-we gaan aan de slag met files en directories binnen ubuntu.
+We gaan aan de slag met files en directories binnen ubuntu.
 
 
 
