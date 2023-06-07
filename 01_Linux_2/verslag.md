@@ -9,7 +9,9 @@ Move around your directory tree using both absolute and relative paths.
 
 
 ## Key-terms
-[Schrijf hier een lijst met belangrijke termen met eventueel een korte uitleg.]
+1. Nano 
+Dit is een intern tekstverwerkingsprogramma binnen Ubuntu. met de command nano gevolgd door een bestandnaam creeër je een bestand dat daarmee te bewerken is.  
+
 
 ## Opdracht
 ### Gebruikte bronnen
