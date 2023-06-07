@@ -2,8 +2,11 @@
 Wegwijs worden met het inloggen via een SSH-protocol op een Ubuntu-server. 
 
 ## Key-terms
-1. SSH 
-2. Powershell
+1. **SSH**.     
+Protocol voor het inloggen op een netwerk.
+2. **Powershell**.   
+Interface voor het bedienen van het netwerk via prompten 
+
 
 
 ## Opdracht 
