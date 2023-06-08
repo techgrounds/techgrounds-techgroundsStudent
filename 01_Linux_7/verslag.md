@@ -30,5 +30,5 @@ Hierna heb ik door middel van
 ```
 $ echo $PATH
 ```
-gezien dat er succesvol mijn folder aan de PATH-variabele was toegevoegd. Zie daarvan [dit](./01_02_Snip.PNG.PNG) screenshot.  
+gezien dat er succesvol mijn folder aan de PATH-variabele was toegevoegd. Zie daarvan [dit](./01_02_Snip.PNG) screenshot.  
 1.3.
