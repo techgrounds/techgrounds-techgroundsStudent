@@ -105,7 +105,7 @@ en
 ```
 Dit leverde een tekstbestand op dat steeds werd aangevuld met random getallen.  
 
-3.1. 
+3.1. Dit gedeelte kan weer worden begonnen met het openen van een script. In dit geval genaamd: munt_gooien.sh. 
 
 
 
