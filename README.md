@@ -64,9 +64,6 @@ regel·2
 Text in `backquotes` worden geformateerd als code
 ```
 
-Kijk ook anders even naar de source van deze readme!
 
-PS een kleine toevoeging ter illustratie  
-
-PPS Dit is trouwens de repository van Vincent mocht je zover gekomen zijn. 
+PPS Dit is trouwens onderdeel van de repository van Vincent, mocht je zo ver gekomen zijn. 
 
