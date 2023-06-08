@@ -25,6 +25,6 @@ $ cd /home/vincent_/01_Linux_5
 ```
 $ touch opdracht.txt
 ````
-Uiteindelijk via het Ls command gezien dat er daadwerkelijk een tekstdocument bestaat in deze map. Zie [dit](/00_includes/05_01_bestand).  
+Uiteindelijk via het Ls command gezien dat er daadwerkelijk een tekstdocument bestaat in deze map. Zie [dit](/00_includes/05_01_bestand.PNG).  
 2.  
 
