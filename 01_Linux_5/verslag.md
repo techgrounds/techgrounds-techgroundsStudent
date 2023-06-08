@@ -1,8 +1,10 @@
 # Bestandsrechten
-[Geef een korte beschrijving van het onderwerp]
+wie en wat mag wat doen?
 
 ## Key-terms
-[Schrijf hier een lijst met belangrijke termen met eventueel een korte uitleg.]
+**'chown' command**  
+**permissions**  
+
 
 ## Opdracht
 1.  Create a text file.

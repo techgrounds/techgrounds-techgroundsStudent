@@ -14,6 +14,6 @@ Zie hier, een codeblock zonder code. Excuseer, s.v.p.
 > een blockquote
 
 > > Genest
-> > Blockquote
-
+> > Blockquote  
+`inline code`
 
