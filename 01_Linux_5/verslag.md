@@ -10,6 +10,8 @@
 3. Make the file executable by adding the execute permission (x).
 4. Remove the read and write permissions (rw) from the file for the group and everyone else, but not for the owner. Can you still read it?  
 5. Change the owner of the file to a different user. If everything went well, you shouldn’t be able to read the file unless you assume root privileges with ‘sudo’.
+6. Change the group ownership of the file to a different group.
+
 
 ## Gebruikte bronnen
 <https://ubuntu.com/tutorials/command-line-for-beginners#4-creating-folders-and-files>  
@@ -60,5 +62,15 @@ Als we dan kijken naar de permissions zien we dat deze veranderd zijn. Een ieder
 ```
 $ sudo chown amice_ opdracht.txt
 ```
-Als we nu weer kijken naar de permissions van het bestand, dan zie we hetgeen [hier](/00_includes/05_05_amice_.PNG) wordt afgebeeld. Met een highlicht heb ik aangegeven dat nu amice_ inderdaad het eigendom verkregen heeft van het bestand. 
+Als we nu weer kijken naar de permissions van het bestand, dan zie we hetgeen [hier](/00_includes/05_05_amice_.PNG) wordt afgebeeld. Met een highlicht heb ik aangegeven dat nu amice_ inderdaad het eigendom verkregen heeft van het bestand. Overigens zie ik inderdaad als ik de inhoud van he bestand probeer te lezen dat dat niet gaat. Zie de volgende input en ouput:
+```
+vincent_@Nest-vi-De-Windt:~/01_Linux_5$ cat opdracht.txt
+cat: opdracht.txt: Permission denied
+`````
+6. Tijd om het bestand volledig in de heerschappij van de nieuwe eigenaar te brengen door het bestand ook tot zijn groep te laten behoren. Er is namelijk ook een groep genaamd 'amice_'. We kunnen dit doen door aan het antwoord van onderdeel vijf twee punten toe te voegen: door middel van een dubbele punt gaan we wederom nu met het 'chown' command de groep van het bestand veranderen. De invoering ziet er zo uit: 
+```
+$ sudo chown :amice_ opdracht.txt
+```
+Hierna onderzoeken we de permissions van het bestandje. Daaruit blijkt hopelijk dat het bestand nu tot de groep amice_ behoort. Welnu, bij de controle van de [data](./05_06_newgr.PNG) blijkt inderdaad dat opdracht.txt nu tot de groep amice_ toebehoort! 
+
 
