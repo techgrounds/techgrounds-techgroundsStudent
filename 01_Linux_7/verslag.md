@@ -31,4 +31,25 @@ Hierna heb ik door middel van
 $ echo $PATH
 ```
 gezien dat er succesvol mijn folder aan de PATH-variabele was toegevoegd. Zie daarvan [dit](./01_02_Snip.PNG) screenshot.  
-1.3.
+1.3. Voor dit component van de opdracht beginnen we eerst met een script maken. i.c. door 
+````
+$ nano glosseerder.sh
+````
+uit te veoren. Hierdoor kwam ik in Nano en daar heb ik 
+````
+#!/bin/bash
+echo "Dit is een glosse van de glosseerder" >> /home/vincent_/scripts/de_codi.txt
+````
+ingevoerd in het bestand. Ik heb dit opgeslagen en heb toen nano afgesloten. Toen ik weer in het terminal heb ik o.b.v. 
+````
+chmod +x glosseerder.sh
+````
+gefixt dat het bestand glosseerder.sh uitvoerbaar was. Tot slot heb ik door 
+```
+./glosseerder.sh
+````
+uit te voeren geregeld dat er een lijn tekst werd toegevoegd aan het tekstbestand de_codi.txt. Gezien het feit dat dit laatsgenoemde bestand nog niet bestond, zal het dus door het runnen van het script moeten ontstaan. Door 
+```
+$ ls -l
+````
+te runnen heb ik gecontroleerd of meerbedoelde tekstbestand bestaat. Warempel, het is geslaagd! Klik om dat met eigen ogen te aanschouwen [hier](./01_03_Snip.PNG). 
