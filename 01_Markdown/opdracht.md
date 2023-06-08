@@ -7,3 +7,13 @@ Zie hier, een codeblock zonder code. Excuseer, s.v.p.
 
 ***Wat is de betekenis van [linq?](https://www.nuffic.nl/onderwerpen/netwerk-duits-en-frans-linq/wat-is-linq)***  
 
+****
+<http://techgrounds.nl>
+
+> Verder is dit
+> een blockquote
+
+> > Genest
+> > Blockquote
+
+
