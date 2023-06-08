@@ -3,6 +3,8 @@
 
 ## Key-terms
 **PATH variable**
+**variable**  
+To assign a variable, use '='. To read the variable's value, use '$' followed by the variable name.
 
 ## Opdracht
 ### Gebruikte bronnen
@@ -71,14 +73,39 @@ sudo systemctl status apache2
 ````
 Dit script uitgevoerd via
 ```
-chmod +x setup_httpd.sh
+chmod +x montage_apache.sh
 ````
 en via 
 ```
-./setup_httpd.sh
+./montage_apache.sh
 ````
 om [dit](./01_04_snip.PNG) resultaat te verkrijgen. 
 
-2.1.
+2.1. Met nano command het bestand numbers_game gemaakt. Daarin schreef ik:
+```
+#!/bin/bash
+
+# Generate random number between 1 and 10
+random_number=$((RANDOM % 10 + 1))
+
+# Append the random number to a text file
+echo "$random_number" >> numbers.txt
+
+# Print the random number
+echo "Random number generated: $random_number"
+```
+Dit hierna uitgevoerd door middel van 
+
+```
+chmod +x numbers_game
+```
+en 
+```
+./numbers_game
+```
+Dit leverde een tekstbestand op dat steeds werd aangevuld met random getallen.  
+
+3.1. 
+
 
 
