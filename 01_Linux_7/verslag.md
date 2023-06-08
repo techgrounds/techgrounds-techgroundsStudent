@@ -1,8 +1,8 @@
-# Bash scripten]
-[Geef een korte beschrijving van het onderwerp]
+# Bash scripten
+
 
 ## Key-terms
-**PATH variable**
+**PATH variable**  
 **variable**  
 To assign a variable, use '='. To read the variable's value, use '$' followed by the variable name.
 
