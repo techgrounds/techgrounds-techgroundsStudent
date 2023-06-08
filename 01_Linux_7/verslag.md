@@ -103,7 +103,12 @@ en
 ```
 ./numbers_game
 ```
-Dit leverde een tekstbestand op dat steeds werd aangevuld met random getallen.  
+Dit leverde een tekstbestand op dat steeds werd aangevuld met random getallen. Tot mijn onsteltenis kwam ik erachter het bestand niet eindigde op .sh. Gelukkig kan je bestandsnamen wijzigen. Het volgende heb ik laten uitvoeren:
+
+```
+$ mv numbers_game numbers_game.sh
+```
+Nu eindigt het document op .sh, wat duidelijker is, overwegende het feit dat het bestand effectief een script ís. Ook na de naamsverandering is dat trouwens nog een feit, gezien de bestandsnaam nog steeds in de kleur van een script wordt weergeven in de terminal. 
 
 3.1. Dit gedeelte kan weer worden begonnen met het openen van een script. In dit geval genaamd: munt_gooien.sh. 
 
