@@ -52,4 +52,33 @@ uit te voeren geregeld dat er een lijn tekst werd toegevoegd aan het tekstbestan
 ```
 $ ls -l
 ````
-te runnen heb ik gecontroleerd of meerbedoelde tekstbestand bestaat. Warempel, het is geslaagd! Klik om dat met eigen ogen te aanschouwen [hier](./01_03_Snip.PNG). 
+te runnen heb ik gecontroleerd of meerbedoelde tekstbestand bestaat. Warempel, het is geslaagd! Klik om dat met eigen ogen te aanschouwen [hier](./01_03_Snip.PNG).  
+1.4.Via nano een script gemaakt dat montage_apache heet. De inhoud van dat script is:
+````
+#!/bin/bash
+
+# Install httpd package
+sudo apt update
+sudo apt install -y apache2
+
+# Start and enable httpd
+sudo systemctl start apache2
+sudo systemctl enable apache2
+
+# Check status of httpd
+sudo systemctl status apache2
+
+````
+Dit script uitgevoerd via
+```
+chmod +x setup_httpd.sh
+````
+en via 
+```
+./setup_httpd.sh
+````
+om [dit](./01_04_snip.PNG) resultaat te verkrijgen. 
+
+2.1.
+
+
