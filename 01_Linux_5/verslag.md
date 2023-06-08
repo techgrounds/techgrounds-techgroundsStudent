@@ -60,5 +60,5 @@ Als we dan kijken naar de permissions zien we dat deze veranderd zijn. Een ieder
 ```
 $ sudo chown amice_ opdracht.txt
 ```
-Als we nu weer kijken naar de permissions van het bestand, dan zie we hetgeen [hier](/00_includes/05_05_amice_) wordt afgebeeld. Met een highlicht heb ik aangegeven dat nu amice_ inderdaad het eigendom verkregen heeft van het bestand. 
+Als we nu weer kijken naar de permissions van het bestand, dan zie we hetgeen [hier](/00_includes/05_05_amice_.png) wordt afgebeeld. Met een highlicht heb ik aangegeven dat nu amice_ inderdaad het eigendom verkregen heeft van het bestand. 
 
