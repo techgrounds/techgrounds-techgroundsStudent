@@ -8,7 +8,8 @@
 1.  Create a text file.
 2. Make a long listing to view the file’s permissions. Who is the file’s owner and group? What kind of permissions does the file have?
 3. Make the file executable by adding the execute permission (x).
-4. Remove the read and write permissions (rw) from the file for the group and everyone else, but not for the owner. Can you still read it?
+4. Remove the read and write permissions (rw) from the file for the group and everyone else, but not for the owner. Can you still read it?  
+5. Change the owner of the file to a different user. If everything went well, you shouldn’t be able to read the file unless you assume root privileges with ‘sudo’.
 
 ## Gebruikte bronnen
 <https://ubuntu.com/tutorials/command-line-for-beginners#4-creating-folders-and-files>  
@@ -53,4 +54,11 @@ Als we nu weer kijken naar de permissions van het bestand dan zullen we hopelijk
 ````
 $ chmod u=rw,go= opdracht.txt
 ````
-Als we dan kijken naar de permissions zien we dat deze veranderd zijn. Een ieder kan dat [hier](/00_includes/05_04_rw.PNG) zien. Duidelijk is dat louter de eigenaar het bestand kan zien en er tekst aan kan toevoegen. 
+Als we dan kijken naar de permissions zien we dat deze veranderd zijn. Een ieder kan dat [hier](/00_includes/05_04_rw.PNG) zien. Duidelijk is dat louter de eigenaar het bestand kan zien en er tekst aan kan toevoegen.
+
+5. Bij deze opdracht gaan we gebruik maken van een oude vriend, namelijk de gebruiker 'amice_', die we kennen uit een vorige opdracht. Ik ga proberen hem de nieuwe eigenaar te maken van het bestand opdracht.txt.  Doordat we te maken hebben met een handeling die normaal gesproken louter met de benodigde privileges uitgevoerd kan worden, zal ik mijn invoer starten met sudo. met de 'chwon' command kan men de eigenaar van een bestand veranderen.  Uitgangspunt voor deze opdracht gaat, al het voorgaande in overweging nemende, zijn: 
+```
+$ sudo chown amice_ opdracht.txt
+```
+Als we nu weer kijken naar de permissions van het bestand, dan zie we hetgeen [hier](/00_includes/05_05_amice_) wordt afgebeeld. Met een highlicht heb ik aangegeven dat nu amice_ inderdaad het eigendom verkregen heeft van het bestand. 
+
