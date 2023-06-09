@@ -82,4 +82,18 @@ cat logboek.txt
 ````
 kunnen we in de terminal de inhoud van het meerbedoelde bestand weergeven. We kunnen afleiden uit de uitvoer in de terminal, [hier](./02_Snip.PNG) afgebeeld, dat de cron job wordt uitgevoerd. 
 
-3. Om deze opdracht uit te voeren scrhijven we een script in 
+3. Om deze opdracht uit te voeren scrhijven we een script in capacité.sh. De grondslag voor dit script zal zijn: 
+
+```
+#!/bin/bash
+
+# Haal de huidige datum en tijd op
+huidige_datum=$(date)
+
+# Haal de beschikbare schijfruimte op
+schijf_ruimte=$(df -h / | awk 'NR==2 {print $4}')
+
+# Schrijf de schijfruimte naar het logbestand
+log_bestand="/var/log/schijf_ruimte.log"
+echo "Datum: $huidige_datum, Beschikbare Schijfruimte: $schijf_ruimte" >> "$log_bestand"
+```
