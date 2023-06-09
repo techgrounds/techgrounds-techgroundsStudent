@@ -82,4 +82,4 @@ cat logboek.txt
 ````
 kunnen we in de terminal de inhoud van het meerbedoelde bestand weergeven. We kunnen afleiden uit de uitvoer in de terminal, [hier](./02_Snip.PNG) afgebeeld, dat de cron job wordt uitgevoerd. 
 
-3.
+3. Om deze opdracht uit te voeren scrhijven we een script in 

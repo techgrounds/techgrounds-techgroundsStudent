@@ -37,7 +37,7 @@ gezien dat er succesvol mijn folder aan de PATH-variabele was toegevoegd. Zie da
 ````
 $ nano glosseerder.sh
 ````
-uit te veoren. Hierdoor kwam ik in Nano en daar heb ik 
+uit te voeren. Hierdoor kwam ik in Nano en daar heb ik 
 ````
 #!/bin/bash
 echo "Dit is een glosse van de glosseerder" >> /home/vincent_/scripts/de_codi.txt
@@ -111,6 +111,23 @@ $ mv numbers_game numbers_game.sh
 Nu eindigt het document op .sh, wat duidelijker is, overwegende het feit dat het bestand effectief een script ís. Ook na de naamsverandering is dat trouwens nog een feit, gezien de bestandsnaam nog steeds in de kleur van een script wordt weergeven in de terminal. 
 
 3.1. Dit gedeelte kan weer worden begonnen met het openen van een script. In dit geval genaamd: munt_gooien.sh. 
+
+Uitganspunt van het script zal zijn: 
+```
+#!/bin/bash
+
+# Genereer een willekeurig nummer tussen 1 en 10.
+willekeurig_nummer=$((RANDOM % 10 + 1))
+
+# Is het nummer hoger dan 5?
+if [ "$willekeurig_nummer" -gt 5 ]; then
+    echo "$willekeurig_nummer" >> bingo.txt
+else
+    echo "Jammer, probeer nogmaals." >> bingo.txt
+fi
+````
+
+
 
 
 
