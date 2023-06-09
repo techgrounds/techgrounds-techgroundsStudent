@@ -97,3 +97,17 @@ schijf_ruimte=$(df -h / | awk 'NR==2 {print $4}')
 log_bestand="/var/log/schijf_ruimte.log"
 echo "Datum: $huidige_datum, Beschikbare Schijfruimte: $schijf_ruimte" >> "$log_bestand"
 ```
+
+Toen ik het scripte runde kreeg ik met het volgende te maken: 
+```
+/home/vincent_/scripts/capacité.sh: line 11: /var/log/schijf_ruimte.log: Permission denied  
+```
+Ik heb toen eerst het bestand gerund vanuit de Sudo-modus. Terwijl ik in mijn scripts-map was deed ik zo:
+```
+$ sudo ./capacité
+```
+Hierdoor onstond het bestand schijf_ruimte in de /var/log/ directory. De permissions van dat bestand heb ik toen aangepast d.m.v. het commando: 
+```
+sudo chmod o+w /var/log/schijf_ruimte.log
+````
+Hierdoor kan ik ook zonder sudo te gebruiken schrijven naar het bestand genaamd schijf_ruimte.log. Dit maakt verder dat ik ook een cron job kan maken waarbij in dat bestand gescrheven kan worden in mijn cron tab, dus in de cron tab van vincent_. 
