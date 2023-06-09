@@ -108,7 +108,7 @@ Dit leverde een tekstbestand op dat steeds werd aangevuld met random getallen. T
 ```
 $ mv numbers_game numbers_game.sh
 ```
-Nu eindigt het document op .sh, wat duidelijker is, overwegende het feit dat het bestand effectief een script ís. Ook na de naamsverandering is dat trouwens nog een feit, gezien de bestandsnaam nog steeds in de kleur van een script wordt weergeven in de terminal. 
+Nu eindigt het document op .sh, wat duidelijker is, overwegende het feit dat het bestand effectief een script ís. Ook na de naamsverandering is dat trouwens nog een feit, gezien de bestandsnaam nog steeds in de kleur van een script wordt weergeven in de terminal. Tot slot had de hint uit de opdracht mij al enigzins duidelijk gemaakt dat het praktisch niet fout was dat mijn script niet op .sh eindigde. Dit hint luidde namelijk: "although there are no file extensions in Linux, it’s easier for humans to understand if you end your script names with ‘.sh’."
 
 3.1. Dit gedeelte kan weer worden begonnen met het openen van een script. In dit geval genaamd: munt_gooien.sh. 
 
