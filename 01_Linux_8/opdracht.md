@@ -6,10 +6,10 @@
 
 ## Opdracht
 ### Gebruikte bronnen
-[Plaats hier de bronnen die je hebt gebruikt.]
+<https://www.transip.nl/knowledgebase/artikel/484-wat-is-een-cronjob-crontab/>
 
 ### Ervaren problemen
-[Geef een korte beschrijving van de problemen waar je tegenaan bent gelopen met je gevonden oplossing.]
+Een suf probleempje: ik zag een tijdje niet het verschil tussen de letter L en het cijfer 1 in het font gebruikt in Powershell. Dat zorgde voor wat irritatie bij een gedeelte van de opdracht. 
 
 ### Resultaat
 1. Begonnen met het maken van een script genaamd tijd dateur.sh. Dit instrumentje geplaatst in de directory '/home/vincent_/scripts'.
@@ -42,3 +42,10 @@ $ ./dateur.sh
 
 
 Nu wordt het tijd om de proef op de som te nemen? Is er inderdaad sprake van een bestand logboek.txt in de home directory?
+
+Het bestand is aanwezig, echter we worden geconfronteerd met een probleemje. 
+
+
+
+
+2. 
