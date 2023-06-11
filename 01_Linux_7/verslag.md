@@ -112,7 +112,7 @@ Nu eindigt het document op .sh, wat duidelijker is, overwegende het feit dat het
 
 3.1. Dit gedeelte kan weer worden begonnen met het openen van een script. In dit geval genaamd: munt_gooien.sh. 
 
-Uitganspunt van het script zal zijn: 
+De inhoud van het script is: 
 ```
 #!/bin/bash
 
@@ -127,7 +127,7 @@ else
 fi
 ````
 
-
+Nog een paar opmerkingen over het bovenstaande. Het command RANDOM % zorgt ervoor dat 
 
 
 
