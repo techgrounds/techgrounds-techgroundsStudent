@@ -127,7 +127,8 @@ else
 fi
 ````
 
-Nog een paar opmerkingen over het bovenstaande. Het command RANDOM % zorgt ervoor dat 
+Nog een paar opmerkingen over het bovenstaande.  In het bovenstaande script wordt gebruik gemaakt van een voorwaarde. Deze begin je altijd met if. Met "-gt" wordt bedoeld "greater than">. Verder eindig je de de voorwaarde altijd met fi, het woord wat je krijgt als je de letters van if van achter naar voren leest. 
+
 
 
 
