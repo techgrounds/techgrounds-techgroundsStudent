@@ -8,13 +8,15 @@ To assign a variable, use '='. To read the variable's value, use '$' followed by
 
 ## Opdracht
 ### Gebruikte bronnen
-[Plaats hier de bronnen die je hebt gebruikt.]
+<https://axxius.nl/kennisbank/scripting/bash/>  
+<http://techtarget.com/searchdatacenter/definition/bash-Bourne-Again-Shell>
+chatGPT
 
 ### Ervaren problemen
-[Geef een korte beschrijving van de problemen waar je tegenaan bent gelopen met je gevonden oplossing.]
+Sloridgheid in het hanteren van extensies. Ik was bijvoorbeeld een keer vergeten ".sh" te gebruiken. 
 
 ### Resultaat
-1.1. Uitgevoerd met behulp van 'mkdir' invoer. 
+1.1. Uitgevoerd met behulp van 'mkdir' invoer.  
 1.2. Eerst heb ik bepaald wat voor een configuratiebestand ik moet veranderen aan de hand van de door mijn gebruikte shell. Dit ging door:
 ```
 $ echo $SHELL
@@ -112,7 +114,7 @@ Nu eindigt het document op .sh, wat duidelijker is, overwegende het feit dat het
 
 3.1. Dit gedeelte kan weer worden begonnen met het openen van een script. In dit geval genaamd: munt_gooien.sh. 
 
-Uitganspunt van het script zal zijn: 
+De inhoud van het script is: 
 ```
 #!/bin/bash
 
@@ -127,6 +129,7 @@ else
 fi
 ````
 
+Nog een paar opmerkingen over het bovenstaande.  In het bovenstaande script wordt gebruik gemaakt van een voorwaarde. Deze begin je altijd met if. Met "-gt" wordt bedoeld "greater than">. Verder eindig je de de voorwaarde altijd met fi, het woord wat je krijgt als je de letters van if van achter naar voren leest. 
 
 
 
