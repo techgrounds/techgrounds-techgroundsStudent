@@ -8,7 +8,7 @@ To assign a variable, use '='. To read the variable's value, use '$' followed by
 
 ## Opdracht
 ### Gebruikte bronnen
-https://axxius.nl/kennisbank/scripting/bash/
+https://axxius.nl/kennisbank/scripting/bash/  
 techtarget.com/searchdatacenter/definition/bash-Bourne-Again-Shell
 
 ### Ervaren problemen
