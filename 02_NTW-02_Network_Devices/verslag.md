@@ -1,8 +1,9 @@
-# Network devices
+# Network Devices
 
 
 ## Key-terms
-**DHCP**
+**DHCP**  
+Deze afkorting staat voor Dynamic Host Configuration Protocol. 
 
 ## Opdracht
 ### Gebruikte bronnen
