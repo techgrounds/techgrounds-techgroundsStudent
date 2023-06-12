@@ -9,7 +9,7 @@ To assign a variable, use '='. To read the variable's value, use '$' followed by
 ## Opdracht
 ### Gebruikte bronnen
 <https://axxius.nl/kennisbank/scripting/bash/>  
-<techtarget.com/searchdatacenter/definition/bash-Bourne-Again-Shell>
+<http://techtarget.com/searchdatacenter/definition/bash-Bourne-Again-Shell>
 
 ### Ervaren problemen
 Sloridgheid in het hanteren van extensies. Ik was bijvoorbeeld een keer vergeten ".sh" te gebruiken. 
