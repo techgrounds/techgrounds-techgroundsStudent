@@ -3,7 +3,9 @@
 
 ## Key-terms
 **OSI-model**  
-**OSI-stack**
+**OSI-stack**   
+**TCP/IP-model** 
+
 
 
 ## Opdracht
@@ -13,7 +15,7 @@
  [Paper via Paperbrain](./01_Paper_OSI.pdf)----> Uitleg van OSI a.d.h.v. een  toepassing. 
 
 ### Ervaren problemen
-[Geef een korte beschrijving van de problemen waar je tegenaan bent gelopen met je gevonden oplossing.]
+
 
 ### Resultaat
-[Omschrijf hoe je weet dat je opdracht gelukt is (gebruik screenshots waar nodig).]
+[Omschrijf hoe je weet dat je opdracht gelukt is (gebruik screenshots waar nodig)
