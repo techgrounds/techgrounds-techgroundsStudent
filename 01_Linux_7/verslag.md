@@ -15,7 +15,7 @@ To assign a variable, use '='. To read the variable's value, use '$' followed by
 Sloridgheid in het hanteren van extensies. Ik was bijvoorbeeld een keer vergeten ".sh" te gebruiken. 
 
 ### Resultaat
-1.1. Uitgevoerd met behulp van 'mkdir' invoer. 
+1.1. Uitgevoerd met behulp van 'mkdir' invoer.  
 1.2. Eerst heb ik bepaald wat voor een configuratiebestand ik moet veranderen aan de hand van de door mijn gebruikte shell. Dit ging door:
 ```
 $ echo $SHELL
