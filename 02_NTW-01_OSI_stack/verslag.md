@@ -1,12 +1,15 @@
-# OSI stack 
+# Open Systems Interconnection  
 [Geef een korte beschrijving van het onderwerp]
 
 ## Key-terms
-[Schrijf hier een lijst met belangrijke termen met eventueel een korte uitleg.]
+**OSI-model**  
+**OSI-stack**
+
 
 ## Opdracht
 ### Gebruikte bronnen
-[Plaats hier de bronnen die je hebt gebruikt.]
+<https://ubunlog.com/nl/modelo-osi/>   -----------> Algemene uitleg i.h.v OSI.  
+ <https://geekflare.com/nl/osi-model-network-layers/>  -------> Algemene Uitleg i.h.k.v. OSI. 
 
 ### Ervaren problemen
 [Geef een korte beschrijving van de problemen waar je tegenaan bent gelopen met je gevonden oplossing.]
