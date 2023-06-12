@@ -17,4 +17,4 @@ De verbinding met mijn router blijkt "not secure" te zijn. Dit blijkt uit een me
 We zien in het plaatje onder "Associated Devices Setting" drie kenmerken staan, gescheiden door een puntkomma. Het eerste kenmerk is het IP-adres van het apparaat in kwestie. Het tweede kenmerk is Het MAC-adres, oftewel het fysieke adres. Het derde kenmerk bereft de naam van het geconnecteerde apparaat. Aangezien het apparaat in kwestie mijn desktop betreft, kon ik via de properties daarin de voorgaande kenmerken thuisbrengen. Als ik namelijk naar de properties van mijn verbinding keek, zag ik het volgende:  
 ![desktop_verbinding](./Snip_properties_connection_Desktop.PNG)  
 Verder kon ik de naam van mijn desktop zien bij de algemene settings van mijn pc. Voor de volledigheid kan dat met eigen ogen aanschouwt worden d.m.v. dit knipsel:![knipsel_Host_name](./Snip_Host_Name.PNG)
-4. 
+4. Op browser-pagina van mijn router kan ik het volgende zien over mijn DHCP-server van mijn netwerk: 
