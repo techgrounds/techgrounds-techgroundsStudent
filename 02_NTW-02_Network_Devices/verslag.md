@@ -1,9 +1,9 @@
 # Network Devices
-
+Netwerkapparaten kunnen worden gezien als bouwstenen of componenten van een groter netwerk. Ze bieden de functionaliteit die nodig is om communicatie tussen verschillende apparaten mogelijk te maken. Deze apparaten werken samen om gegevens te verzenden, te ontvangen en te routeren, waardoor informatie-uitwisseling mogelijk wordt gemaakt.
 
 ## Key-terms
 **DHCP**  
-Deze afkorting staat voor Dynamic Host Configuration Protocol. 
+Deze afkorting staat voor Dynamic Host Configuration Protocol. DHCP wordt meestal gebruikt in lokale netwerken, zoals thuisnetwerken of kantoornetwerken, waar er meerdere apparaten zijn die toegang tot het netwerk nodig hebben. Het stelt netwerkbeheerders in staat om een pool van IP-adressen te definiëren en de DHCP-server wijst automatisch een beschikbaar IP-adres toe aan een apparaat wanneer het verbinding maakt met het netwerk.
 
 ## Opdracht
 ### Gebruikte bronnen
