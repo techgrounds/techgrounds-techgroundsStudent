@@ -8,10 +8,11 @@ To assign a variable, use '='. To read the variable's value, use '$' followed by
 
 ## Opdracht
 ### Gebruikte bronnen
-[Plaats hier de bronnen die je hebt gebruikt.]
+https://axxius.nl/kennisbank/scripting/bash/
+techtarget.com/searchdatacenter/definition/bash-Bourne-Again-Shell
 
 ### Ervaren problemen
-[Geef een korte beschrijving van de problemen waar je tegenaan bent gelopen met je gevonden oplossing.]
+Sloridgheid in het hanteren van extensies. Ik was bijvoorbeeld een keer vergeten ".sh" te gebruiken. 
 
 ### Resultaat
 1.1. Uitgevoerd met behulp van 'mkdir' invoer. 
