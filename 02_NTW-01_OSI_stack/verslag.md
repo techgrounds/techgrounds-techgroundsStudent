@@ -1,5 +1,5 @@
 # Open Systems Interconnection  
-[Geef een korte beschrijving van het onderwerp]
+Standaardisatie i.h.k.v. stroomlijning uitwisseling informatie. 
 
 ## Key-terms
 **OSI-model**  
