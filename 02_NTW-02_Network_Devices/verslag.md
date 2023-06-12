@@ -19,5 +19,6 @@ We zien in het plaatje onder "Associated Devices Setting" drie kenmerken staan, 
 Verder kon ik de naam van mijn desktop zien bij de algemene settings van mijn pc. Voor de volledigheid kan dat met eigen ogen aanschouwt worden d.m.v. dit knipsel:![knipsel_Host_name](./Snip_Host_Name.PNG)
 4. Op  een van de browser-paginas van mijn router kan ik het volgende zien over mijn DHCP-server van mijn netwerk:  
 ![knipsel_DHCP](./Knipsel_mijn_DHCP_server.PNG)  
-
+Uit het bovenstaande plaatje valt af te leiden dat de DHCP-server zich bevindt op het ip-adres 192.168.2.254. Dit wordt bevestigd als ik de command "ipconfig /all" run in het commando-interface van Windows. Daarbij zie ik namelijk dit:  
+![knipsel_ip_config](./Snip_ipconfig.PNG)
 
