@@ -2,8 +2,8 @@
 
 
 ## Key-terms
-**Hexadecimal**
-**Binary**
+**Hexadecimal**  
+**Binary**  
 **Base x**
 
 ## Opdracht
