@@ -14,8 +14,11 @@
 [Geef een korte beschrijving van de problemen waar je tegenaan bent gelopen met je gevonden oplossing.]
 
 ### Resultaat
-1.  
+1. Hieronder een overzicht van de layers van het OSI model, waarbij  voor elke layer geliereerde protocols worden genoemd:  
 ![knispel_stack](./Knipsels/OSI_Stack_1.PNG)   
 Zie voor de herkomst van dit plaatje de eerstvermelde link onder het kopje "Gebruikte bronnen".  
 2. 
 
+3.  Zie hieronder een screenshot van Wireshark:  
+![the_shark](./Knipsels/Knipsel_IF_Wireshark.PNG)  
+In de interface van Wireshark heb ik fram 21419 geselecteerd. 
