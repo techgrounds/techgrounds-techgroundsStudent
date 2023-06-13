@@ -1,5 +1,4 @@
 # Protocols
-[Geef een korte beschrijving van het onderwerp]
 
 ## Key-terms
 **TCP**  
@@ -15,4 +14,8 @@
 [Geef een korte beschrijving van de problemen waar je tegenaan bent gelopen met je gevonden oplossing.]
 
 ### Resultaat
+1.  
+![knispel_stack](./Knipsels/OSI_Stack_1.PNG)   
+Zie voor de herkomst van dit plaatje de eerstvermelde link onder het kopje "Gebruikte bronnen".  
+2. 
 
