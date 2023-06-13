@@ -3,7 +3,7 @@
 
 ## Key-terms
 **Base x**  
-Het aan beschikbare symbolen in een telsysteem. In Base 8 zijn er bijvoorbeeld 8 symbolen beschikbaar
+Het aan beschikbare symbolen in een telsysteem. In Base 8 zijn er bijvoorbeeld 8 symbolen beschikbaar  
 **Hexadecimal**  
 Dit is een base 16 telsysteem.   
 **Binary**  
