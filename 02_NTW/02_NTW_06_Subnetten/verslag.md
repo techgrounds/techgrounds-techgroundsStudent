@@ -23,14 +23,19 @@ subgraph Main Network
 end;
 
 subgraph Private Subnet 1
+    style subnet1 fill:#800020,stroke:#000000,stroke-width:2px;
+    class subnet1Text fill:#FFFFFF,stroke:none,font-weight:bold;
     subnet1(11.0.0.1 - 11.0.0.30<br/>CIDR: 11.0.0.0/27<br/>Available Hosts: 11.0.0.1 - 11.0.0.30<br/>Gateway: Not required);
 end;
 
 subgraph Private Subnet 2
+    style subnet2 fill:#800020,stroke:#000000,stroke-width:2px;
+    class subnet2Text fill:#FFFFFF,stroke:none,font-weight:bold;
     subnet2(11.0.0.32 - 11.0.0.63<br/>CIDR: 11.0.0.32/27<br/>Available Hosts: 11.0.0.33 - 11.0.0.62<br/>Gateway: 11.0.0.63);
 end;
 
 subgraph Public Subnet
+    style subnetPublic fill:#90EE90,stroke:#000000,stroke-width:2px;
     subnetPublic(11.0.0.64 - 11.0.0.71<br/>CIDR: 11.0.0.64/29<br/>Available Hosts: 11.0.0.65 - 11.0.0.70<br/>Gateway: 11.0.0.71);
 end;
 
