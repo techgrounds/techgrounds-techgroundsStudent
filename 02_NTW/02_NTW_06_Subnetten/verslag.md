@@ -26,11 +26,11 @@ subgraph Private Subnet 1
 end;
 
 subgraph Private Subnet 2
-    subnet2(11.0.0.32 - 11.0.0.63<br/>CIDR: 11.0.0.32/27<br/>Available Hosts: 11.0.0.33 - 11.0.0.62<br/>Gateway: NAT Gateway)
+    subnet2(11.0.0.32 - 11.0.0.63<br/>CIDR: 11.0.0.32/27<br/>Available Hosts: 11.0.0.33 - 11.0.0.62<br/>Gateway: 11.0.0.63)
 end;
 
 subgraph Public Subnet
-    subnetPublic(11.0.0.64 - 11.0.0.71<br/>CIDR: 11.0.0.64/29<br/>Available Hosts: 11.0.0.65 - 11.0.0.70<br/>Gateway: Internet Gateway)
+    subnetPublic(11.0.0.64 - 11.0.0.71<br/>CIDR: 11.0.0.64/29<br/>Available Hosts: 11.0.0.65 - 11.0.0.70<br/>Gateway: 11.0.0.071)
 end;
 
 subnet11 --> subnet1;
