@@ -8,8 +8,13 @@
 ### Gebruikte bronnen
 <https://tech-lib.nl/subnetmasker/>  
 <https://www.cisco.com/c/nl_nl/support/docs/ip/routing-information-protocol-rip/13788-3.html>
-### Ervaren problemen
-[Geef een korte beschrijving van de problemen waar je tegenaan bent gelopen met je gevonden oplossing.]
+<https://dnsmadeeasy.com/support/subnet>----->ezelsbrug voor subnet-masken. 
+
 
 ### Resultaat
-[Omschrijf hoe je weet dat je opdracht gelukt is (gebruik screenshots waar nodig).]
+Architectuur: 
+![constructie_netwerk](Architectuur_11.0.0.0.png)
+
+
+*Uitleg van getekende schema*  
+Voor de totale opdracht zijn 62 private hosts nodig. De subnet mask van de hoordverbinding kan dus als volgt worden weergeven: 0.0.0.0/24. De hoofdverbinding heb ik voor de vlotte afhandeling van deze opdracht zélf vastgesteld en wel op 11.0.0.0/24.
