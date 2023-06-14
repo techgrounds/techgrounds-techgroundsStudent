@@ -17,7 +17,7 @@ Voor de netwerkarchitectuur kunnen we uitgaan van het schema hieronder:
 ```mermaid
 graph LR;
 
-subgraph Main Network
+subgraph Main Network Connection
     style subnet11 fill:#87CEEB,stroke:#000000,stroke-width:2px;
     subnet11(11.0.0.0 - 11.0.0.255<br/>CIDR: 11.0.0.0/24);
 end;
