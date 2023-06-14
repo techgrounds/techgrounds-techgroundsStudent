@@ -12,7 +12,9 @@
 
 
 ### Resultaat
-Architectuur: 
+Voor de netwerkarchitectuur kunnen we uitgaan van het onderstaande plaatje:
+
+
 ```mermaid
 graph LR;
 
