@@ -1,5 +1,5 @@
 # Subnetten
-[Geef een korte beschrijving van het onderwerp]
+
 
 ## Key-terms
 [Schrijf hier een lijst met belangrijke termen met eventueel een korte uitleg.]
@@ -37,6 +37,8 @@ subnet11 --> subnet1;
 subnet11 --> subnet2;
 subnet11 --> subnetPublic;
 
+```mermaid
+
 
 *Uitleg van getekende schema*  
-Voor de totale opdracht zijn 62 private hosts nodig. De subnet mask van de hoordverbinding kan dus als volgt worden weergeven: 0.0.0.0/24. De hoofdverbinding heb ik voor de vlotte afhandeling van deze opdracht zélf vastgesteld en wel op 11.0.0.0/24.
+Voor de totale opdracht zijn 62 private hosts nodig. De subnet mask van de hoordverbinding kan dus als volgt worden weergeven: 0.0.0.0/24. De hoofdverbinding heb ik voor de vlotte afhandeling van deze opdracht zélf vastgesteld en wel op 11.0.0.0/24. 
