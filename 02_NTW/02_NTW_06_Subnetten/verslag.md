@@ -1,4 +1,4 @@
-# [Subnetten]
+# Subnetten
 [Geef een korte beschrijving van het onderwerp]
 
 ## Key-terms
@@ -7,7 +7,7 @@
 ## Opdracht
 ### Gebruikte bronnen
 <https://tech-lib.nl/subnetmasker/>  
-<https://www.cisco.com/c/nl_nl/support/docs/ip/routing-information-protocol-rip/13788-3.html>
+<https://www.cisco.com/c/nl_nl/support/docs/ip/routing-information-protocol-rip/13788-3.html>  
 <https://dnsmadeeasy.com/support/subnet>----->ezelsbrug voor subnet-masken. 
 
 
