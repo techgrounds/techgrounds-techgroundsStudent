@@ -37,7 +37,7 @@ subnet11 --> subnet1;
 subnet11 --> subnet2;
 subnet11 --> subnetPublic;
 
-```mermaid
+```
 
 
 *Uitleg van getekende schema*  
