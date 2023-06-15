@@ -24,4 +24,4 @@ Standaardisatie i.h.k.v. stroomlijning uitwisseling informatie.
 
 
 ### Resultaat
-Vgl. deze zin uit de laatse bron: *"The key idea throughout is that the actual data transmission is vertically not in horizontal manner i.e. not direct transmission takes place through transport layer of source machine to transport layer of destination machine.*
+Vgl. deze zin uit de laatse bron: *"The key idea throughout is that the actual data transmission is vertically not in horizontal manner i.e. not direct transmission takes place through transport layer of source machine to transport layer of destination machine."*
