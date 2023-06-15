@@ -14,7 +14,7 @@
 ### Resultaat
 
 ```mermaid
-flowchart LR
+graph LR
 
 subgraph Office
   WS1(Workstation 1)
@@ -25,16 +25,28 @@ subgraph Office
   Printer
   AD(Active Directory Server)
   FS(File Server)
+  style WS1 fill:#FFD700
+  style WS2 fill:#FFD700
+  style WS3 fill:#FFD700
+  style WS4 fill:#FFD700
+  style WS5 fill:#FFD700
+  style Printer fill:#808080
+  style AD fill:#008000
+  style FS fill:#008000
 end
 
 subgraph Internet
   ISP((ISP))
+  style ISP fill:#00BFFF
 end
 
 subgraph Web
   Firewall
   WebServer(Web Server)
   DB(Database Server)
+  style Firewall fill:#FF4500
+  style WebServer fill:#87CEEB
+  style DB fill:#87CEEB
 end
 
 subgraph Network
@@ -42,10 +54,15 @@ subgraph Network
   Switch2
   WAP1((Wireless Access Point 1))
   WAP2((Wireless Access Point 2))
+  style Switch1 fill:#00FF00
+  style Switch2 fill:#00FF00
+  style WAP1 fill:#ADD8E6
+  style WAP2 fill:#ADD8E6
 end
 
 subgraph Monitoring
   NMS(Network Monitoring)
+  style NMS fill:#FF1493
 end
 
 ISP --> Firewall
