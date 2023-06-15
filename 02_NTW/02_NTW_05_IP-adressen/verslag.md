@@ -9,7 +9,7 @@
 <https://www.whatismyip.com/> 
 
 ### Ervaren problemen
-Onduidelijk of het disconecteren van mijn connectie onderdeel van de opdracht was.
+Onduidelijk of het loskoppelen van mijn connectie onderdeel van de opdracht was.
 
 ### Resultaat
 Via mijn eerstgenoemde bron weet ik het publieke ip-adres te achterhalen van mijn desktop en mijn GSM. Deze zijn hetzelfde. Dit komt doordat 
