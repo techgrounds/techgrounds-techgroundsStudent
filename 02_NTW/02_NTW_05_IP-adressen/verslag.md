@@ -1,7 +1,7 @@
 # IP-adressen
 
 ## Key-terms
-**publieke IP-adressen** 
+**publieke IP-adressen**  
 **privé IP-adressen**
 
 ## Opdracht
