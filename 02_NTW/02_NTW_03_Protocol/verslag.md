@@ -3,6 +3,8 @@
 ## Key-terms
 **TCP**  
 **UDP**
+**SMTP**  
+SMTP staat voor Simple Mail Transfer Protocol en is een protocol dat wordt gebruikt voor het verzenden van e-mailberichten over een netwerk.
 
 ## Opdracht
 ### Gebruikte bronnen
