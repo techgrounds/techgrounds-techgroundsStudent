@@ -11,8 +11,7 @@
 <https://www.certblaster.com/network-plus-n10-007-sub-objective-1-2-explain-devices-applications-protocols-and-services-at-their-appropriate-osi-layers/>----->OSI layers i.v.m. protocols.
 
 ### Ervaren problemen
-[Geef een korte beschrijving van de problemen waar je tegenaan bent gelopen met je gevonden oplossing.]
-
+Effectief onthouden welke protocol in welke layer hoort. 
 ### Resultaat
 1. Hieronder een overzicht van de layers van het OSI model, waarbij  voor elke layer geliereerde protocols worden genoemd:  
 ![knispel_stack](./Knipsels/OSI_Stack_1.PNG)   
