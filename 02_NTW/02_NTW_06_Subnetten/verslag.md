@@ -2,7 +2,11 @@
 
 
 ## Key-terms
-[Schrijf hier een lijst met belangrijke termen met eventueel een korte uitleg.]
+**NAT**  
+**bit**  
+kleinste eenheid van informatie. Het kan een 1 of een 0 zijn. 8 bits vormen samen 1
+**byte**
+
 
 ## Opdracht
 ### Gebruikte bronnen
