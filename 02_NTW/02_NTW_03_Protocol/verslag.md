@@ -2,7 +2,10 @@
 
 ## Key-terms
 **TCP**  
-**UDP**
+TCP staat voor Transmission Control Protocol en is een betrouwbaar en verbindingsgeoriënteerd protocol dat verantwoordelijk is voor het segmenteren, verzenden en ontvangen van gegevenspakketten tussen bron- en doelhosts op een netwerk. Het wordt gebruikt in laag 4 van het Stack model.   
+**UDP**  
+UDP staat voor User Datagram Protocol en is een onbetrouwbaar en verbindingsloos protocol dat wordt gebruikt voor het verzenden van gegevenspakketten over een netwerk, waarbij snelheid en minimale overhead belangrijker zijn dan betrouwbaarheid. Dit protocol wordt gebruikt in laag 4 van het OSI-stack model. 
+
 **SMTP**  
 SMTP staat voor Simple Mail Transfer Protocol en is een protocol dat wordt gebruikt voor het verzenden van e-mailberichten over een netwerk.
 
