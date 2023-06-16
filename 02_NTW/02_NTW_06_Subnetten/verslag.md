@@ -5,8 +5,9 @@
 **NAT**  
 **bit**  
 kleinste eenheid van informatie. Het kan een 1 of een 0 zijn. 8 bits vormen samen 1
-**byte**
-
+**byte**  
+**subnet mask / prefix**  
+Dit instrument definieert, als we het hebben over een ip-adres, hoeveel bits deel uitmaken van het netwerkadres en hoeveel bits daarnaast louter voor de host gereserveerd zijn. 
 
 ## Opdracht
 ### Gebruikte bronnen
