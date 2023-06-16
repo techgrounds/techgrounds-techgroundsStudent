@@ -14,7 +14,7 @@ Dit is een base 2 telsysteem.
 ### Gebruikte bronnen
 <https://www.mathsisfun.com/binary-number-system.html>---->vooral de visuele weergave van het tellen heeft mij erg geholpen. 
 ### Ervaren problemen
-
+De lage snelheid waarmee ik in begin tussen telsystemen kon wisselen. 
 
 ### Resultaat
 Desgewenst kan ik het handmatige werk inscannen. 
