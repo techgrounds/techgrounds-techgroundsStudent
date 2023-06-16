@@ -3,6 +3,9 @@
 
 ## Key-terms
 **NAT**  
+Deze afkorting staat voor Netwrok adress translation.  NAT is een technologie die IP-adressen vertaalt tussen verschillende netwerken om meerdere apparaten in een lokaal netwerk via één extern IP-adres verbinding te laten maken met het internet.
+**NAT-gateway**  
+Een NAT-gateway is een beheerde service in de cloud die IP-adresvertaling mogelijk maakt tussen een virtuele privécloud (VPC) en het internet.
 **bit**  
 kleinste eenheid van informatie. Het kan een 1 of een 0 zijn. 8 bits vormen samen 1  
 **byte**  
