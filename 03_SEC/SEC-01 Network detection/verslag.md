@@ -17,4 +17,11 @@
 $ sudo apt update 
 $ sudo apt install nmap
 ```
+Hierna het netwerk gescand d.m.v.:
+```
+$ nmap -Pn 3.121.130.219 
+
+````
+Dit gaf het volgende resultaat:  
+![nmap_knipsel!](./resulaat%20nmap.PNG)
 
