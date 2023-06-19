@@ -12,4 +12,9 @@
 [Geef een korte beschrijving van de problemen waar je tegenaan bent gelopen met je gevonden oplossing.]
 
 ### Resultaat
-[Omschrijf hoe je weet dat je opdracht gelukt is (gebruik screenshots waar nodig).]
+1. Met behulp van de input hieronder heb ik nmap geïnstalleerd in ubuntu. 
+```
+$ sudo apt update 
+$ sudo apt install nmap
+```
+
