@@ -9,7 +9,7 @@
 
 
 ### Ervaren problemen
-[Geef een korte beschrijving van de problemen waar je tegenaan bent gelopen met je gevonden oplossing.]
+
 
 ### Resultaat
 1. Met behulp van de input hieronder heb ik nmap geïnstalleerd in ubuntu. 
