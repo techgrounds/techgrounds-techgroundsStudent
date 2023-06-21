@@ -15,6 +15,7 @@ Dit is een standaard formaat voor digitale certificaten binnen het kader van PKI
 
 ## Opdracht
 ### Gebruikte bronnen
+[PKI white paper](./kpi-keyperplus-whitepaper-0622.pdf)----> algemene white paper m.b.t. PKI.  
 Chat GPT---->terminologie
 
 ### Ervaren problemen
