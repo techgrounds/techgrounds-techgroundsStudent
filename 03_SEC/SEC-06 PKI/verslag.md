@@ -41,4 +41,6 @@ Als wij via de commande cat de inhoud van het bestand récépissé.crt  bekijken
 Tot slot het einde van de opdracht afgebeeld in knipsel hieronder.  
 ![afronding](List%20of%20trusted%20certificate%20roots.PNG)
 
+PS bonusfoto!  
 
+ ![bonus_knipsel](./VM_trusted_certificates.PNG)
