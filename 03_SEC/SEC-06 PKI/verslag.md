@@ -19,7 +19,26 @@ Dit is een standaard formaat voor digitale certificaten binnen het kader van PKI
 Chat GPT---->terminologie
 
 ### Ervaren problemen
-[Geef een korte beschrijving van de problemen waar je tegenaan bent gelopen met je gevonden oplossing.]
+
 
 ### Resultaat
-[Omschrijf hoe je weet dat je opdracht gelukt is (gebruik screenshots waar nodig).]
+hieronder de commands die ik heb ingetikt om een "self-signed-certificate" te maken. 
+
+````
+$ openssl genpkey -algorithm RSA -out private.key
+````
+Bovenstaande input gebruikt om een key te genereren. 
+
+Daarna een certificaat aangemaakt genaamd récépissé.crt door middel van het onderstaande.   
+````
+openssl req -new -key private.key -x509 -days 40 -out récépissé.crt  
+````  
+Als wij via de commande cat de inhoud van het bestand récépissé.crt  bekijken zie wij dat het bestand inderdaad een certificaat is. de inhoud van het bestand is namelijk:
+
+![knipsel_récépissé](Knipsel_cat_r%C3%A9c%C3%A9piss%C3%A9.PNG)  
+
+
+Tot slot het einde van de opdracht afgebeeld in knipsel hieronder.  
+![afronding](List%20of%20trusted%20certificate%20roots.PNG)
+
+
