@@ -1,5 +1,5 @@
 ---
-tags: [okr]
+betreft: [okr]
 ---
 
 # Hantering regels
@@ -26,9 +26,16 @@ tags: [okr]
 **Key results:**
 
 - Opschrijven welke principes belangrijk zijn binnen de IT zodra er een breaking ontwikkeling is die slecht voor het bedrijf is waar je werkt.  
-- Hetzelfde doen als in de voorgaande zin m.b.t. goed nieuws.
+- Hetzelfde doen als in de voorgaande zin m.b.t. goed nieuws.  
 
 
+
+****
+---
+---
+---
+betreft: persoonlijke [okr] 
+---
 
 
 
