@@ -1,5 +1,5 @@
 ---
-betreft: [okr]
+betreft: [okr's zakelijk] [okr's privé]
 ---
 
 # Hantering regels
@@ -32,10 +32,12 @@ betreft: [okr]
 
 ****
 ---
----
----
-betreft: persoonlijke [okr] 
----
+# Handicap verlagen 
+
+
+**key results:**  
+- Kaarten proberen in te leveren.  
+- Meer oefenen en informeel rondjes lopen.
 
 
 
