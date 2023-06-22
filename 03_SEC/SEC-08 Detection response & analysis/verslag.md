@@ -1,5 +1,5 @@
 # Detectie, response & analyse
-Hoe gaan we op met krachten die niet ter goeder trouw zijn in ons werkveld?  
+Hoe gaan we op met krachten die niet ter goeder trouw zijn in ons werkveld?   
 
 ## Key-terms
 **IDS**  
