@@ -35,7 +35,10 @@ openssl req -new -key private.key -x509 -days 40 -out récépissé.crt
 ````  
 Als wij via de commande cat de inhoud van het bestand récépissé.crt  bekijken zie wij dat het bestand inderdaad een certificaat is. de inhoud van het bestand is namelijk:
 
-![knipsel_récépissé](Knipsel_cat_r%C3%A9c%C3%A9piss%C3%A9.PNG)  
+![knipsel_récépissé](Knipsel_cat_r%C3%A9c%C3%A9piss%C3%A9.PNG)   
+
+Voorts zal ik hieronder een foto posten van de certificate viewer van mijn browser.  
+![certificateKiekje](./Knipsel_certificate_viewer.PNG)
 
 
 Tot slot het einde van de opdracht afgebeeld in knipsel hieronder.  
