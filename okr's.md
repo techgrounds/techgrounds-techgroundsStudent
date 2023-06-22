@@ -1,13 +1,13 @@
 ---
-betreft: [okr's zakelijk][okr's privé]
+betreft: [okr's zakelijk en privé]
 ---
 
 # Hantering regels
 
 **Key results:**
 
-- De wetten in formele zin nastreven.
-- De  APV nastreven die van toepassing is. 
+- De wetten in formele zin nastreven.[ ]
+- De  APV nastreven die van toepassing is.[ ] 
 
 
 
@@ -25,8 +25,8 @@ betreft: [okr's zakelijk][okr's privé]
 
 **Key results:**
 
-- Opschrijven welke principes belangrijk zijn binnen de IT zodra er een breaking ontwikkeling is die slecht voor het bedrijf is waar je werkt.  
-- Hetzelfde doen als in de voorgaande zin m.b.t. goed nieuws.  
+- Opschrijven welke principes belangrijk zijn binnen de IT zodra er een breaking ontwikkeling is die slecht voor het bedrijf is waar je werkt. [ ]
+- Hetzelfde doen als in de voorgaande zin m.b.t. goed nieuws. [ ] 
 
 
 
@@ -36,8 +36,8 @@ betreft: [okr's zakelijk][okr's privé]
 
 
 **key results:**  
-- Kaarten proberen in te leveren.  
-- Meer oefenen en informeel rondjes lopen.
+- Kaarten proberen in te leveren.  [ ]
+- Meer oefenen en informeel rondjes lopen. [ ]
 
 
 
