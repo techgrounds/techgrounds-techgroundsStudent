@@ -21,5 +21,8 @@
 
 ### Resultaat
 1. Bij het hashen van wachtwoorden worden deze via een hash-methode omgezet in een bepaalde cryptografische code. Deze code is niet terug te leiden naar het oorspronkelijke wachtwoord. Bij  encryptie kan dit laatste wel gebeuren, mits men ook de sleutel heeft waarmee er versleuteld is. Dit maakt dat het hashen van wachtwoorden de voorkeur heeft boven het encrypten daarvan.   
-2. 
+2. een regenboogtabel is uiteindelijk een database. Daarin zijn hashes van verschillende veelgebruikte wachtwoorden opgeslagen. Deze hashes wordt gegenereerd via zoveel mogelijk bekende hash-methodes. Door de hashes in de database te vergelijken met het het bijvoorbeeld gestolen, gehashte wachtwoord, kan men het orginele wachtwoord achterhalen.   
+3. 
+4. 
 
+5. Gedaan Samen met Kama. We zag er dat ondanks dat de wachtwoorden beiden 12345, de hashed wachtwoorden verschillend waren. Helaas hebben we dit in de zoom-chat gedaan en heb er toen geen screenshot o.i.d. van genomen. 
