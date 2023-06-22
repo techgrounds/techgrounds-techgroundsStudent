@@ -13,6 +13,7 @@
 
 ## Opdracht
 ### Gebruikte bronnen  
+[Hoe werkt een rainbow table](https://geekflare.com/nl/rainbow-table-attack/) 
 
 
 ### Ervaren problemen
