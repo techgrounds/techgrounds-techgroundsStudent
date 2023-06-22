@@ -1,13 +1,13 @@
 ---
-betreft: [okr's zakelijk en privé]
+Betreft: [okr's zakelijk en privé]
 ---
 
 # Hantering regels
 
 **Key results:**
 
-- De wetten in formele zin nastreven.[ ]
-- De  APV nastreven die van toepassing is.[ ] 
+- De wetten in formele zin nastreven. [ ]
+- De  APV nastreven die van toepassing is. [ ] 
 
 
 
@@ -15,8 +15,8 @@ betreft: [okr's zakelijk en privé]
 
 
 **Key results:**
-- Opschrijven wat mijn 3 belangrijkste waarden zijn binnen de IT. - [ ]
-- Duidelijk opschrijven op welke waarden ik mezelf pas in het allerlaatste geval zal compromitteren. - [ ]  
+- Opschrijven wat mijn 3 belangrijkste waarden zijn binnen de IT. [ ]
+- Duidelijk opschrijven op welke waarden ik mezelf pas in het allerlaatste geval zal compromitteren. [ ]  
 
 
 
@@ -36,7 +36,7 @@ betreft: [okr's zakelijk en privé]
 
 
 **key results:**  
-- Kaarten proberen in te leveren.  [ ]
+- Kaarten proberen in te leveren. [ ]
 - Meer oefenen en informeel rondjes lopen. [ ]
 
 
