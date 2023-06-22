@@ -1,5 +1,5 @@
 ---
-Betreft: [okr's zakelijk | privé]
+Betreft: [okr's zakelijk, privé]
 ---
 
 # Hantering regels
@@ -20,7 +20,7 @@ Betreft: [okr's zakelijk | privé]
 
 
 
-# Hantering Leidende Principes
+# Hantering leidende principes
 
 
 **Key results:**
