@@ -6,7 +6,7 @@ Betreft: [okr's zakelijk en privé]
 
 **Key results:**
 
-- De wetten in formele zin nastreven. [ ]
+- [ ] De wetten in formele zin nastreven.
 - De  APV nastreven die van toepassing is. [ ] 
 
 
