@@ -2,14 +2,20 @@
 [Geef een korte beschrijving van het onderwerp]
 
 ## Key-terms
-[Schrijf hier een lijst met belangrijke termen met eventueel een korte uitleg.]
+**IDS**  
+**IPS**  
+**RPO**  
+**RTO**  
+**social engineering** 
 
 ## Opdracht
 ### Gebruikte bronnen
 [babis uitleg over recovery-opties](https://www.combell.com/nl/blog/wat-is-disaster-recovery-en-waarom-is-het-zo-belangrijk/)
 
 ### Ervaren problemen
-[Geef een korte beschrijving van de problemen waar je tegenaan bent gelopen met je gevonden oplossing.]
+
 
 ### Resultaat
-[Omschrijf hoe je weet dat je opdracht gelukt is (gebruik screenshots waar nodig).]
+1. RPO is i.c. de nieuwste dagelijkse backup.  
+2. Gezien het feit dat er automatic failover in werking is i.c., zal De RTO daadwerlijk gelijk zijn aan de tijd die het kost om die nieuwste versie van de website van Github te pullen. Dat betekent dat RTO=8 min. 
+
