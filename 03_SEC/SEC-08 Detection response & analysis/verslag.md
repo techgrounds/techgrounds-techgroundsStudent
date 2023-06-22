@@ -1,5 +1,5 @@
 # Detectie, response & analyse
-Hoe gaan we op met krachten die niet ter goeder trouw zijn in ons werkveld?   
+Hoe gaan we om met krachten die niet ter goeder trouw zijn in ons werkveld?   
 
 ## Key-terms
 **IDS**  
@@ -14,7 +14,8 @@ Hoe gaan we op met krachten die niet ter goeder trouw zijn in ons werkveld?
 [Paper over smart security en intrusion prevention](./Smart_Security_and_Intrusion_Prevention.pdf)  
 [babis uitleg over recovery-opties](https://www.combell.com/nl/blog/wat-is-disaster-recovery-en-waarom-is-het-zo-belangrijk/)
 
-### Ervaren problemen
+### Ervaren problemen  
+Leerstukken goed kunnen overzien zonder handboek of hoorcollege als startpunt is nieuw voor me, maar het gaat steeds beter.
 
 
 ### Resultaat
