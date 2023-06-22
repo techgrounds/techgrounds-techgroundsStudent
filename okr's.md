@@ -1,5 +1,5 @@
 ---
-betreft: [okr's zakelijk] [okr's privé]
+betreft: [okr's zakelijk][okr's privé]
 ---
 
 # Hantering regels
