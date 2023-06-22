@@ -10,6 +10,8 @@ Hoe gaan we op met krachten die niet ter goeder trouw zijn in ons werkveld?
 
 ## Opdracht
 ### Gebruikte bronnen
+[Paper m.b.t. een network IPS](./Network_Intrusion_Prevention_System.pdf)  
+[Paper over smart security en intrusion prevention](./Smart_Security_and_Intrusion_Prevention.pdf)  
 [babis uitleg over recovery-opties](https://www.combell.com/nl/blog/wat-is-disaster-recovery-en-waarom-is-het-zo-belangrijk/)
 
 ### Ervaren problemen
