@@ -1,17 +1,19 @@
 ---
-Betreft: [okr's zakelijk, privé]
+Betreft: okr's zakelijk, privé
 ---
 
-# Hantering regels
+# okr's zakelijk
+
+## Hantering regels
 
 **Key results:**
 
 - [ ] De wetten in formele zin nastreven.
-- [ ]  De  APV nastreven die van toepassing is.
+- [x]  De  APV nastreven die van toepassing is.
 
 
 
-# Hantering waarden
+## Hantering waarden
 
 
 **Key results:**
@@ -20,7 +22,7 @@ Betreft: [okr's zakelijk, privé]
 
 
 
-# Hantering leidende principes
+## Hantering leidende principes
 
 
 **Key results:**
@@ -32,7 +34,9 @@ Betreft: [okr's zakelijk, privé]
 
 ****
 ---
-# Handicap verlagen 
+
+# okr's privé
+## Handicap verlagen 
 
 
 **key results:**  
