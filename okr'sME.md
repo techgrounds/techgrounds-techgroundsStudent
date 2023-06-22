@@ -1,5 +1,5 @@
 ---
-Betreft: okr's zakelijk, privé
+Betreft: [okr's zakelijk, privé]
 ---
 
 # okr's zakelijk
