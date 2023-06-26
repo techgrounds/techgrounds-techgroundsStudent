@@ -1,4 +1,4 @@
-# [Onderwerp]
+# Advantages of the cloud
 [Geef een korte beschrijving van het onderwerp]
 
 ## Key-terms
@@ -6,7 +6,7 @@
 
 ## Opdracht
 ### Gebruikte bronnen
-[Plaats hier de bronnen die je hebt gebruikt.]
+[AWS Whitepaper](./aws-overview-paper.pdf)
 
 ### Ervaren problemen
 [Geef een korte beschrijving van de problemen waar je tegenaan bent gelopen met je gevonden oplossing.]
