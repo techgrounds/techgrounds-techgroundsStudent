@@ -1,15 +1,15 @@
 # Core Services
-[Geef een korte beschrijving van het onderwerp]
+Opdracht moet gezien worden als eem aanzet tot de AWS Cloud Practioner certification.  
 
 ## Key-terms
-[Schrijf hier een lijst met belangrijke termen met eventueel een korte uitleg.]
+n.v.t.
 
 ## Opdracht
 ### Gebruikte bronnen
-[Plaats hier de bronnen die je hebt gebruikt.]
+n.v.t.
 
 ### Ervaren problemen
-[Geef een korte beschrijving van de problemen waar je tegenaan bent gelopen met je gevonden oplossing.]
+n.v.t.
 
 ### Resultaat
-[Omschrijf hoe je weet dat je opdracht gelukt is (gebruik screenshots waar nodig).]
+n.v.t.
