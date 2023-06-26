@@ -15,3 +15,4 @@
 1. Zie p. 1252 van de tweede bron. Een "Availability Zone" is een afgesloten locatie binnen een "AWS region".
 2. Zie p. 93 van de eerste bron. Elke "AWS Region" is een afzonderlijk geografisch gebeid.  
 3. 
+4. Niet elke regio biedt dezelfde resources aan. Zie p. 1248 van de tweede bron. 
