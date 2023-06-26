@@ -2,6 +2,7 @@
 
 
 ## Key-terms
+Zie de vragen van deze opdracht.
 
 
 ## Opdracht
