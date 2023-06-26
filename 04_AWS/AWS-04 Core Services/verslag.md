@@ -1,5 +1,5 @@
 # Core Services
-Opdracht moet gezien worden als eem aanzet tot de AWS Cloud Practioner certification.  
+Opdracht moet gezien worden als een hulpformulier bij je AWS Cloud Practioner certificatie.  
 
 ## Key-terms
 n.v.t.
