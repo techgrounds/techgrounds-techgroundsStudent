@@ -6,7 +6,10 @@ Zie de vragen van deze opdracht.
 
 
 ## Opdracht
-### Gebruikte bronnen
+### Gebruikte bronnen  
+[Amazon Global Infrastructure](https://aws.amazon.com/about-aws/global-infrastructure/)  
+[Section Global Infrastructure in the AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/aws-overview/global-infrastructure.html) 
+[AWS Whitepaper](./aws-overview-whitepaper.pdf)  
 [User Guide Amazon RDS](https://docs.aws.amazon.com/pdfs/AmazonRDS/latest/UserGuide/rds-ug.pdf#Concepts.RegionsAndAvailabilityZones)  
 [User Guide Amazon EC2](https://docs.aws.amazon.com/pdfs/AWSEC2/latest/UserGuide/ec2-ug.pdf#using-regions-availability-zones)
 
