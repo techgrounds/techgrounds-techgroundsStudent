@@ -7,7 +7,8 @@ Voor een beter begrip van de AWS Global Infrastructure kunnen we het beste AWS z
 ## Key-terms
 **Regions**: Een afzonderlijk geografisch gebied.  
 **Availability zone**: Een geïsoleerde locatie binnen een AWS Region.   
-**Edge Location**: Een datacenter dat een AWS-dienst gebruikt voor operaties van die specifieke AWS-dienst.   
+**Edge Location**: Een datacenter dat een AWS-dienst gebruikt voor operaties van die specifieke AWS-dienst.  
+**  
 
 
 
