@@ -3,9 +3,10 @@ Voor een beter begrip van de AWS Global Infrastructure kunnen we het beste AWS z
 
 *"The AWS Cloud infrastructure is built around AWS Regions and Availability Zones. An AWS Region is a physical location in the world where we have multiple Availability Zones. Availability Zones consist of one or more discrete data centers, each with redundant power, networking, and connectivity, housed in separate facilities. These Availability Zones offer you the ability to operate production applications and databases that are more highly available, fault tolerant, and scalable than would be possible from a single data center. For the latest information on the AWS Cloud Availability Zones and AWS Regions, refer to [AWS Global Infrastructure](https://aws.amazon.com/about-aws/global-infrastructure/).*
 
-Voor een beter begrip van de wereldwijde infrastructuur plaats ik hieronder een diagram daarvan.  
+Voor een beter begrip van de infrastructuur bekijke men de volgende diagram:  
 ![diagram-infrastructuur](./Capture_GLobal_Infrastructure_diagram.PNG) 
 
+De globale infrastructuur van Amazon bestaan uit wel 31 van de bovenstaande soort regio's, die gezamelijk wel 99 availability zones omvatten. 
 
 ## Key-terms
 **Regions**: Een afzonderlijk geografisch gebied.  
