@@ -21,7 +21,7 @@ Voor een beter begrip van de AWS Global Infrastructure kunnen we het beste AWS z
 [User Guide Amazon EC2](https://docs.aws.amazon.com/pdfs/AWSEC2/latest/UserGuide/ec2-ug.pdf#using-regions-availability-zones)
 
 ### Ervaren problemen
-Qua formulering van mijn antwoorden zal ik wat aanpassingen moeten doen. Ik moet mijn antwoord niet te beginnen met het paginanummer van de bron waarin ik mijn antwoord gevonden heb. 
+Qua formulering van mijn antwoorden zal ik wat anders te werk moeten gaan. Ik moet mijn antwoord niet beginnen met het opdissen van de plaats (bijvoorbeeld een paginanummer in een whitepaper) waar ik dit antwoord gevonden heb.  
 
 ### Resultaat
 1. Een "Availability Zone" is een afgesloten locatie binnen een "AWS Region". De code van een Availability Zone wordt gevormd door de code van de AWS Region waar de meerbedoelde Zone bijhoort gevolgd door een letter ter identificatie. Ter illustratie: de code van Availability Zone A in de AWS Region Europe (Paris) is eu-west-3a. Vgl. p. 1252 van de vijfde bron.  
