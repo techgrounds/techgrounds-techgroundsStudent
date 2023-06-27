@@ -6,7 +6,7 @@ Voor een beter begrip van de AWS Global Infrastructure kunnen we het beste AWS z
 Voor een beter begrip van de infrastructuur bekijke men de volgende diagram:  
 ![diagram-infrastructuur](./Capture_GLobal_Infrastructure_diagram.PNG) 
 
-De globale infrastructuur van Amazon bestaan uit wel 31 van de bovenstaande soort regio's, die gezamelijk wel 99 availability zones omvatten. 
+De globale infrastructuur van Amazon bestaan uit wel 31 regio's van de hierboven afgebeelde soort, die gezamelijk wel 99 availability zones omvatten. 
 
 ## Key-terms
 **Regions**: Een afzonderlijk geografisch gebied.  
