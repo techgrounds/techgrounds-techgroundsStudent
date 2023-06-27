@@ -8,8 +8,8 @@ Voor een beter begrip van de AWS Global Infrastructure kunnen we het beste AWS z
 **Regions**: Een afzonderlijk geografisch gebied.  
 **Availability zone**: Een geïsoleerde locatie binnen een AWS Region.   
 **Edge Location**: Een datacenter dat een AWS-dienst gebruikt voor operaties van die specifieke AWS-dienst.  
-**  
-
+**RDS**: Een service van AWS. De afkorting staat voor Relational Database Service. 
+**PoP**: Deze afkorting staat voor Point of Presence.
 
 
 ## Opdracht
@@ -25,5 +25,5 @@ Voor een beter begrip van de AWS Global Infrastructure kunnen we het beste AWS z
 ### Resultaat
 1. Een "Availability Zone" is een afgesloten locatie binnen een "AWS region". De code van een Availability Zone wordt gevormd door de code van de AWS Region waar de meerbedoelde Zone bijhoort gevolgd door een letter ter identificatie. Ter illustratie: de code van Availability Zone A in de AWS Region Europe (Paris) is eu-west-3a. Vgl. p. 1252 van de vijfde bron.  
 2. Elke "AWS Region" is een afzonderlijk geografisch gebied. Elke region heeft zijn eigen code. De code van de region "Europe (paris)" is bijvoorbeeld eu-west-3. Zie p. 93 van de vierde bron.
-3. Een Edge Location is een site die CloudFront gebruikt om kopieën te cachen van je content. Dit doet Cloudfront om die content sneller bij je gebruikers te krijgen. Zie deze [link](https://wa.aws.amazon.com/wellarchitected/2020-07-02T19-33-23/wat.concept.edge-location.en.html).  
-4. Niet elke regio biedt dezelfde resources aan. Zie p. 1248 van de laatste bron. 
+3. Een Edge Location is een datacenter. Dit datacenter wordt gebruikt om de operaties van een AWS-service met een zo een laag mogelijke latency bij de klant te krijgen. 
+4. Niet elke AWS Region biedt dezelfde resources aan. de keuze voor een Region zal dus afhankelijk zijn van de resources die je nodig hebt. Zie p. 1248 van de laatste bron. 
