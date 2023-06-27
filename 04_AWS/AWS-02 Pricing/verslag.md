@@ -1,5 +1,5 @@
 # AWS Pricing
-Hoeveel gaat CAPEX-OPEX je opleveren? Hierbij geeft AWS meerdere handvatten om je OPEX per GB per maand lager te krijgen. 
+Het succesverhaal van AWS hangt samen met de volgende vraag: hoeveel gaat CAPEX-OPEX je opleveren? Het antwoord op deze vraag levert vaak een navenant positief getal op, waardoor mensen gebruik gaan maken van AWS, en hun gedateerde serverapparaten op marktplaats bonjouren. Daarbij geeft AWS meerdere handvatten om je OPEX per GB per maand lager te krijgen. 
 
 ## Key-terms
   
