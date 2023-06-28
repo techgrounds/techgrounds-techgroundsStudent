@@ -44,4 +44,6 @@ Het leek gelukt ingelogd te zijn. Evengoed wildeik de proef op de som nemen. Ik 
 Daarna heb ik een ogenblik genomen om even de komische kanten van linux te ontdekken. Dat kan men hieronder zien:  
 ![cowasy](./Capture-Cowsay.PNG)  
 Gezien het feit dat ik meteen wat updates had geïnstalleerd na mijn initiële login, kon ik ook meteen in de browser mijn instance bezoeken. Toen ik via Google Chrome naar het publieke IP-adres navigeerde, zag ik het volgende:  
-![website_bezoek](./Capture_serverIsLive.PNG) 
+![website_bezoek](./Capture_serverIsLive.PNG)  
+Om deze opdracht af te ronden heb  ik ten slotte de instance getermineerd. Daarvan hieronder het bewijs: 
+![Termination](./Capture-of-termination_SP.PNG)
