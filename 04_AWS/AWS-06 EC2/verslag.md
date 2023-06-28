@@ -3,8 +3,8 @@
 
 ## Key-terms
 **VM**: Virtual Machine run in the cloud. 
-**SSH**: Secure Shell protocol 
-
+**SSH**: Secure Shell protocol. protocol to connect to Linux machines. 
+**RDP**: Remote Desktop Protocol. Protocol to connect to Windows machines. 
 ## Opdracht
 ### Gebruikte bronnen
 
