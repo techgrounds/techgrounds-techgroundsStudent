@@ -7,10 +7,10 @@
 **RDP**: Remote Desktop Protocol. Protocol to connect to Windows machines.  
 **instance**: Een instance in AWS is een virtuele server die wordt gehost op de infrastructuur van Amazon Web Services.  
 **AMI**: Amazon Machine Image. Dit is een blauwdruk voor je machine. Het bevat een sjabloon voor bijvoorbeeld het Operatie-Systeem.  
-**ephemeral**: kortstondig.
-**stateful Firewall**:   The Security group of an instance in EC2 is stateful firewall. 
-**stateless Firewall**:
-
+**ephemeral**: kortstondig.  
+**stateful Firewall**:   The Security group of an instance in EC2 is stateful firewall.  
+**stateless Firewall**:  
+**elastisch IP-adres**: Dit is een statisch openbaar IPv4-adres dat kan worden toegewezen aan een instance van AWS. 
 ## Opdracht
 ### Gebruikte bronnen
 
