@@ -2,9 +2,11 @@
 
 
 ## Key-terms
-**VM**: Virtual Machine run in the cloud. 
-**SSH**: Secure Shell protocol. protocol to connect to Linux machines. 
-**RDP**: Remote Desktop Protocol. Protocol to connect to Windows machines. 
+**VM**: Virtual Machine run in the cloud.     
+**SSH**: Secure Shell protocol. protocol to connect to Linux machines.   
+**RDP**: Remote Desktop Protocol. Protocol to connect to Windows machines.  
+**instance**: Een instance in AWS is een virtuele server die wordt gehost op de infrastructuur van Amazon Web Services.  
+**AMI**: Amazon Machine Image. Dit is een blauwdruk voor je machine. Het bevat een sjabloon voor bijvoorbeeld het Operatie-Systeem. 
 ## Opdracht
 ### Gebruikte bronnen
 
