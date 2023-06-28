@@ -1,12 +1,12 @@
-# [Onderwerp]
-[Geef een korte beschrijving van het onderwerp]
+# Elastic Compute Cloud
+
 
 ## Key-terms
-[Schrijf hier een lijst met belangrijke termen met eventueel een korte uitleg.]
+**VM**: Virtual Machine run in the cloud. 
+**SSH**: Secure Shell protocol 
 
 ## Opdracht
 ### Gebruikte bronnen
-[Plaats hier de bronnen die je hebt gebruikt.]
 
 ### Ervaren problemen
 [Geef een korte beschrijving van de problemen waar je tegenaan bent gelopen met je gevonden oplossing.]
