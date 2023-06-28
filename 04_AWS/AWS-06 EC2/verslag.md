@@ -21,5 +21,27 @@ EC2 (Elastic Compute Cloud) is de virtuele serverdienst van Amazon Web Services 
 ### Ervaren problemen
 Bij de eerste instance die ik runde had geen keen private key gegenereerd in de vorm van een pem-file. Hierdoor kon ik niet secure inloggen. Ik heb toen mijn instance getermineerd en toen een nieuwe aangemaakt waarbij ik wel een pem-file had laten genereren. 
 
-### Resultaat
+### Resultaat  
+Door middel van de instructies in het docx-bestand is het gelukt een instance op te zetten. Daarbij heb ik een pem-bestand laten maken die ik op mijn lokale machine heb opgeslagen. Dit bestand heet de_cendres.pem. Bij mijn EC2-dashboard zag ik het volgende:  
+![das$hboard](./Capture_of_Dashboard_EC2.PNG) 
+Uit het voorgaande plaatje blijkt dat de server genaamd 'Serveur_Phénix' klaar is om gebruikt te worden. Tijd dus om te pogen in te loggen daarop.  
+Ik heb om dat te bewerkstelligen Microsoft Powershell gebruikt. Via:
+```
+ssh -i C:\Users\vdewi\.ssh\de_cendres.pem  root@34.227.163.208
 
+```
+ Toen ik krijg ik de output van het systeem dat ik niet met root kon inloggen, maar dat dat wel zou gaan met ec2-user. Dit heb ik dan ook gedaan. Mijn input was als volgt: 
+
+ ```
+ ssh -i C:\Users\vdewi\.ssh\de_cendres.pem  ec2-user@34.227.163.208
+ 
+ ```
+Deze input gaf mij het volgende resultaat: 
+![initiële_login](./Capture_initial_login.PNG)  
+
+Het lijkt gelukt ingelogd te zijn. Ik dacht laat ik de proef op de som nemen. Toen zag ik het volgende:  
+![proef_opdesom](./Knipsel_bewijsje_I_AM_in.PNG)  
+Daarna heb ik een ogenblik genomen om even de komische kanten van linux te ontdekken. Dat kan men hieronder zien:  
+![cowasy](./Capture-Cowsay.PNG)  
+Gezien het feit dat ik meteen wat updates had geïnstalleerd na mijn initiële login, kon ik ook meteen in de browser mijn instance bezoeken. Toen ik via Google Chrome naar het publieke IP-adres navigeerde, zag ik het volgende:  
+[website_bezoek](./Capture_serverIsLive.PNG) 
