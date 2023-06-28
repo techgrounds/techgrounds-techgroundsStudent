@@ -1,15 +1,18 @@
 # Elastic Block Store (EBS)
 EBS (Elastic Block Store) is een opslagdienst van Amazon Web Services (AWS) die blokgebaseerde opslagvolumes biedt voor gebruik met EC2-instances. Met EBS kunnen gebruikers persistent gegevens opslaan en koppelen aan hun EC2-instances. Het biedt hoge betrouwbaarheid en prestaties met de mogelijkheid om op verzoek schaalbare opslagvolumes te creëren en aan te passen aan de behoeften van de applicatie. EBS-volumes kunnen worden gebruikt als opstartvolumes voor EC2-instances, om gegevens op te slaan voor databases of om gegevens over te dragen tussen verschillende EC2-instances. EBS ondersteunt functies zoals snapshotting, encryptie en het creëren van geoptimaliseerde volumes voor hogere prestaties.
 
-## Key-terms
-[Schrijf hier een lijst met belangrijke termen met eventueel een korte uitleg.]
+## Key-terms 
+**root volumes**: Dit zal een interne harde schijf op een lokale machine moeten zijn.  
+**seperate volume**: Dit zal bijvoorbeeld een externe hard schijf zijn. NB Volumes kunnen opgeschaald worden in AWS, maar ze kunnen niet afgeschaald worden.
+**snapshots**: Snapshots in AWS zijn momentopnames van EBS-volumes die worden gebruikt voor back-ups, herstelpunten en het delen van gegevens.
+
 
 ## Opdracht
 ### Gebruikte bronnen
-[Plaats hier de bronnen die je hebt gebruikt.]
+
 
 ### Ervaren problemen
-[Geef een korte beschrijving van de problemen waar je tegenaan bent gelopen met je gevonden oplossing.]
+In het begin was het onduidelijk voor mij waar ik precies een EBS moet opstarten. 
+
 
 ### Resultaat
-[Omschrijf hoe je weet dat je opdracht gelukt is (gebruik screenshots waar nodig).]
