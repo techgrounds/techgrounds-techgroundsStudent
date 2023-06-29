@@ -41,8 +41,21 @@ $ sudo mount /dev/xvdf/ /home/ec2-user/Verbreding
 
 Hierdoor wordt het volume gemountd aan de directory "Verbreding". 
 Als we nu weer de command "lsblk" gebruiken zullen we hopelijk zien dat de laatsgenoemde directory als mountpoint staat geregistreerd. We zien het volgende:  
-![MountPoints](./CaptureMountpoints.PNG)
-Warempel, xvdf is daadwerkelijk gemound en wel op het mountpoint /home/ec2-user/Verbreding. 
+![MountPoints](./CaptureMountpoints.PNG)                          
+
+Warempel, xvdf is daadwerkelijk gemound en wel op het mountpoint /home/ec2-user/Verbreding. Nu kunnen we de exercise 2 afronden door in de directory Verbreding een textfile te maken. dat doen we door de volgende input: 
+```
+sudo nano /home/ec2-user/Verbreding/ThisFileResidesOnAMountedDevice.txt
+
+```
+
+Om AWS-07 EBS af te sluiten zal ik nu Exercise 3 uitvoeren. Via de AWS-console kan ik een snapshot van mijn EBS-volume maken. In de AWS-omgeving kan ik deze terugvinden bij Snapshots. Een knipsel van wat ik zie aldaar: 
+![snapVanDeSnap](./Capture_snapshot000001.PNG)  
+
+Hierna is het tijd om mijn tekstbestand te verwijderen. Hieronder zien we dat dat daadwerkelijk gebeurd is: 
+![verwijdering](./CaptureVerwijdering.PNG)       
+Nu is het tijd om een nieuw EBS-volume te creëren door gebruik te maken van de snapshot die net gecreëerd is. Dat kan weer via de AWS-console. Daar selecteer ik de snapshot die we nodig hebben en laat ik AWS er een volume van maken. Als ik daarna bij het overzicht van mijn volumes kijk, zie ik dat er inderdaad een volume is bijgekomen. Nu ga ik mijn eerste volume detachen en het nieuwe volume atachen aan mijn instance. ik kies ervoor 
+
 
 
 
