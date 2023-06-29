@@ -13,4 +13,7 @@
 
 ### Resultaat
 Om deze opdracht te beginnen zal ik een Elastic IP-adres aan mijn AWS-account toewijzen. Dat dat gelukt is kunnen we zien door de volgende screenshot te aanschouwen:  
-![](/00_includes/AWS/10/Capture_Allocate_Elastic_IP.PNG)   
+![](/00_includes/AWS/10/Capture_Allocate_Elastic_IP.PNG)    
+Hierna ga ik aan de slag om de VPC te creëren met de specifieke eisen gesteld in de opdrachtstekst.
+
+
