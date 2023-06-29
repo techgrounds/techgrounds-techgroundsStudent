@@ -25,5 +25,19 @@ Hierna heb ik het volume gekoppeld aan de instance. Dat heb ik gedaan door te kl
 Duidelijk is te zien, zelfs aangegeven in een groen lettertype, dat het EBS-volume "Attached is". 
 
 Om de opdracht verder uit te voeren connecteren we nu met de Linux instance. Ikzelf doe dat via Microsoft powershell. Bij het creëren van mijn instance heb ik ervoor gekozen dit te kunnen doen via SSH. Dit lukt, getuige het volgende:
-![login_Linux](./CaptureLogin.PNG) 
+![login_Linux](./CaptureLogin.PNG)  
+Nu is het tijd om het EBS-volume te mounten op mijn instance. Daarvoor maak ik eerst een directory aan genaamd Verbreding. Aan deze directory zal ik uiteindelijk het EBS-volume mounten. Nu zal ik mijn device moeten vinden in de Linux-omgeving. Via: 
+```
+lsblk
+```
+kan ik alle beschikbare disks zien. Door het gebruik van die input zie ik het volgende: 
+![Schijven](./CaptureDisks.PNG)  
+Uit het voorgaande kunnen we opmaken dat er een beschikbare disk is genaamd xvdf met een grootte van 1GiB. Dit is de disk die ik in de AWS-console gekoppeld heb. 
+
+Het daadwerkelijke mounten doe ik met de volgende input: 
+```
+$ sudo mount /dev/xvdf/ /home/ec2-user/Verbreding 
+```
+
+
 
