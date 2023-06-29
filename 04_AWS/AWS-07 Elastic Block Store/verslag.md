@@ -36,7 +36,7 @@ Uit het voorgaande kunnen we opmaken dat er een beschikbare disk is genaamd xvdf
 
 Het daadwerkelijke mounten doe ik met de volgende input: 
 ```
-$ sudo mount /dev/xvdf/ /home/ec2-user/Verbreding 
+$ sudo mount /dev/xvdf /home/ec2-user/Verbreding 
 ```
 
 Hierdoor wordt het volume gemountd aan de directory "Verbreding". 
@@ -54,7 +54,20 @@ Om AWS-07 EBS af te sluiten zal ik nu Exercise 3 uitvoeren. Via de AWS-console k
 
 Hierna is het tijd om mijn tekstbestand te verwijderen. Hieronder zien we dat dat daadwerkelijk gebeurd is: 
 ![verwijdering](./CaptureVerwijdering.PNG)       
-Nu is het tijd om een nieuw EBS-volume te creëren door gebruik te maken van de snapshot die net gecreëerd is. Dat kan weer via de AWS-console. Daar selecteer ik de snapshot die we nodig hebben en laat ik AWS er een volume van maken. Als ik daarna bij het overzicht van mijn volumes kijk, zie ik dat er inderdaad een volume is bijgekomen. Nu ga ik mijn eerste volume detachen en het nieuwe volume atachen aan mijn instance. ik kies ervoor 
+Nu is het tijd om een nieuw EBS-volume te creëren door gebruik te maken van de snapshot die net gecreëerd is. Dat kan weer via de AWS-console. Daar selecteer ik de snapshot die we nodig hebben en laat ik AWS er een volume van maken. Als ik daarna bij het overzicht van mijn volumes kijk, zie ik dat er inderdaad een volume is bijgekomen. Nu ga ik mijn eerste volume detachen en het nieuwe volume atachen aan mijn instance. ik kies ervoor dit nieuwe device sdj te noemen. Kijken we nu in de Kernel dan zien we inderdaad dit nieuwe device verschijnen:  
+![from_snapshot](./CaptureSDJ.PNG)  
+Nu is het tijd om te zien of te zien of we het tekstbestandje wat eerder verwijderd is nu weer kunnen vinden als we het volume xvdj gaan mounten.
+Voor de duidelijkheid creëer ik een nieuwe directory waaraan ik het volume aan zal mounten genaamd Horizon. Voor het mounten gebruik ik de volgende input: 
+```
+$ sudo mount /dev/xvdj /home/ec2-user/Horizon 
+```
+Via de command lsblk zie ik dat het volume succesvol gekoppeld is: 
+![Koppeling_xvdj](./Capture_koppeling_xvdj.PNG)  
+En als ik kijk naar de inhoud van de map Horizon zie ik inderdaad weer het bestand dat we aan het begin van Exercise 3 hebben verwijderd:  
+![TextIsTerug](https://github.com/techgrounds/techgrounds-techgroundsStudent/blob/main/00_includes/AWS/07/Capture_txtBackWithSnapshot.PNG)  
+
+
+
 
 
 
