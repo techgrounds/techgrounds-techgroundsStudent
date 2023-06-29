@@ -12,4 +12,5 @@
 [Geef een korte beschrijving van de problemen waar je tegenaan bent gelopen met je gevonden oplossing.]
 
 ### Resultaat
-[Omschrijf hoe je weet dat je opdracht gelukt is (gebruik screenshots waar nodig).]
+Om deze opdracht te beginnen zal ik een Elastic IP-adres aan mijn AWS-account toewijzen. Dat dat gelukt is kunnen we zien door de volgende screenshot te aanschouwen:  
+![](/00_includes/AWS/10/Capture_Allocate_Elastic_IP.PNG)   
