@@ -20,6 +20,10 @@ Allereerst heb ik voor deze opdracht een instance en een EBS-volume moeten creë
 ![Ontsta_Machine](./Knipsel_ontstaan_machine.PNG)  
 ![Ontsta_Volume](./Capture_Ontstaan_Volume.PNG)  
 Merk daarbij op dat ik ervoor heb gezorgd dat de instance en het EBS-volume in dezelfde Availibility Zone resideren, namelijk de eu-central-1b Availibity Zone. 
-Hierna heb ik het volume gekoppeld aan de instance. Dat heb ik gedaan door te klikken op "Actions" en daarna op Attach volume.  Nadat ik dit had voltooid, checkte ik bij mijn instance of het EBS-volume daadwerkelijk gekoppeld was. Door middel van het Storage overzicht kon ik dit doen. Ter illusttatie een knipsel om het voorgaande duidelijker te maken: 
-![SuccesKoppeling](./CaptureAttachementSucces.PNG)  
+Hierna heb ik het volume gekoppeld aan de instance. Dat heb ik gedaan door te klikken op "Actions" en daarna op "Attach volume". Nadat ik dit had voltooid, checkte ik bij mijn instance of het EBS-volume daadwerkelijk gekoppeld was. Door middel van het Storage overzicht kon ik dit doen. Ter illusttatie volgt nu een knipsel: 
+![SuccesKoppeling](./CaptureAttachementSucces.PNG)   
+Duidelijk is te zien, zelfs aangegeven in een groen lettertype, dat het EBS-volume "Attached is". 
+
+Om de opdracht verder uit te voeren connecteren we nu met de Linux instance. Ikzelf doe dat via Microsoft powershell. Bij het creëren van mijn instance heb ik ervoor gekozen dit te kunnen doen via SSH. Dit lukt, getuige het volgende:
+![login_Linux](./CaptureLogin.PNG) 
 
