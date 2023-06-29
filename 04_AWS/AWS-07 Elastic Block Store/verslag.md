@@ -39,5 +39,10 @@ Het daadwerkelijke mounten doe ik met de volgende input:
 $ sudo mount /dev/xvdf/ /home/ec2-user/Verbreding 
 ```
 
+Hierdoor wordt het volume gemountd aan de directory "Verbreding". 
+Als we nu weer de command "lsblk" gebruiken zullen we hopelijk zien dat de laatsgenoemde directory als mountpoint staat geregistreerd. We zien het volgende:  
+![MountPoints](./CaptureMountpoints.PNG)
+Warempel, xvdf is daadwerkelijk gemound en wel op het mountpoint /home/ec2-user/Verbreding. 
+
 
 
