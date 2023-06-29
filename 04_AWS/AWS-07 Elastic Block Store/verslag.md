@@ -3,7 +3,7 @@ EBS (Elastic Block Store) is een opslagdienst van Amazon Web Services (AWS) die 
 
 ## Key-terms 
 **root volumes**: Dit zal een interne harde schijf op een lokale machine moeten zijn.  
-**seperate volume**: Dit zal bijvoorbeeld een externe hard schijf zijn. NB Volumes kunnen opgeschaald worden in AWS, maar ze kunnen niet afgeschaald worden.
+**seperate volume**: Dit zal bijvoorbeeld een externe hard schijf zijn. NB Volumes kunnen opgeschaald worden in AWS, maar ze kunnen niet afgeschaald worden.  
 **snapshots**: Snapshots in AWS zijn momentopnames van EBS-volumes die worden gebruikt voor back-ups, herstelpunten en het delen van gegevens.
 
 
@@ -20,3 +20,6 @@ Allereerst heb ik voor deze opdracht een instance en een EBS-volume moeten creë
 ![Ontsta_Machine](./Knipsel_ontstaan_machine.PNG)  
 ![Ontsta_Volume](./Capture_Ontstaan_Volume.PNG)  
 Merk daarbij op dat ik ervoor heb gezorgd dat de instance en het EBS-volume in dezelfde Availibility Zone resideren, namelijk de eu-central-1b Availibity Zone. 
+Hierna heb ik het volume gekoppeld aan de instance. Dat heb ik gedaan door te klikken op "Actions" en daarna op Attach volume.  Nadat ik dit had voltooid, checkte ik bij mijn instance of het EBS-volume daadwerkelijk gekoppeld was. Door middel van het Storage overzicht kon ik dit doen. Ter illusttatie een knipsel om het voorgaande duidelijker te maken: 
+![SuccesKoppeling](./CaptureAttachementSucces.PNG)  
+
