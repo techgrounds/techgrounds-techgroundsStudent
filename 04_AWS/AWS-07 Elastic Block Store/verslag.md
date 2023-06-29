@@ -12,7 +12,7 @@ EBS (Elastic Block Store) is een opslagdienst van Amazon Web Services (AWS) die 
 
 
 ### Ervaren problemen
-In het begin was het onduidelijk voor mij waar ik precies een EBS moet opstarten. 
+In het begin was het onduidelijk voor mij waar ik precies een EBS moet opstarten. Verder is het in het begin lastig in te schatten hoe lang sommige processen zouden moeten duren in AWS. Hierbij bedoel ik bijvoorbeeld het detachen van een EBS-volume. 
 
 
 ### Resultaat 
@@ -61,7 +61,7 @@ Voor de duidelijkheid creëer ik een nieuwe directory waaraan ik het volume aan 
 ```
 $ sudo mount /dev/xvdj /home/ec2-user/Horizon 
 ```
-Via de command lsblk zie ik dat het volume succesvol gekoppeld is: 
+Via de command "lsblk" zie ik dat het volume succesvol gekoppeld is: 
 ![Koppeling_xvdj](./Capture_koppeling_xvdj.PNG)  
 En als ik kijk naar de inhoud van de map Horizon zie ik inderdaad weer het bestand dat we aan het begin van Exercise 3 hebben verwijderd:  
 ![TextIsTerug](https://github.com/techgrounds/techgrounds-techgroundsStudent/blob/main/00_includes/AWS/07/Capture_txtBackWithSnapshot.PNG)  
