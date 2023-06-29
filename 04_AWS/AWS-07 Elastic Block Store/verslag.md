@@ -15,4 +15,8 @@ EBS (Elastic Block Store) is een opslagdienst van Amazon Web Services (AWS) die 
 In het begin was het onduidelijk voor mij waar ik precies een EBS moet opstarten. 
 
 
-### Resultaat
+### Resultaat 
+Allereerst heb ik voor deze opdracht een instance en een EBS-volume moeten creëren. Ik zal daarvan hieronder was knipsels laten zien: 
+![Ontsta_Machine](./Knipsel_ontstaan_machine.PNG)  
+![Ontsta_Volume](./Capture_Ontstaan_Volume.PNG)  
+Merk daarbij op dat ik ervoor heb gezorgd dat de instance en het EBS-volume in dezelfde Availibility Zone resideren, namelijk de eu-central-1b Availibity Zone. 
