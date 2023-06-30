@@ -1,6 +1,6 @@
 # Retro van groep 2 (Icari) van week 4
 **Algemeen**  
-Helaas waren Micha en Francois afwezig bij het opstellen van de retro, dus hun feedback ontbreekt logischerwijs.
+Helaas waren Micha en François afwezig bij het opstellen van de retro, dus hun feedback ontbreekt logischerwijs.
 
 ## Wat ging goed?
  *Shamim*: Er werd goed samengewerkt ondanks het feit dat er met twee platforms gewerkt werd. Kers op de taart was de presentatie, waarbij we makkelijk over Azure Storage én S3 konden vertellen, zonder dat er sprake was van een ongelukkige overgang.   
