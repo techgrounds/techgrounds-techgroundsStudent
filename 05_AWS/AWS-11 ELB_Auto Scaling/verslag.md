@@ -2,8 +2,8 @@
 [Geef een korte beschrijving van het onderwerp]
 
 ## Key-terms
-**ELB**:  
-**Auto Scaling**
+**ELB**: Elastic Load Balancing is een beheerbare load balancing-service.
+**Auto Scaling**: Mechanisme om capaciteit van je resources automatisch aan de vraag te laten aanpassen. 
 
 ## Opdracht
 ### Gebruikte bronnen
