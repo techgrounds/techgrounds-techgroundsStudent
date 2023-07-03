@@ -5,7 +5,8 @@ ELB en Auto Scaling zijn AWS-services die samenwerken om een schaalbare en veerk
 **ELB**: Elastic Load Balancing is een beheerbare load balancing-service.  
 **Auto Scaling**: Mechanisme om capaciteit van je resources automatisch aan de vraag te laten aanpassen.  
 **target**: Instances, onderdeel van een targetgroup, die door de ELB worden gebruikt om verkeer naar toe te leiden.  
-**NLB**: Network Load balancer, dit is een type Elastic load balancer, aangeboden binnen AWS. 
+**NLB**: Network Load balancer, dit is een type Elastic load balancer, aangeboden binnen AWS.  
+**Deprecation**: Deprecation binnen AWS verwijst naar het proces waarbij een AWS-service, functie, API of bron wordt stopgezet of niet langer ondersteund. Het is bedoeld om klanten voldoende tijd te geven om over te stappen naar alternatieve oplossingen voordat de betreffende component definitief wordt uitgefaseerd.
 
 ## Opdracht
 ### Gebruikte bronnen
