@@ -4,7 +4,8 @@ ELB en Auto Scaling zijn AWS-services die samenwerken om een schaalbare en veerk
 ## Key-terms
 **ELB**: Elastic Load Balancing is een beheerbare load balancing-service.  
 **Auto Scaling**: Mechanisme om capaciteit van je resources automatisch aan de vraag te laten aanpassen.  
-**target**: Instances, onderdeel van een targetgroup, die door de ELB worden gebruikt om verkeer naar toe te leiden. 
+**target**: Instances, onderdeel van een targetgroup, die door de ELB worden gebruikt om verkeer naar toe te leiden.  
+**NLB**: Network Load balancer, dit is een type Elastic load balancer, aangeboden binnen AWS. 
 
 ## Opdracht
 ### Gebruikte bronnen
