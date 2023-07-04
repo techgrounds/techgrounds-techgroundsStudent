@@ -1,8 +1,8 @@
 # Well Architected Framework
-[Geef een korte beschrijving van het onderwerp]
+
 
 ## Key-terms
-Cost optimization
+**Cost optimization**: Deze pilaar focust zich op het aanbieden van toegevoegde waarde zo goedkoop als mogelijk.
 Reliability
 Operational Excellence
 Performance efficiency
@@ -12,10 +12,10 @@ Sustainability
 
 ## Opdracht
 ### Gebruikte bronnen
-[Plaats hier de bronnen die je hebt gebruikt.]
+[AWS documentatie m.b.t. WAF](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html)
 
 ### Ervaren problemen
-[Geef een korte beschrijving van de problemen waar je tegenaan bent gelopen met je gevonden oplossing.]
+
 
 ### Resultaat
 [Omschrijf hoe je weet dat je opdracht gelukt is (gebruik screenshots waar nodig).]
