@@ -16,7 +16,7 @@ https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-bal
 
 
 ### Ervaren problemen
-Doordat ik de 1e dag geen Peers in mijn breakout room had, was het lastiger om te achterhalen of ik op de juiste weg zat. 
+Doordat ik de 1e dag geen Peers in mijn breakout room had, was het lastiger om te achterhalen of ik gedurende de opdracht op de juiste weg zat. 
 
 ### Resultaat
 
