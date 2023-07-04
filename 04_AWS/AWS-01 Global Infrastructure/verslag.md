@@ -14,7 +14,7 @@ De globale infrastructuur van Amazon bestaan uit wel 31 regio's van de hierboven
 **Edge Location**: Een datacenter dat een AWS-dienst gebruikt voor operaties van die specifieke AWS-dienst.  
 **RDS**: Een service van AWS. De afkorting staat voor Relational Database Service.  
 **PoP**: Deze afkorting staat voor Point of Presence.  
-**compiled language**: Een compiled language is een programmeertaal in de informatica waarbij de broncode wordt omgezet naar een uitvoerbaar bestand voordat het programma wordt uitgevoerd.
+**compiled language**: Een "compiled language" is een programmeertaal in de informatica waarbij de broncode wordt omgezet naar een uitvoerbaar bestand voordat het programma wordt uitgevoerd.
 
 
 ## Opdracht
