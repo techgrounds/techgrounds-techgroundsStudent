@@ -19,5 +19,5 @@ https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-bal
 Doordat ik de 1e dag geen Peers in mijn breakout room had, was het lastiger om te achterhalen of ik gedurende de opdracht op de juiste weg zat. 
 
 ### Resultaat
-We beginnen allereerst met het lanceren van een instance met de specificaties genoemd in de opdracht: ![](/00_includes/05_AWS/Capture_ontsta_retáblissement.PNG). Deze instance heet dus rétablissement. Hierna creëren we een ALB aan de hand van de aanwijzingen in de opdracht: ![](https://github.com/techgrounds/techgrounds-techgroundsStudent/blob/main/00_includes/05_AWS/Capture_creation_ALB.PNG) 
+We beginnen allereerst met het lanceren van een instance met de specificaties genoemd in de opdracht: ![](/00_includes/05_AWS/Capture_ontsta_retáblissement.PNG). Deze instance heet dus rétablissement. Hierna creëren we een ALB aan de hand van de aanwijzingen in de opdracht: ![](https://github.com/techgrounds/techgrounds-techgroundsStudent/blob/main/00_includes/05_AWS/Capture_creation_ALB.PNG)  huh  huh
 
