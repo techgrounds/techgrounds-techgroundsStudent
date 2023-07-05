@@ -24,7 +24,7 @@ Hierna maken we een EC2 instance om met ons net gemaakte EFS te communiceren: ![
 Hierna connecteer ik met mijn instance via Powershell. Nadat ik de map efs heb gemaakt, mount ik mijn EFS aan die directory via de command van de EFS mount helper:  
 ![Alt text](/00_includes/05_AWS/EFS/CaptureMountingEFSinstance1.PNG).  
 In mijn instance maak ik verschillende bestanden aan in de map waaraan de EFS gemount is. Hierna delete ik mijn instance en creëer ik een nieuwe instance. In deze nieuwe instance wil ik wederom de EFS mounten en dan zien of ik de eerder gecreëerde bestanden terugvind. In de nieuwe instance mount ik de EFS en ik zie inderdaad mijn eerdere bestanden terug: ![Alt text](/00_includes/05_AWS/EFS/CaptureEFSinInstance2.PNG)  
-NB in de laatste instance heb ik mijn efs gemount via NFS client. daarvoor gebruikte ik de volgende input:  
+NB in de laatste instance heb ik mijn efs gemount via NFS client. Daarvoor gebruikte ik de input die ik kon kopiëren uit de AWS-console voor EFS. Deze luidde als volgt:  
 ```
 sudo mount -t nfs4 -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport fs-0d703209102453807.efs.eu-central-1.amazonaws.com:/ efs
 ```
