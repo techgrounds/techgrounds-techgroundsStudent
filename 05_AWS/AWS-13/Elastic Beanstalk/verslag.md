@@ -11,4 +11,4 @@
 [Geef een korte beschrijving van de problemen waar je tegenaan bent gelopen met je gevonden oplossing.]
 
 ### Resultaat
-[Omschrijf hoe je weet dat je opdracht gelukt is (gebruik screenshots waar nodig).]
+[Omschrijf hoe je weet dat je opdracht gelukt is (gebruik knipsel waar nodig).]
