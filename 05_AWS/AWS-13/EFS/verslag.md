@@ -5,7 +5,9 @@ Amazon Elastic File System verschaft een simpele, schaalbare en elastisch docume
 **EFS**: Elastic File System  
 **Resource ID**: Elke Resource binnen EFS heeft een unieke resource identifier (ID)  
 **RPC**: Remote Procedure Call. Manier van communicatie tussen clients en servers  
-**NFS**: Network File System. Een NFS maakt het mogelijk op een netwerk data op te slaan en daarover te beschikken. 
+**NFS**: Network File System. Een NFS maakt het mogelijk op een netwerk data op te slaan en daarover te beschikken.  
+**POSIX groups**:
+**API**: Application Programming Interface.  
 
 ## Opdracht
 ### Gebruikte bronnen
@@ -17,4 +19,5 @@ Amazon Elastic File System verschaft een simpele, schaalbare en elastisch docume
 
 ### Resultaat
 In het kader van de omgang met Amazon EFS heb ik een EFS gecreëerd: ![](/00_includes/05_AWS/EFS/CaptureCreationEFS.PNG)  
+Hierna maken we een EC2 instance om met ons net gemaakte EFS te communiceren. 
 
