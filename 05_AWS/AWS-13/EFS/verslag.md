@@ -2,9 +2,9 @@
 Amazon Elastic File System verschaft een simpele, schaalbare en elastisch documentatiesysteem om te gebruiken voor algemene workloads binnen AWS en op lokale machines. EFS is compatibel met NFS. Daarnaast is het ook compatibel met alle Linux-based AMIs in EC2. EFS is elastisch, zoals de naam al zegt. Het groeit and krimpt naar gelang de acties van de gebruikers. Belangrijk daarbij is dat gelinkte applicaties door de eerdergenoemde groei en krimp niet worden belemmerd. 
 
 ## Key-terms
-**EFS**: Elastic File System
-**Resource ID**: Elke Resource binnen EFS heeft een unieke resource identifier (ID)
-**RPC**: Remote Procedure Call. Manier van communicatie tussen clients en servers
+**EFS**: Elastic File System  
+**Resource ID**: Elke Resource binnen EFS heeft een unieke resource identifier (ID)  
+**RPC**: Remote Procedure Call. Manier van communicatie tussen clients en servers  
 **NFS**: Network File System. Een NFS maakt het mogelijk op een netwerk data op te slaan en daarover te beschikken. 
 
 ## Opdracht
@@ -16,4 +16,5 @@ Amazon Elastic File System verschaft een simpele, schaalbare en elastisch docume
 [Geef een korte beschrijving van de problemen waar je tegenaan bent gelopen met je gevonden oplossing.]
 
 ### Resultaat
-[Omschrijf hoe je weet dat je opdracht gelukt is (gebruik screenshots waar nodig).]
+In het kader van de omgang met Amazon EFS heb ik een EFS gecreëerd: ![](/00_includes/05_AWS/EFS/CaptureCreationEFS.PNG)  
+
