@@ -8,6 +8,7 @@ Amazon Elastic File System verschaft een simpele, schaalbare en elastisch docume
 **NFS**: Network File System. Een NFS maakt het mogelijk op een netwerk data op te slaan en daarover te beschikken.  
 **POSIX groups**:
 **API**: Application Programming Interface.  
+**SG**: Security Group  
 
 ## Opdracht
 ### Gebruikte bronnen
@@ -15,7 +16,7 @@ Amazon Elastic File System verschaft een simpele, schaalbare en elastisch docume
 [Demo in Canvas over EFS](https://awsrestart.instructure.com/courses/1943/pages/elastic-file-system-efs-demonstration?module_item_id=1270885)  
 [Module in Canvas over EFS](https://awsrestart.vitalsource.com/reader/books/W10D4035V3/pageid/3)  
 ### Ervaren problemen
-[Geef een korte beschrijving van de problemen waar je tegenaan bent gelopen met je gevonden oplossing.]
+De Security Groups die automatisch werden aangemaakt doordat ik bij het aanmaken van de instance een EFS had gelinkt, zorgden ervoor dat ik niet kon connecteren met mijn instance in eerste instantie. 
 
 ### Resultaat
 In het kader van de omgang met Amazon EFS heb ik een EFS gecreëerd: ![](/00_includes/05_AWS/EFS/CaptureCreationEFS.PNG)  
