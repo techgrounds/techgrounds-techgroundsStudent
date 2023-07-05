@@ -9,9 +9,9 @@ Amazon Elastic File System verschaft een simpele, schaalbare en elastisch docume
 
 ## Opdracht
 ### Gebruikte bronnen
-[User Guide voor EFS](https://docs.aws.amazon.com/efs/latest/ug/whatisefs.html)
-[Demo in Canvas over EFS](https://awsrestart.instructure.com/courses/1943/pages/elastic-file-system-efs-demonstration?module_item_id=1270885)
-[Module in Canvas over EFS](https://awsrestart.vitalsource.com/reader/books/W10D4035V3/pageid/3)
+[User Guide voor EFS](https://docs.aws.amazon.com/efs/latest/ug/whatisefs.html)  
+[Demo in Canvas over EFS](https://awsrestart.instructure.com/courses/1943/pages/elastic-file-system-efs-demonstration?module_item_id=1270885)  
+[Module in Canvas over EFS](https://awsrestart.vitalsource.com/reader/books/W10D4035V3/pageid/3)  
 ### Ervaren problemen
 [Geef een korte beschrijving van de problemen waar je tegenaan bent gelopen met je gevonden oplossing.]
 
