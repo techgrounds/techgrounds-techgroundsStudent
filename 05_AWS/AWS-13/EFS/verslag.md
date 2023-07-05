@@ -6,7 +6,7 @@ Amazon Elastic File System verschaft een simpele, schaalbare en elastisch docume
 **Resource ID**: Elke Resource binnen EFS heeft een unieke resource identifier (ID)  
 **RPC**: Remote Procedure Call. Manier van communicatie tussen clients en servers  
 **NFS**: Network File System. Een NFS maakt het mogelijk op een netwerk data op te slaan en daarover te beschikken.  
-**POSIX groups**:
+**POSIX groups**: Staat voor Portable Operating System Interface. Dit zijn een aantal standaarden die de API bepalen.  
 **API**: Application Programming Interface.  
 **SG**: Security Group  
 
@@ -20,5 +20,6 @@ De Security Groups die automatisch werden aangemaakt doordat ik bij het aanmaken
 
 ### Resultaat
 In het kader van de omgang met Amazon EFS heb ik een EFS gecreëerd: ![](/00_includes/05_AWS/EFS/CaptureCreationEFS.PNG)  
-Hierna maken we een EC2 instance om met ons net gemaakte EFS te communiceren: ![](00_includes/05_AWS/EFS/CaptureCreationInstance1.PNG)
-hierna connecteer ik met mijn instance via Powershell. Nadat ik de map efs heb gemaakt, mount ik mijn EFS aan die directory via de command van de EFS mount helper: ![Alt text](/00_includes/05_AWS/EFS/CaptureMountingEFSinstance1.PNG). In mijn instance maak ik verschillende bestanden aan in de map die waaraan de EFS gemount is. Hierna delete ik mijn instance en creëer ik een nieuwe instance. In deze nieuwe instance wil ik wederom de EFS mounten en dan zien of ik de eerder gecreëerde bestanden terugvind. In de nieuwe instance mount ik mijn EFS en ik zie inderdaad mijn eerdere bestanden terug: ![Alt text](/00_includes/05_AWS/EFS/CaptureEFSinInstance2.PNG)
+Hierna maken we een EC2 instance om met ons net gemaakte EFS te communiceren: ![](/00_includes/05_AWS/EFS/CaptureCreationInstance1.PNG)
+Hierna connecteer ik met mijn instance via Powershell. Nadat ik de map efs heb gemaakt, mount ik mijn EFS aan die directory via de command van de EFS mount helper: ![Alt text](/00_includes/05_AWS/EFS/CaptureMountingEFSinstance1.PNG).  
+In mijn instance maak ik verschillende bestanden aan in de map die waaraan de EFS gemount is. Hierna delete ik mijn instance en creëer ik een nieuwe instance. In deze nieuwe instance wil ik wederom de EFS mounten en dan zien of ik de eerder gecreëerde bestanden terugvind. In de nieuwe instance mount ik mijn EFS en ik zie inderdaad mijn eerdere bestanden terug: ![Alt text](/00_includes/05_AWS/EFS/CaptureEFSinInstance2.PNG)
