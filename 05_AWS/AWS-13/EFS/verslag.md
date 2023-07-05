@@ -15,6 +15,7 @@ Amazon Elastic File System verschaft een simpele, schaalbare en elastisch docume
 [User Guide voor EFS](https://docs.aws.amazon.com/efs/latest/ug/whatisefs.html)  
 [Demo in Canvas over EFS](https://awsrestart.instructure.com/courses/1943/pages/elastic-file-system-efs-demonstration?module_item_id=1270885)  
 [Module in Canvas over EFS](https://awsrestart.vitalsource.com/reader/books/W10D4035V3/pageid/3)  
+[Website over het mounten van EFS op een EC2-instance](https://computingforgeeks.com/mount-aws-efs-file-system-on-ec2/?expand_article=1)  
 ### Ervaren problemen
 De Security Groups die automatisch werden aangemaakt doordat ik bij het aanmaken van de instance een EFS had gelinkt, zorgden ervoor dat ik niet kon connecteren met mijn instance in eerste instantie. Er was ook nog een tweede probleem. Ik vergat de mount helper via 'amazon-efs utils' te installeren in de 2e instance die ik gebruikte. Hierdoor kon ik in Bash geen gebruik maken van de EFS mount helper. 
 
