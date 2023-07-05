@@ -1,5 +1,5 @@
 # EFS
-Amazon Elastic File System verschaft een simpele, schaalbare en elastisch documentatiesysteem om te gebruiken voor algemene workloads binnen AWS en op lokale machines. EFS is compatibel met NFS. Daarnaast is het ook compatibel met alle Linux-based AMIs in EC2. 
+Amazon Elastic File System verschaft een simpele, schaalbare en elastisch documentatiesysteem om te gebruiken voor algemene workloads binnen AWS en op lokale machines. EFS is compatibel met NFS. Daarnaast is het ook compatibel met alle Linux-based AMIs in EC2. EFS is elastisch, zoals de naam al zegt. Het groeit and krimpt naar gelang de acties van de gebruikers. Belangrijk daarbij is dat gelinkte applicaties door de eerdergenoemde groei en krimp niet worden belemmerd. 
 
 ## Key-terms
 **EFS**: Elastic File System
