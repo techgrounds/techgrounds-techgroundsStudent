@@ -32,8 +32,8 @@ Ik probeerde het mounten eerst te doen via de EFS mount helper, met de volgende 
 ```
 sudo mount -t efs -o tls fs-0d703209102453807:/ efs
 ```
-Dit lukte echter niet. Na wat overpeinzingen bedacht ik mij dat ik de mount helper niet op deze nieuwe instance had geinstalleerd. Ik deed het alsnog via:  
+Dit lukte echter niet. Na wat overpeinzingen bedacht ik mij dat ik de mount helper niet op deze nieuwe instance had geïnstalleerd. Ik deed het alsnog via:  
 ```
 sudo yum install -y amazon-efs-utils
 ```
-Nu lukte het wel de EFS te connecten via de mount helper, ware het niet dat de EFS al geconnecteerd was via de NFS-cli@ent. 
+Hierna zou het wel gelukt zijn om mijn EFS te connecten via de mount helper, ware het niet dat de EFS al geconcerteerd was via de NFS-cliënt: ![Alt text](/00_includes/05_AWS/EFS/CaptureMounHelperUsage.PNG) 
