@@ -4,13 +4,13 @@ Het volgende is belangrijk om te onderstrepen. Aurora is eigenlijk een variant v
 
 NB Aurora’s I/O-Optimized  is een nieuwe cluster-opslagconfiguratie die voorspelbare prijzen biedt voor alle toepassingen en verbeterde prijs-prestatieverhouding, met tot wel 40% kostenbesparing voor I/O-intensieve toepassingen.
 ## Key-terms
-**RDS**: Deze afkorting staat voor "Relational Database Service".
+**RDS**: Deze afkorting staat voor "Relational Database Service".  
 **DB**: Deze afkorting staat voor database doorgaans. 
 
 
 ## Opdracht
 ### Gebruikte bronnen
-[User Guide RDS]
+[User Guide RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Welcome.html)
 
 ### Ervaren problemen
 Het was listig meteen te begrijpen hoe Aurora zich verhoudt met AWS RDS. Toen ik daadwerkelijk met het creëren van een DB aan de slag ging, ging ik het concept Aurora beter begrijpen. Dit kwam omdat ik Aurora nu kon kiezen als een engine voor mijn database die ik maakte om mee te oefenen. 
