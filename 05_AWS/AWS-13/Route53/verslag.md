@@ -9,6 +9,7 @@ Nog een leuk feitje om mee af te sluiten: Route53 is vernoemd naar  poortnummer 
 ## Opdracht
 ### Gebruikte bronnen
 [Developer Guide Route53](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/Welcome.html)
+[Index to supported top-level domains](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html#registrar-tld-list-index)
 
 ### Ervaren problemen
 
