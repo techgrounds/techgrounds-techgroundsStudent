@@ -1,4 +1,4 @@
-# RDS & Aurora
+# RDS & de Auora Engine
 Het volgende is belangrijk om te onderstrepen. Aurora is eigenlijk een variant van RDS (Relational Database Service) binnen AWS. Het is een specifiek type relationele database-engine dat is ontworpen om compatibiliteit te bieden met MySQL- en PostgreSQL-databases, terwijl het verbeterde prestaties en schaalbaarheid biedt. 
 
 
@@ -6,6 +6,11 @@ NB Aurora’s I/O-Optimized  is een nieuwe cluster-opslagconfiguratie die voorsp
 ## Key-terms
 **RDS**: Deze afkorting staat voor "Relational Database Service".  
 **DB**: Deze afkorting staat voor database doorgaans. 
+**DB instance**: Dit is een geïsoleerde DB-omgeving die draait in de Cloud.  
+**relationele database**: Een relationele database is een type database dat gegevens organiseert en opslaat in tabellen met rijen en kolommen. Het maakt gebruik van gestandaardiseerde relaties tussen de tabellen om gegevens te organiseren en relaties tussen verschillende entiteiten vast te leggen. Dit maakt het mogelijk om complexe en gestructureerde gegevens op een efficiënte manier op te slaan, te beheren en op te vragen. Relationele databases maken gebruik van de SQL (Structured Query Language) voor het beheren en manipuleren van gegevens.
+**Amazon Aurora**: Dit is een onderdeel van Amazon RDS. Het is een relationele database engine. Deze engine van Amazon is te gebruiken met MySQL en PostgreSQL. 
+
+
 
 
 ## Opdracht
