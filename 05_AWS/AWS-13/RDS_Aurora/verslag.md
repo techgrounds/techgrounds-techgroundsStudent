@@ -1,8 +1,9 @@
 # RDS & Aurora
-[Geef een korte beschrijving van het onderwerp]
 
+
+Aurora’s I/O-Optimized  is een nieuwe cluster-opslagconfiguratie die voorspelbare prijzen biedt voor alle toepassingen en verbeterde prijs-prestatieverhouding, met tot wel 40% kostenbesparing voor I/O-intensieve toepassingen.
 ## Key-terms
-[Schrijf hier een lijst met belangrijke termen met eventueel een korte uitleg.]
+
 
 ## Opdracht
 ### Gebruikte bronnen
