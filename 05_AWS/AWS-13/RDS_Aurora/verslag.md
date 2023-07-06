@@ -10,11 +10,12 @@ NB Aurora’s I/O-Optimized  is een nieuwe cluster-opslagconfiguratie die voorsp
 
 ## Opdracht
 ### Gebruikte bronnen
-[Plaats hier de bronnen die je hebt gebruikt.]
+[User Guide RDS]
 
 ### Ervaren problemen
 Het was listig meteen te begrijpen hoe Aurora zich verhoudt met AWS RDS. Toen ik daadwerkelijk met het creëren van een DB aan de slag ging, ging ik het concept Aurora beter begrijpen. Dit kwam omdat ik Aurora nu kon kiezen als een engine voor mijn database die ik maakte om mee te oefenen. 
 
 ### Resultaat
-Allereerst begonnen met het creëren van een DB. Daarbij heb ik gekozen voor een Aurora engine, aangezien we in deze opdracht ook met Aurora dienen te werken. Hieronder een screenshot van het geheel: !![Alt text](image.png)  
+Allereerst begonnen met het creëren van een DB. Daarbij heb ik gekozen voor een Aurora engine, aangezien we in deze opdracht ook met Aurora dienen te werken. Hieronder een screenshot van het geheel: ![Alt text](image.png)  
+
 
