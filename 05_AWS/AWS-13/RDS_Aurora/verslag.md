@@ -10,7 +10,7 @@ NB Aurora’s I/O-Optimized  is een nieuwe cluster-opslagconfiguratie die voorsp
 **relationele database**: Een relationele database is een type database dat gegevens organiseert en opslaat in tabellen met rijen en kolommen. Het maakt gebruik van gestandaardiseerde relaties tussen de tabellen om gegevens te organiseren en relaties tussen verschillende entiteiten vast te leggen. Dit maakt het mogelijk om complexe en gestructureerde gegevens op een efficiënte manier op te slaan, te beheren en op te vragen. Relationele databases maken gebruik van de SQL (Structured Query Language) voor het beheren en manipuleren van gegevens.  
 **Amazon Aurora**: Dit is een onderdeel van Amazon RDS. Het is een relationele database engine. Deze engine van Amazon is te gebruiken met MySQL en PostgreSQL. Overigens, een aurora betekent in het Engels een lichtstraal in de atmosfeer.  
 **MySQL**: database engine die ook draait in RDS. Deze engine ondersteunt ook AWS RDS Read Replicas.  
-**PostgreSQL**: 
+**PostgreSQL**: database engine die ook draait in RDS. Deze engine ondersteunt ook AWS RDS Read 
 
 
 
