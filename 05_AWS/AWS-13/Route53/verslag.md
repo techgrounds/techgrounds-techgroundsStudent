@@ -10,8 +10,8 @@ Nog een leuk feitje om mee af te sluiten: Route53 is vernoemd naar  poortnummer 
 ## Key-terms
 **DNS**: Domain Name System  
 **record**: Een "record" vertelt het DNS de manier waarop je graag wilt dat je traffic wordt "geroute" naar een specifiek domein en haar sub-domeinen. 
-**hosted zone**:  Een "hosted zone" is een houder voor "records". Daarnaast zijn er twee typen "hosted zones": "public" en "private". 
-**blue-green**
+**hosted zone**:  Een "hosted zone" is een houder voor "records". Daarnaast zijn er twee typen "hosted zones": "public" en "private". Een "private hosted zone" bevat "records" die specificeren hoe je verkeer wil routen op het internet. 
+**blue-green**:
 
 
 ## Opdracht
