@@ -4,7 +4,7 @@ Laten we bij het begin beginnen. Wat is Route53? Amazon Route 53 is een zeer bes
 Er zijn verschillende manieren om het routen uit te laten voeren. Hieronder een opsomming van de verschillende manieren op te "routen":
 • *Simple routing policy* – Gebruik dit voor een enkele bron die een bepaalde functie uitvoert voor jouw domein, bijvoorbeeld een webserver die inhoud levert voor de website example.com. Je kunt eenvoudige routering gebruiken om records aan te maken in een privé gehoste zone.
 • *Failover routing policy* – Gebruik dit wanneer je een actief-passieve failover wilt configureren. Je kunt failover routering gebruiken om records aan te maken in een privé gehoste zone.
-• *Geolocation routing policy* – Gebruik geolocatieroutering wanneer je verkeer wilt routeren op basis van de locatie van jouw gebruikers. Je kunt geolocatieroutering gebruiken om records aan te maken in een privé gehoste zone.
+• *Geolocation routing policy* – Gebruik geolocatie-routering wanneer je verkeer wilt routeren op basis van de locatie van jouw gebruikers. Je kunt geolocatieroutering gebruiken om records aan te maken in een privé gehoste zone.
 • *Geoproximity routing policy* – Gebruik dit wanneer je het verkeer wilt routeren op basis van de locatie van je bronnen en, indien gewenst, verkeer wilt verplaatsen van bronnen in de ene locatie naar bronnen in een andere locatie.
 • *Latency routing policy* – Gebruik deze policy wanneer je resources in meerdere "Regions" hebt en je "traffic wilt routen naar de "Region" die de beste latency biedt. 
  • *IP-based routing policy* – Maak gebruik van deze policy als je traffic wil routeren op basis van de locatie van de gebruikers en je beschikt over hun IP-adressen. 
