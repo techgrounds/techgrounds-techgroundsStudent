@@ -9,7 +9,7 @@ Er zijn verschillende manieren om het routen uit te laten voeren. Hieronder een 
 • *Latency routing policy* – Gebruik deze policy wanneer je resources in meerdere "Regions" hebt en je "traffic wilt routen naar de "Region" die de beste latency biedt. 
  • *IP-based routing policy* – Maak gebruik van deze policy als je traffic wil routeren op basis van de locatie van de gebruikers en je beschikt over hun IP-adressen. 
  • *Multivalue answer routing policy* –
- • *Weighted routing policy* –
+ • *Weighted routing policy* – Maak gebruik van deze policy om traffic naar meerdere resources te routen in de verhoudingen die je zélf opgeeft. Je kan daarnaast Weighted routing policy gebruiken om records te creëren in een Private Hosted Zone. 
 
 
 
