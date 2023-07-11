@@ -1,5 +1,5 @@
-# [Onderwerp]
-[Geef een korte beschrijving van het onderwerp]
+# AWS Support Plans     
+Er zijn binnen AWS verschillende Support Plans. Elk plan heeft de juiste mix aan tools en expertise om jouw situatie optimaal te laten floreren. Er is zijn vier support plan binnen AWS: Basic, Developer, Business en Enterprise. 
 
 ## Key-terms
 [Schrijf hier een lijst met belangrijke termen met eventueel een korte uitleg.]
