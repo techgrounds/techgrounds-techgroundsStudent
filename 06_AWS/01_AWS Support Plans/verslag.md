@@ -2,14 +2,13 @@
 Er zijn binnen AWS verschillende Support Plans. Elk plan heeft de juiste mix aan tools en expertise om jouw situatie optimaal te laten floreren. Er is zijn vier support plan binnen AWS: Basic, Developer, Business en Enterprise. 
 
 ## Key-terms
-[Schrijf hier een lijst met belangrijke termen met eventueel een korte uitleg.]
+**API**: Staat voor Application Programming Interface. Een API zorgt ervoor dat 2 software componenten met elkaar kunnen communiceren d.m.v. een set aan definities en protocollen. 
 
 ## Opdracht
 ### Gebruikte bronnen
-[Plaats hier de bronnen die je hebt gebruikt.]
+[Overzicht van Support Plans](https://us-east-1.console.aws.amazon.com/support/plans/home?region=us-east-1#/)
 
 ### Ervaren problemen
-[Geef een korte beschrijving van de problemen waar je tegenaan bent gelopen met je gevonden oplossing.]
-
+N.v.t.
 ### Resultaat
-[Omschrijf hoe je weet dat je opdracht gelukt is (gebruik screenshots waar nodig).]
+N.v.t.
