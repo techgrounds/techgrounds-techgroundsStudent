@@ -8,7 +8,7 @@ Er zijn verschillende manieren om het routen uit te laten voeren. Hieronder een 
 • *Geoproximity routing policy* – Gebruik dit wanneer je het verkeer wilt routeren op basis van de locatie van je bronnen en, indien gewenst, verkeer wilt verplaatsen van bronnen in de ene locatie naar bronnen in een andere locatie.
 • *Latency routing policy* – Gebruik deze policy wanneer je resources in meerdere "Regions" hebt en je "traffic wilt routen naar de "Region" die de beste latency biedt. 
  • *IP-based routing policy* – Maak gebruik van deze policy als je traffic wil routeren op basis van de locatie van de gebruikers en je beschikt over hun IP-adressen. 
- • *Multivalue answer routing policy* –
+ • *Multivalue answer routing policy* – Maak gebruik van deze policy als je wilt dat Route53 DNS-queries met verschillende waarden kan beantwoorden, bijvoorbeeld met verschillende IP-adressen. 
  • *Weighted routing policy* – Maak gebruik van deze policy om traffic naar meerdere resources te routen in de verhoudingen die je zélf opgeeft. Je kan daarnaast Weighted routing policy gebruiken om records te creëren in een Private Hosted Zone. 
 
 
