@@ -7,6 +7,7 @@ Er zijn binnen AWS verschillende Support Plans. Elk plan heeft de juiste mix aan
 ## Opdracht
 ### Gebruikte bronnen
 [Overzicht van Support Plans](https://us-east-1.console.aws.amazon.com/support/plans/home?region=us-east-1#/)
+[Wat is een API](https://aws.amazon.com/what-is/api/)
 
 ### Ervaren problemen
 N.v.t.
