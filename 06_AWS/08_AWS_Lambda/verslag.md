@@ -1,6 +1,8 @@
 # AWS Lambda
 We richten onze pijlen op AWS Lambda in dit verslag. Wat is dat eigenlijk? Met lambda kun jij je code laten draaien zonder dat je daarbij zorg hoeft te dragen voor bijvoorbeeld een server. Hierbij komt geen enkele vorm van administratie kijken. Lambda is geschikt voor verschillende programmeertalen: Node.js, Java, C#, Python, Ruby, Go en Powershell. Het gebruikt van Lambda voorkomt een hele boel kopzorgen omdat je geen server hoeft op te zetten voor de Back-end activiteiten van je code. 
 
+## Key Terms
+**Function ARN**: 
 Lambda schaalt voorts automatisch op en af aan de hand van de workloads die het voorgeschoteld krijgt. 
 
 Waarvoor kun je Lambda gebruiken? 
