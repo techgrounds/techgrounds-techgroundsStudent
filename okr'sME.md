@@ -36,7 +36,7 @@ Betreft: [okr's zakelijk, privé]
 ---
 
 # okr's privé
-## Handicap verlagen 
+## Handicap verlagen (GOLF)
 
 
 **key results:**  
