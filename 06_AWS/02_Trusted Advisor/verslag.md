@@ -1,8 +1,8 @@
 # Trusted Advisor
-AWS Trusted Advisor geeft aanwijzingen m.b.t. meerdere categorieën, waaronder kostenbeperking en security. Deze aanwijzingen helpen je de AWS best practices te volgen om zo je services en resources te optimaliseren. AWS Trusted Advisor is onderdeel van AWS support. 
+AWS Trusted Advisor geeft aanwijzingen m.b.t. meerdere categorieën, waaronder kostenbeperking en security. Deze aanwijzingen helpen je de AWS best practices te volgen om zo je services en resources te optimaliseren. AWS Trusted Advisor is onderdeel van AWS support. Daarnaast is de Trusted Advisor console geïntegreerd met - AWS Security Hub en AWS Well-Architected. 
 
 ## Key-terms
-[Schrijf hier een lijst met belangrijke termen met eventueel een korte uitleg.]
+**AWS Support API**: Application Program Interface m.b.t. tot de infrastructuur van AWS Support. 
 
 ## Opdracht
 ### Gebruikte bronnen
@@ -10,7 +10,7 @@ AWS Trusted Advisor geeft aanwijzingen m.b.t. meerdere categorieën, waaronder k
 [User Guide AWS Trusted Advisor](https://docs.aws.amazon.com/awssupport/latest/user/trusted-advisor.html)
 
 ### Ervaren problemen
-[Geef een korte beschrijving van de problemen waar je tegenaan bent gelopen met je gevonden oplossing.]
+Besef mij door deze opdracht dat ik nog geen praktische ervaring heb met een API. 
 
 ### Resultaat
-[Omschrijf hoe je weet dat je opdracht gelukt is (gebruik screenshots waar nodig).]
+
