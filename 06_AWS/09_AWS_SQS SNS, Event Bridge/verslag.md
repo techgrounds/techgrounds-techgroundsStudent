@@ -1,17 +1,15 @@
 # SNS, SQS, Event Bridge
 In dit verslag zullen meerdere services de revue passeren: SNS, SQS en Event bridge. We beginnen met die laatste.  
+
 Amazon EventBridge is een serverloze service die "events" gebruikt om applicatiecomponenten met elkaar te verbinden, waardoor het voor ontwikkelaars gemakkelijker wordt om schaalbare "event-driven" applicaties te bouwen. Events kunnen voortkomen uit je eigen applicaties, SaaS-applicaties en AWS services. Deze events kunnen dan worden verzonden naar een andere service om gebruikt te worden. Denk hierbij bijvoorbeeld aan een service als AWS lambda.  
 
-Komen we nu bij AWS SQS. Deze afkorting staat voor Simple Queue Service. Het werkt als volgt. "Producers" sturen berichten naar de "SQS queue. Producers kunnen applicaties zijn, microservices en alle AWS-services. De SQS-queue slaat de berichten op. De berichten kunnen vervolgens worden verwerkt door "consumers", als ze daar klaar voor zijn. Consumers kunnen applicaties zijn of verschillende AWS-services. Het volgende plaatje helpt om het concept snel te begrijpen: ![e.g.](image.png)
+Komen we nu bij AWS SQS. Deze afkorting staat voor Simple Queue Service. Het werkt als volgt. "Producers" sturen berichten naar de "SQS queue. Producers kunnen applicaties zijn, microservices en alle AWS-services. De SQS-queue slaat de berichten op. De berichten kunnen vervolgens worden verwerkt door "consumers", als ze daar klaar voor zijn. Consumers kunnen applicaties zijn of verschillende AWS-services. Het volgende plaatje uit de console kan helpen om het concept snel te begrijpen: ![e.g.](image.png)
 
-Nasa gebruikt de SQS-service bijvoorbeeld om inkomende ""jobs" van pipeline processen te ontkoppelen. 
+Ter illustratie een use case: Nasa gebruikt de SQS-service bijvoorbeeld om inkomende ""jobs" van pipeline processen te ontkoppelen. 
 
-Tot slot bespreken we in de verslag nog SNS. Deze drie letters staan voor Simple Notification Service. 
+Tot slot bespreken we in de verslag nog SNS. Deze drie letters staan voor Simple Notification Service. Deze service zorgt ervoor dat "serverless event-driven"applicaties, microservices gedistribueerde systemen kunnen communiceren zonder dat ze gekoppeld hoeven te worden. Ze blijven dus "decoupled". SNS werkt met publishers en subscribers. publishers communiceren met deze subscribers via "Topics". Dit is een "logical access point" en "communication channel". Subscribers kunnen via zo'n topic berichten krijgen via het door hen zelf gekozen platform. Het volgende plaatje zal hopelijk helpen deze dienst goed te begrijpen: ![Alt text](image-1.png)
 
-
-het volgende plaatje zal hopelijk helpen deze dienst goed te begrijpen: 
-
-Nasa gebruikt de SNS-service bijvoorbeeld om het pipeline proces op gang te brengen als er nieuwe content wordt geüpload. 
+Ter illustratie weer de use case van Nasa: zij gebruikt de SNS-service om het pipeline proces op gang te brengen als er nieuwe content wordt geüpload. 
 
 
 ## Key-terms
@@ -20,10 +18,11 @@ Nasa gebruikt de SNS-service bijvoorbeeld om het pipeline proces op gang te bren
 
 ## Opdracht
 ### Gebruikte bronnen
-[Plaats hier de bronnen die je hebt gebruikt.]
+[Developer Guide SQS](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/welcome.html)
+[Developer Guide SNS](https://docs.aws.amazon.com/sns/latest/dg/welcome.html)
 
 ### Ervaren problemen
-[Geef een korte beschrijving van de problemen waar je tegenaan bent gelopen met je gevonden oplossing.]
+Het concept dat SQS een heel proces heeft voor input van applicaties waar het niet compatibel mee is, had ik niet meteen door. Dit zorgde voor wat vertraging. 
 
 ### Resultaat
-[Omschrijf hoe je weet dat je opdracht gelukt is (gebruik screenshots waar nodig).]
+
