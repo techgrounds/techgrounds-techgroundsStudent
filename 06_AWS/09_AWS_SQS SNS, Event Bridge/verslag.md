@@ -28,4 +28,5 @@ Ter illustratie weer de use case van NASA: zij gebruikt de SNS-service om het pi
 Het concept dat SQS een heel proces heeft voor input van applicaties waar het niet compatibel mee is, had ik niet meteen door. Dit zorgde voor wat vertraging. 
 
 ### Resultaat
+De beschreven diensten zijn "gewoon" via de zoekbalk van de Console te vinden. Aanzetten van de diensten gaat verder op de voor AWS gebruikelijke wijze. Gezien het feit dat bij deze diensten het koppelen van diensten aan elkaar  of een efficiënte wijze juist dé service is, lijkt het mij een overbodige vraag hoe je deze service kan koppelen aan andere services. 
 
