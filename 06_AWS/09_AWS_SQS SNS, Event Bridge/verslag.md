@@ -1,7 +1,8 @@
 # SNS, SQS, Event Bridge
 In dit verslag zullen meerdere services de revue passeren: SNS, SQS en Event bridge. We beginnen met die laatste.  
 
-Amazon EventBridge is een serverloze service die "events" gebruikt om applicatiecomponenten met elkaar te verbinden, waardoor het voor ontwikkelaars gemakkelijker wordt om schaalbare "event-driven" applicaties te bouwen. Events kunnen voortkomen uit je eigen applicaties, SaaS-applicaties en AWS services. Deze events kunnen dan worden verzonden naar een andere service om gebruikt te worden. Denk hierbij bijvoorbeeld aan een service als AWS lambda.  
+Amazon EventBridge is een serverloze service die "events" gebruikt om applicatiecomponenten met elkaar te verbinden, waardoor het voor ontwikkelaars gemakkelijker wordt om schaalbare "event-driven" applicaties te bouwen. Events kunnen voortkomen uit je eigen applicaties, SaaS-applicaties en AWS services. Deze events kunnen dan worden verzonden naar een andere service om gebruikt te worden. Denk hierbij bijvoorbeeld aan een service als AWS lambda. Voor het begrip dient men te weten dat EventBridge in principe een traditionele "Event Bus" is. Om een en ander te visualiseren zal hieronder een diagram volgen.  
+![Alt text](image-2.png)
 
 Komen we nu bij AWS SQS. Deze afkorting staat voor Simple Queue Service. Het werkt als volgt. "Producers" sturen berichten naar de "SQS queue. Producers kunnen applicaties zijn, microservices en alle AWS-services. De SQS-queue slaat de berichten op. De berichten kunnen vervolgens worden verwerkt door "consumers", als ze daar klaar voor zijn. Consumers kunnen applicaties zijn of verschillende AWS-services. Het volgende plaatje uit de console kan helpen om het concept snel te begrijpen: ![e.g.](image.png)
 
@@ -18,8 +19,9 @@ Ter illustratie weer de use case van Nasa: zij gebruikt de SNS-service om het pi
 
 ## Opdracht
 ### Gebruikte bronnen
-[Developer Guide SQS](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/welcome.html)
-[Developer Guide SNS](https://docs.aws.amazon.com/sns/latest/dg/welcome.html)
+[Developer Guide SQS](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/welcome.html)  
+[Developer Guide SNS](https://docs.aws.amazon.com/sns/latest/dg/welcome.html)  
+[Website over EventBridge](https://www.trek10.com/blog/amazon-eventbridge)
 
 ### Ervaren problemen
 Het concept dat SQS een heel proces heeft voor input van applicaties waar het niet compatibel mee is, had ik niet meteen door. Dit zorgde voor wat vertraging. 
