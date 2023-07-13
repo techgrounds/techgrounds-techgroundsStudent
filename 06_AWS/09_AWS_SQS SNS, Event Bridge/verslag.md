@@ -1,5 +1,5 @@
 # SNS, SQS, EventBridge
-In dit verslag zullen meerdere services de revue passeren: SNS, SQS en Event bridge. We beginnen met die laatste.  
+In dit verslag zullen meerdere services de revue passeren: SNS, SQS en EventBridge. We beginnen met deze laatste service.  
 
 Amazon EventBridge is een serverloze service die "events" gebruikt om applicatiecomponenten met elkaar te verbinden, waardoor het voor ontwikkelaars gemakkelijker wordt om schaalbare "event-driven" applicaties te bouwen. Events kunnen voortkomen uit je eigen applicaties, SaaS-applicaties en AWS services. Deze events kunnen dan worden verzonden naar een andere service om gebruikt te worden. Denk hierbij bijvoorbeeld aan een service als AWS lambda. Voor het begrip dient men te weten dat EventBridge in principe een traditionele "Event Bus" is. Om een en ander te visualiseren zal hieronder een diagram volgen.  
 ![Alt text](image-2.png)
