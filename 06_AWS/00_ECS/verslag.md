@@ -12,7 +12,7 @@ Laten we meteen met de hamvraag beginnen: wat is ECS exact? Amazon ECS staat Ama
 ## Opdracht
 ### Gebruikte bronnen
 [startpagina-ECS AWS-console](https://eu-central-1.console.aws.amazon.com/ecs/v2/getStarted?region=eu-central-1)  
-[Developer_Guide ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/Welcome.html)
+[Developer_Guide ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/Welcome.html)  
 [Website over werking ECS](https://nupmanyu.medium.com/amazon-elastic-container-service-4891d7b286a3)
 
 
