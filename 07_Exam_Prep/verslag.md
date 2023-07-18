@@ -2,7 +2,7 @@
 [Geef een korte beschrijving van het onderwerp]
 
 ## Key-terms
-[Schrijf hier een lijst met belangrijke termen met eventueel een korte uitleg.]
+**RDP**: Remote Desktop Protocol
 
 ## Opdracht
 ### Gebruikte bronnen
