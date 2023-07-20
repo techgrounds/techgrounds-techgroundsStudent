@@ -16,3 +16,9 @@
 
 ### Resultaat
 [Omschrijf hoe je weet dat je opdracht gelukt is (gebruik screenshots waar nodig).]
+
+
+# Section 10: Deployment and Automation  
+
+## Key-terms
+**AWS CodeCommit**: Dit is de AWS-variant van Github
