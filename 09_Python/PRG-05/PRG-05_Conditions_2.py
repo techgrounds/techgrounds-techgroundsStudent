@@ -5,4 +5,4 @@ if EIS > 100:
 elif EIS < 100:
     print("Dit kan ik voor je regelen. Bel HR maar en ze zullen een en ander naar je faxen.")
 else:
-    print("Warempel, Dat zijn geen peanuts! Goed, bel HR en dan gaan ze je wat faxen.")
+    print("Warempel, Daar schrik ik wel van! Goed, bel HR en dan gaan ze je wat faxen.")
