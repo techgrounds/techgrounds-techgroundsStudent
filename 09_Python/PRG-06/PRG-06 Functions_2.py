@@ -1,4 +1,4 @@
 def myfunction(string):
-    print("Hello {}!".format (string))
+    print("Gegroet {}!".format (string))
 myfunction("Eenieder")
 
