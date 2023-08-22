@@ -23,26 +23,31 @@ Dit kan in AWS geregeld worden door gebruik te maken van ACLs.
 ### SSH of RDP verbindingen met de webserver mogen alleen tot stand komen vanuit de admin-server.
 SSH- en RDP-verbindingen zullen dus niet toegestaan zijn voor elke andere server. Dit is in te stellen als deze andere servers worden gecreëerd. 
 
-### Vragen bij het ontwerpdiagram
-Het ontwerpdiagram is ons zo aangedragen: 
+### Vragen voor POM
+Voor de POM hebben we ook aandachtig het aangedragen diagram bestudeerd. Deze ziet er zo uit:   
 ![](../00_includes/Project/Schermafbeelding%202023-08-22%20om%2011.57.30.png)
 
-De volgende vragen roept het diagram bij mij op: 
-Moeten alle subnets public zijn?
-Waarom zijn twee subnets niet gebruikt?
-Enig idee hoe je wil omgaan met toename van traffic? 
-Waarom is je management server in een andere region dan je webserver?
-Waarvoor gebruiken jullie KMS?
-Hoe gebruiken jullie AWS backup nu?
-Wat voor bedrijf zijn jullie?
-Gebruiken jullie S3 alleen voor de PostDeploymentScripts?
-Hebben jullie altijd VPC-peering connection gebruikt en wat is de reden daarvoor?
-Maken jullie gebruik van een ASG? 
-Het lijkt alsof jullie niet gebruik maken van een ACL. Klopt dit?
-Hoe beschikbaar moeten de postDeploymentScripts zijn?
-Wat is de uptime voor de appserver?
-wat is de uptime voor de admin-server?
-Hoe wil je de ip-ranges verdelen over de subnets?
+Al het voorgaande overwegende heb ik de volgende vragen:  
+Moeten alle subnets public zijn?   
+Waarom zijn twee subnets niet gebruikt?  
+Enig idee hoe je wil omgaan met toename van traffic?   
+Waarom is je management server in een andere region dan je webserver?  
+Waarvoor gebruiken jullie KMS?  
+Hoe gebruiken jullie AWS backup nu?  
+Wat voor bedrijf zijn jullie en in welke regio's zijn jullie actief?  
+Gebruiken jullie S3 alleen voor de PostDeploymentScripts?  
+Hebben jullie altijd VPC-peering connection gebruikt en wat is de reden daarvoor?  
+Maken jullie gebruik van een ASG?   
+Het lijkt alsof jullie niet gebruik maken van een ACL. Klopt dit?  
+Hoe beschikbaar moeten de postDeploymentScripts zijn?  
+Wat is de uptime voor de appserver?  
+wat is de uptime voor de admin-server?  
+Hoe wil je de ip-ranges verdelen over de subnets?    
+Wat bedoel je precies met "prd" in je vpc-notatie?  
+Waarom is je VPC peering connection tot stand gekomen tussen twee regions en niet tussen de daadwerkelijke VPCs?    
+Kan de admin-server kan dus alleen bereikbaar zijn via 2 publieke IP-adressen?   
+Ik zie dat IAM niet worden afgebeeld in het diagram. Klopt het dat jullie daar niet mee werken?  
+
 
 
 
