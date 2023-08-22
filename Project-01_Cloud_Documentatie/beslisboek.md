@@ -1,7 +1,10 @@
-# Beslisboek
-## Doel van document
+
+# Doel van document
 Tijdens het implementeren van het ontwerp zal ik beslissingen maken over o.a. diensten die we gaan gebruiken. In dit document zal ik de overwegingen uitschrijven en de besluiten onderbouwen. Dit document zal ook al mijn assumpties en verbeteringen bevatten. Voorts zal dit document dienen als basis voor mijn ontwerpdocumentatie. In dit document zal ook input van de PO verwerkt worden. 
-## Eisen PO
+
+# Epic Exploratie
+
+## Overzicht van de eisen van PO
 ### Alle VM disks moeten encrypted zijn.
 We zullen dit project gaan uitvoeren in de AWS-omgeving. Er zal dus niet gewerkt worden met entiteiten die letterlijk "VM-disks" worden genoemd. EC2-Instances zijn de eniteiten waar de besturingssystemen op zullen worden gedraaid. Deze gebruiken als root-volume  een EBS-volume of een instance store volume. Gezien het feit dat EBS-volumes gebruiken kunnen maken van de Amazon EBS-encryptie kunnen we aannemen dat PO op basis van EBS-volumes zal willen werken. 
 ### De webserver moet dagelijks gebackupt worden. De backups moeten 7 dagen behouden worden. 
@@ -34,6 +37,7 @@ Enig idee hoe je wil omgaan met toename van traffic?
 Waarom is je management server in een andere region dan je webserver?  
 Waarvoor gebruiken jullie KMS?  
 Hoe gebruiken jullie AWS backup nu?  
+RTO in gedachte? RPO mag dus variabel zijn?  
 Wat voor bedrijf zijn jullie en in welke regio's zijn jullie actief?  
 Gebruiken jullie S3 alleen voor de PostDeploymentScripts?  
 Hebben jullie altijd VPC-peering connection gebruikt en wat is de reden daarvoor?  
@@ -48,7 +52,9 @@ Waarom is je VPC peering connection tot stand gekomen tussen twee regions en nie
 Kan de admin-server kan dus alleen bereikbaar zijn via 2 publieke IP-adressen?   
 Ik zie dat IAM niet worden afgebeeld in het diagram. Klopt het dat jullie daar niet mee werken?  
 
+### Overzicht aannames van onze kant
 
+### overzicht cloudinfrastructuur en bijbehorende diensten
 
 
 
