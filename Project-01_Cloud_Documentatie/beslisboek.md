@@ -24,9 +24,20 @@ Dit kan in AWS geregeld worden door gebruik te maken van ACLs.
 SSH- en RDP-verbindingen zullen dus niet toegestaan zijn voor elke andere server. Dit is in te stellen als deze andere servers worden gecreëerd. 
 
 ### Vragen bij het ontwerpdiagram
-Het ontwerpdiagram ziet er zo uit: 
+Het ontwerpdiagram is ons zo aangedragen: 
 ![](../00_includes/Project/Schermafbeelding%202023-08-22%20om%2011.57.30.png)
 
+De volgende vragen roept het diagram bij mij op: 
+Moeten alle subnets public zijn?
+Waarom zijn twee subnets niet gebruikt?
+Enig idee hoe je wil omgaan met toename van traffic? 
+Waarom is je management server in een andere region dan je webserver?
+Waarvoor gebruiken jullie KMS?
+Hoe gebruiken jullie AWS backup nu?
+Wat voor bedrijf zijn jullie?
+Gebruiken jullie S3 alleen voor de PostDeploymentScripts?
+Hebben jullie altijd VPC-peering connection gebruikt en wat is de reden daarvoor?
+Maken jullie gebruik van een ASG?
 
 
 
