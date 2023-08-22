@@ -14,7 +14,7 @@ Dit moet in AWS te regelen zijn met de AWS-backup. De Huidige gang van zaken bev
 Om deze eis te implementeren kunnen terugvallen op de methodes we in eerdere projecten gebruikt hebben om op een automatische manier webservers te installeren. Met behulp van User Data in de setup van instances hebben we dit kunnen bereiken op een eenvoudige manier en economische manier. Dit lijkt nu ook de voor de hand liggende optie. 
 
 ### De admin-server moet bereikbaar zijn met een publiek IP.
-Dit is de default binnen AWS. 
+Dit is de default binnen AWS meen ik mij te herinneren. Zo niet, dan kan dat sowieso bij de opstart van de server geregeld worden. 
 
 ### De admin-server moet alleen bereikbaar zijn van vertrouwde locaties (office/admin’s thuis)
 Dit kan via firewall settings makkelijk worden bereikt. 
@@ -26,14 +26,15 @@ Dit kan in AWS geregeld worden door gebruik te maken van ACLs.
 ### SSH of RDP verbindingen met de webserver mogen alleen tot stand komen vanuit de admin-server.
 SSH- en RDP-verbindingen zullen dus niet toegestaan zijn voor elke andere server. Dit is in te stellen als deze andere servers worden gecreëerd. 
 
-### Vragen voor POM
+## Vragen voor POM
 Voor de POM hebben we ook aandachtig het aangedragen diagram bestudeerd. Deze ziet er zo uit:   
 ![](../00_includes/Project/Schermafbeelding%202023-08-22%20om%2011.57.30.png)
 
 Al het voorgaande overwegende heb ik de volgende vragen:  
 Moeten alle subnets public zijn?   
 Waarom zijn twee subnets niet gebruikt?  
-Enig idee hoe je wil omgaan met toename van traffic?   
+Enig idee hoe je wil omgaan met toename van traffic?  
+Maken jullie gebruik van een ASG in dit kader?    
 Waarom is je management server in een andere region dan je webserver?  
 Waarvoor gebruiken jullie KMS?  
 Hoe gebruiken jullie AWS backup nu?  
@@ -41,20 +42,38 @@ RTO in gedachte? RPO mag dus variabel zijn?
 Wat voor bedrijf zijn jullie en in welke regio's zijn jullie actief?  
 Gebruiken jullie S3 alleen voor de PostDeploymentScripts?  
 Hebben jullie altijd VPC-peering connection gebruikt en wat is de reden daarvoor?  
-Maken jullie gebruik van een ASG?   
 Het lijkt alsof jullie niet gebruik maken van een ACL. Klopt dit?  
 Hoe beschikbaar moeten de postDeploymentScripts zijn?  
-Wat is de uptime voor de appserver?  
+Wat is de uptime voor de app-server?  
 wat is de uptime voor de admin-server?  
 Hoe wil je de ip-ranges verdelen over de subnets?    
 Wat bedoel je precies met "prd" in je vpc-notatie?  
 Waarom is je VPC peering connection tot stand gekomen tussen twee regions en niet tussen de daadwerkelijke VPCs?    
 Kan de admin-server kan dus alleen bereikbaar zijn via 2 publieke IP-adressen?   
 Ik zie dat IAM niet worden afgebeeld in het diagram. Klopt het dat jullie daar niet mee werken?  
+Zijn er bepaalde zaken waar jullie extra tegen beschermd willen worden? DDoS-aanvallen?  
+Wil je van AMI's ook snapshots hebben?  
+Maken jullie gebruik van databases?
 
-### Overzicht aannames van onze kant
+## Overzicht aannames van onze kant
 
-### overzicht cloudinfrastructuur en bijbehorende diensten
+## overzicht cloudinfrastructuur en bijbehorende diensten
+EC2  
+IAM  
+KMS  
+AWS Backup
+AWS Firewall  
+S3  
+VPC Peering  (?)
+EBS
+Cloudwatch
+Trusted Advisor
+Cloudformation
+Secret Key Manager (?)
+EFS (?)
+AWS Shield (?)
+
+
 
 
 

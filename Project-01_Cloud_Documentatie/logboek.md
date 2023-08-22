@@ -8,10 +8,12 @@ Vandaag was ik bezig met het duidelijk krijgen wat de opdracht in zijn geheel be
 Vandaag op de Mac van mijn vriendin gewerkt, dit leverde voor mij de nodige obstakels op. 
 
 ## Oplossingen
-Elementen uit het leerstuk "Learning to learn" toegepast.
+Elementen uit het leerstuk "Learning to learn" toegepast om tot de oplossing te komen voor de problemen die ik had met de Mac. 
 
-## Learnings
+## Learnings 
 Hoe kan ik op een mac werken met een git-repo.
+
+
 ---
 # Log 22-08-2023
 
