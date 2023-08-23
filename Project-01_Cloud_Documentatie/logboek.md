@@ -18,6 +18,22 @@ Hoe kan ik op een mac werken met een git-repo.
 # Log 22-08-2023
 
 
+## Dagverslag
+Deze dag is vooral gebruikt om te beginnen met de beslissingsdocumentatie, waarbij ik al mijn vragen voor de POM probeerde af te hebben.
+
+## Obstakels
+In hoeverre moest de epic exploratie af zijn om een goede POM te kunnen garanderen?
+
+## Oplossingen
+Shikha heeft aangegeven dat een goede POM vooral bedoeld is om je deliverables wat body te geven.
+
+## Learnings
+Hoe een POM voor te bereiden. 
+
+---
+# Log 22-08-2023
+
+
 ## Dagverslag (1 zin)
 
 
