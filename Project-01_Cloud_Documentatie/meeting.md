@@ -7,30 +7,31 @@ A:
 Q: Wat zijn de eisen voor jullie instances?  
 A: 
 
-Q: Hoe willen jullie je webserver geinstalleerd hebben?  
+Q: Hoe willen jullie je webserver geinstalleerd hebben?   
 A:
 
-Q: Hebben jullie iemand die, nadat alles uitgezet is, de omgeving kan beheren?
+Q: Hebben jullie iemand die, nadat alles uitgezet is, de omgeving kan beheren?  
 A: 
 
-Q: Moeten alle subnets public zijn?
+Q: Moeten alle subnets public zijn?  
 A:    
 
-Q: Waarom zijn twee subnets niet gebruikt? Is dat een gevolg van de GI?
+Q: Waarom zijn twee subnets niet gebruikt? Is dat een gevolg van de GI?  
 A:
 
-Q: Moeten de disks alleen encrypted zijn at rest of moet de data in transit m.b.t. de disks ook versleuteld zijn?
+Q: Moeten de disks alleen encrypted zijn at rest of moet de data in transit m.b.t. de disks ook versleuteld zijn?   
 A:
 
 
-Q: Enig idee hoe je wil omgaan met toename van traffic?  
+Q: Enig idee hoe je wil omgaan met toename van traffic?    
 A:
 
-Q: Willen jullie gebruik maken van een ASG in dit kader? 
+Q: Willen jullie gebruik maken van een ASG in dit kader?  
 A:   
 
-Q: Hoe zit dat m.b.t. een ALB?  
+Q: Hoe zit dat m.b.t. een ALB?   
 A: 
+
 Q: Waarom is je management server in een andere region dan je webserver?    
 A: 
 
