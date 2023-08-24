@@ -4,6 +4,17 @@
 Q: Wat voor bedrijf zijn jullie en in welke regio's zijn jullie actief?  
 A: 
 
+Q: Could the product owner elaborate on the specific goals and benefits the company aims to achieve through this transition to the cloud?  
+A:
+
+Q: Welke rollen zijn er binnen jullie organisatie?  
+A:
+
+Q: Wat voor bevoegdheden hebben die bovengenoemde rollen?
+A: 
+
+
+
 Q: Wat zijn de eisen voor jullie instances?  
 A: 
 
@@ -60,10 +71,10 @@ A:
 Q: Hoe beschikbaar moeten de postDeploymentScripts zijn?  
 A: 
 
-Q: Wat is de uptime voor de app-server?  
+Q: Wat is de uptime voor de app-server?  En heb jullie nog eisen rondom de specificaties van deze server?
 A:
 
-Q: wat is de uptime voor de admin-server?  
+Q: wat is de uptime voor de admin-server?  En heb jullie nog eisen rondom de specificaties van deze server?
 A:
 
 Q: Hoe wil je de ip-ranges verdelen over de subnets?   
@@ -96,37 +107,20 @@ A:
 
 
 Network:
-Only 1 NSG per Virtual Network? or do you want to add extra NSG in the future?
+
 IP range for the NSG, /24 seems very big for just one server per NSG.
 Is the NSG sufficient as a firewall?
 Has the peering full access or are there ports blocked by default?
-Why does the client want the webserver in AvailZone 1 and the Mngmntserver in AvailZone 2?
+
 
 Webserver:
 Preferred distribution
-Preferred size (compute power)
-Disk type, ssd/hdd lrs/grs
-What is the required uptime for the webserver
-What is the reasoning that the Webserver and Admin server are put in different regions in the diagram attachment? 
-Can the webserver and admin server deploy in the same resource group?
+
 
 
 Adminserver:
 Preferred distribution
-Preferred size (compute power)
-Disk type, ssd/hdd lrs/grs
-What is the required uptime for the webserver
 
 
 
-General:
-What regions allowed for deployment?
-What type of storage for the postDeploymentScripts?
-Could the product owner elaborate on the specific goals and benefits the company aims to achieve through this transition to the cloud?
-
-
-
-RBAC:
-What roles are there in the organization?
-What is everyone allowed to do?
 
