@@ -34,7 +34,7 @@ Hoe een POM voor te bereiden.
 # Log 23-08-2023
 
 
-## Dagverslag (1 zin)
+## Dagverslag 
 Vandaag de python cdk-workshop gedaan. 
 
 ## Obstakels
@@ -52,7 +52,7 @@ Dit zal vrij cliché klinken, maar de learning is: begin bij het begin.
 # Log 24-08-2023
 
 
-## Dagverslag (1 zin)
+## Dagverslag 
 POM gehad waar wel wat bruikbare info uit voortkwam, daarna nog een aantal dingen van de cdk-workshop gedaan en gelezen over het gebruik van Boto3. 
 
 ## Obstakels
@@ -63,5 +63,37 @@ Nieuwe bronnen aanboren om helder te krijgen wat een goede manier is te beginnen
 
 ## Learnings
 Als je een leerstuk niet begrijpt: verklein het leerstuk, totdat er een klein gedeelte over blijft wat je wil volledig begrijpt. 
+
+---
+
+# Log 24-08-2023
+
+
+## Dagverslag 
+POM gehad waar wel wat bruikbare info uit voortkwam, daarna nog een aantal dingen van de cdk-workshop gedaan en gelezen over het gebruik van Boto3. 
+
+## Obstakels
+Boto3 is nieuw voor mij. Ik heb nog niet echt een idee waar ik moet beginnen met het bouwen van een MVP. 
+
+## Oplossingen
+Nieuwe bronnen aanboren om helder te krijgen wat een goede manier is te beginnen met de bouw van de MVP. 
+
+## Learnings
+Als je een leerstuk niet begrijpt: verklein het leerstuk, totdat er een klein gedeelte over blijft wat je wil volledig begrijpt. 
+
+---
+
+# Log 25-08-2023
+
+## Dagverslag 
+Vandaag op een windows-machine geprobeerd te werken en eventueel een eerste snippet te schrijven. 
+
+## Obstakels
+Had problemen met ".venv".
+## Oplossingen
+De map met het project van mijn machine gehaald om met een clean sheet verder te kunnen. 
+
+## Learnings
+Het is mij wel duidelijk geworden hoeveel tijd je kunt winnen met het effectief uitzetten van je stack met een CDK. Dit maakt dat ik doorzet, hoewel het totaal nog niet loopt. 
 
 ---
