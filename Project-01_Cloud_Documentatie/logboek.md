@@ -31,19 +31,37 @@ Shikha heeft aangegeven dat een goede POM vooral bedoeld is om je deliverables w
 Hoe een POM voor te bereiden. 
 
 ---
-# Log 22-08-2023
+# Log 23-08-2023
 
 
 ## Dagverslag (1 zin)
-
+Vandaag de python cdk-workshop gedaan. 
 
 ## Obstakels
-
+Gemist dat er een "Prerequisites" was voorafgaand aan de workshop. Dit zorgde voor wat vertraging. De URL-link van de LC ging namelijk direct naar de workshop. 
 
 ## Oplossingen
-
+Toen ik al een tijdje bezig was geweest met de workshop, toch besloten even de Prerequisites te doorlopen. 
 
 ## Learnings
+Dit zal vrij cliché klinken, maar de learning is: begin bij het begin. 
 
+---
+
+---
+# Log 24-08-2023
+
+
+## Dagverslag (1 zin)
+POM gehad waar wel wat bruikbare info uit voortkwam, daarna nog een aantal dingen van de cdk-workshop gedaan en gelezen over het gebruik van Boto3. 
+
+## Obstakels
+Boto3 is nieuw voor mij. Ik heb nog niet echt een idee waar ik moet beginnen met het bouwen van een MVP. 
+
+## Oplossingen
+Nieuwe bronnen aanboren om helder te krijgen wat een goede manier is te beginnen met de bouw van de MVP. 
+
+## Learnings
+Als je een leerstuk niet begrijpt: verklein het leerstuk, totdat er een klein gedeelte over blijft wat je wil volledig begrijpt. 
 
 ---
