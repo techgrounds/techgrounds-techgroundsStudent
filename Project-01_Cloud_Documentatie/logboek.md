@@ -97,3 +97,4 @@ De map met het project van mijn machine gehaald om met een clean sheet verder te
 Het is mij wel duidelijk geworden hoeveel tijd je kunt winnen met het effectief uitzetten van je stack met een CDK. Dit maakt dat ik doorzet, hoewel het totaal nog niet loopt. 
 
 ---
+
