@@ -13,7 +13,7 @@ class deCloud(cdk.Stack):
         vpc_app = ec2.Vpc(self, "app-prd-vpc", 
                       nat_gateways=0,
                       max_azs=2,
-                      ip_addresses=ec2.IpAddresses.cidr("10.10.0.0/24")
+                      ip_addresses=ec2.IpAddresses.cidr("10.10.0.0/24"),
                       subnet_configuration=[ec2.SubnetConfiguration(name="Publiek",subnet_type=ec2.SubnetType.PUBLIC)], 
                      
             )
@@ -23,7 +23,7 @@ class deCloud(cdk.Stack):
        
         # Creëer een webserver binnen "app-prd-vpc"
         
-        app_server = ec2Instance(self, "app_server")
+        # app_server = ec2.Instance(self, "app_server")
         
                       
 
