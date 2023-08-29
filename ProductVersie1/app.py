@@ -4,7 +4,7 @@ import os
 import aws_cdk as cdk
 
 from product_versie1.product_versie1_stack import ProductVersie1Stack
-from product_versie1.PrivateCloud import CloudStack 
+from product_versie1.deCloud_stack import deCloud 
 
 app = cdk.App()
 ProductVersie1Stack(app, "ProductVersie1Stack",
@@ -24,5 +24,5 @@ ProductVersie1Stack(app, "ProductVersie1Stack",
 
     # For more information, see https://docs.aws.amazon.com/cdk/latest/guide/environments.html
     )
-CloudStack(app, "CloudStack", env=cdk.Environment(account=os.getenv('CDK_DEFAULT_ACCOUNT'), region=os.getenv('CDK_DEFAULT_REGION')), )
+deCloud(app, "deCloud", env=cdk.Environment(account=os.getenv('CDK_DEFAULT_ACCOUNT'), region=os.getenv('CDK_DEFAULT_REGION')), )
 app.synth()
