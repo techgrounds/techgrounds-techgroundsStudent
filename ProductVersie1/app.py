@@ -4,7 +4,7 @@ import os
 import aws_cdk as cdk
 
 from product_versie1.product_versie1_stack import ProductVersie1Stack
-
+from product_versie1.PrivateCloud import CloudStack 
 
 app = cdk.App()
 ProductVersie1Stack(app, "ProductVersie1Stack",
@@ -15,7 +15,7 @@ ProductVersie1Stack(app, "ProductVersie1Stack",
     # Uncomment the next line to specialize this stack for the AWS Account
     # and Region that are implied by the current CLI configuration.
 
-    #env=cdk.Environment(account=os.getenv('CDK_DEFAULT_ACCOUNT'), region=os.getenv('CDK_DEFAULT_REGION')),
+    env=cdk.Environment(account=os.getenv('CDK_DEFAULT_ACCOUNT'), region=os.getenv('CDK_DEFAULT_REGION')),
 
     # Uncomment the next line if you know exactly what Account and Region you
     # want to deploy the stack to. */
@@ -24,5 +24,5 @@ ProductVersie1Stack(app, "ProductVersie1Stack",
 
     # For more information, see https://docs.aws.amazon.com/cdk/latest/guide/environments.html
     )
-
+CloudStack(app, "CloudStack", env=cdk.Environment(account=os.getenv('CDK_DEFAULT_ACCOUNT'), region=os.getenv('CDK_DEFAULT_REGION')), )
 app.synth()
