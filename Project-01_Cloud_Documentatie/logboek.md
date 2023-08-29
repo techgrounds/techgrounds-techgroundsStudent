@@ -98,3 +98,17 @@ Het is mij wel duidelijk geworden hoeveel tijd je kunt winnen met het effectief 
 
 ---
 
+# Log 28-08-2023
+
+## Dagverslag 
+Poging gedaan om een snippet te schrijven om een VPC te creëren. 
+
+## Obstakels
+Ik had wederom problemen met de virtuele omgeving. 
+
+## Oplossingen
+Problemen met de virtuele omgeving verholpen door de omgeving via de windows command prompt te draaien.
+
+
+## Learnings
+we hoeven niet de SDK voor python in te zetten bij dit project. 
