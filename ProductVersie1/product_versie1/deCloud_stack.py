@@ -28,7 +28,7 @@ class deCloud(Stack):
                       nat_gateways=0,
                       max_azs=2,
                       ip_addresses = ec2.IpAddresses.cidr("10.10.0.0/24"),
-                      subnet_configuration=[ec2.SubnetConfiguration(name="Publiek",subnet_type=ec2.SubnetType.PUBLIC)], 
+                      subnet_configuration=[ec2.SubnetConfiguration(name="Publiek",subnet_type=ec2.SubnetType.PUBLIC,)] 
                      
             )
      
@@ -67,9 +67,24 @@ class deCloud(Stack):
                                      
                                                           )
         
-        # Creëer een vpc in je infrastructuur
+          # Creëer een SG voor de admin-server
+        sg_admin_server = ec2.SecurityGroup(self,"sgAdminServer", 
+                                         vpc = vpc_admin_server,
+                                         description = "sg_admin_server vanuit CDK",
+                                         allow_all_outbound=True,
+                                         disable_inline_rules=False,
+                                    )
+        sg_webserver.add_ingress_rule(ec2.Peer.ipv4('0.0.0.0/0'), ec2.Port.tcp(22), "SSH toegang naar de adminServer van overal") #dit voor nu, aangezien ik niet weer wat de ip-adressen zijn. 
+
         
-        # Creëer een SG voor de admin-server
+         # Creëer een vpc-peering connection in je infrastructuur
+         
+        Cloud_Peering = ec2.CfnVPCPeeringConnection(self, "De_Gewenste_Peering_der_Clouds",
+    peer_vpc_id="management-prd-vpc",
+    vpc_id="app-prd-vpc",
+         )
+        
+      
         
         # Creëer een management-server binnen de VPC management-prd-vpc, deze zal werken op Linux
         
