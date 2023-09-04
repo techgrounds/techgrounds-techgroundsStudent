@@ -146,14 +146,18 @@ n.v.t.
 # Log 04-09-2023
 
 ## Dagverslag 
+Veelal gewerkt aan mijn eerste stack geschreven in python.
 
 
 ## Obstakels
+Hoe kan ik makkelijk gebruik maken van de informatie die staat in het API-reference?
 
 
 ## Oplossingen
+Er lijkt geen wondermiddel te bestaan voor mij om sneller met de documentatie van API-reference om te gaan. Het is een uitgebreide documentatie, die vrij uitputtend opgesteld is m.i. Hierdoor duurt het wat traag om te leren er vingervlug de info uit te halen die je nodig hebt.  
 
 
 ## Learnings
+Hoe meer ik van Python begrijp, hoe makkelijker ik met de CDK kan werken. 
 
  
