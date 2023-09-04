@@ -112,3 +112,48 @@ Problemen met de virtuele omgeving verholpen door de omgeving via de windows com
 
 ## Learnings
 we hoeven niet de SDK voor python in te zetten bij dit project. 
+
+---
+
+# Log 29-08-2023
+
+## Dagverslag 
+Verder gewerkt aan mijn eerste stack.
+
+## Obstakels
+Lukte mij niet louter één subnet te maken in één AZ. 
+
+## Oplossingen
+Het is maar de vraag of dat bovenstaande ook daadwerkelijk nodig is. 
+
+## Learnings
+Niet te lang kauwen op een klein element van je opdracht. 
+
+# Log 30-08-2023 t/m 01-09-2023
+
+## Dagverslag 
+Ziek
+
+## Obstakels
+n.v.t.
+
+## Oplossingen
+n.v.t.
+
+## Learnings
+n.v.t.
+---
+# Log 04-09-2023
+
+## Dagverslag 
+
+
+## Obstakels
+
+
+## Oplossingen
+
+
+## Learnings
+
+ 
