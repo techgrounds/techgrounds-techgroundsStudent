@@ -83,7 +83,8 @@ class deCloud(Stack):
         vpc_id="app-prd-vpc",
          )   
              
-        # Creëer een management-server binnen de VPC management-prd-vpc, deze zal werken op Linux        
+        # Creëer een management-server binnen de VPC management-prd-vpc, deze zal werken op Linux     
+           
         # Creëer een backup systeem in AWS voor het bedrijf         
         # Implementeer KMS in je infrastructuur         
         # IAM gebruiken in je infrastructuur
