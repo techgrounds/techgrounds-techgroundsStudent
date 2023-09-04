@@ -61,9 +61,13 @@ class deCloud(Stack):
         # Creëer een VPC voor de Management server
         
         vpc_admin_server = ec2.Vpc(self, "management-prd-vpc", 
-                                     ec2.IpAddresses.cidr("10.20.20.0/24")
+                            nat_gateways = 0,
+                            max_azs = 2,
+                            ip_addresses = ec2.IpAddresses.cidr("10.20.20.0/24")
                                      
                                                           )
+        
+        # Creëer een vpc in je infrastructuur
         
         # Creëer een SG voor de admin-server
         
