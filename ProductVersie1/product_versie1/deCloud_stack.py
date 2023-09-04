@@ -4,6 +4,8 @@ from aws_cdk import (
     aws_ec2 as ec2,
     aws_s3 as s3, 
     aws_kms as kms,
+    aws_backup as backup,
+    aws_iam as iam
 )
 from constructs import Construct
 
@@ -43,8 +45,7 @@ class deCloud(Stack):
         sg_webserver.add_ingress_rule(ec2.Peer.ipv4('10.20.20.0/24'), ec2.Port.tcp(22), "SSH toegang voor de adminServer")
         
      
-        # Creëer een webserver binnen "app-prd-vpc" die draait op Windows 
-        
+        # Creëer een webserver binnen "app-prd-vpc" die draait op Windows         
         app_server = ec2.Instance(self, "app_server", 
                                   vpc = vpc_app, 
                                   instance_type = ec2.InstanceType('t3a.micro'),
@@ -58,8 +59,7 @@ class deCloud(Stack):
         
         
         
-        # Creëer een VPC voor de Management server
-        
+        # Creëer een VPC voor de Management server        
         vpc_admin_server = ec2.Vpc(self, "management-prd-vpc", 
                             nat_gateways = 0,
                             max_azs = 2,
@@ -67,38 +67,29 @@ class deCloud(Stack):
                                      
                                                           )
         
-          # Creëer een SG voor de admin-server
+        # Creëer een SG voor de admin-server          
         sg_admin_server = ec2.SecurityGroup(self,"sgAdminServer", 
                                          vpc = vpc_admin_server,
                                          description = "sg_admin_server vanuit CDK",
                                          allow_all_outbound=True,
                                          disable_inline_rules=False,
                                     )
-        sg_webserver.add_ingress_rule(ec2.Peer.ipv4('0.0.0.0/0'), ec2.Port.tcp(22), "SSH toegang naar de adminServer van overal") #dit voor nu, aangezien ik niet weer wat de ip-adressen zijn. 
+        sg_admin_server.add_ingress_rule(ec2.Peer.ipv4('0.0.0.0/0'), ec2.Port.tcp(22), "SSH toegang naar de adminServer van overal") #dit voor nu, aangezien ik niet weer wat de ip-adressen zijn. 
 
         
-         # Creëer een vpc-peering connection in je infrastructuur
-         
+        # Creëer een vpc-peering connection in je infrastructuur         
         Cloud_Peering = ec2.CfnVPCPeeringConnection(self, "De_Gewenste_Peering_der_Clouds",
-    peer_vpc_id="management-prd-vpc",
-    vpc_id="app-prd-vpc",
-         )
-        
-      
-        
-        # Creëer een management-server binnen de VPC management-prd-vpc, deze zal werken op Linux
-        
-        
-        
-        #   Creëer een ACL voor de admin-server
-        #   Creëer een ACL voor de app-server
-        
-        #  Creëer een backup systeem in AWS voor het bedrijf 
-        
-        #  Implementeer KMS in je infrastructuur 
-        
+         peer_vpc_id="management-prd-vpc",
+        vpc_id="app-prd-vpc",
+         )   
+             
+        # Creëer een management-server binnen de VPC management-prd-vpc, deze zal werken op Linux        
+        # Creëer een backup systeem in AWS voor het bedrijf         
+        # Implementeer KMS in je infrastructuur         
         # IAM gebruiken in je infrastructuur
         
+        # Creëer een ACL voor de admin-server
+        # Creëer een ACL voor de app-server      
         
          
                                   
