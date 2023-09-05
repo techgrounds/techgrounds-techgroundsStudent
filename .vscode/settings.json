@@ -3,8 +3,10 @@
     "cSpell.words": [
         "Boto",
         "instanceof",
+        "linux",
         "Shikha",
         "Synthia",
+        "Userdata",
         "venv"
     ],
     "python.analysis.typeCheckingMode": "off"
