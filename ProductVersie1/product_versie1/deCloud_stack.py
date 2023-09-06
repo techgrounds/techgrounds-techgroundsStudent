@@ -28,15 +28,16 @@ class deCloud(Stack):
 
         
         
-        # Implementeer KMS in je infrastructuur
+        # Implementeer KMS in je infrastructuur 
         de_loper = kms.Key(self, "Loper",
             enable_key_rotation = True, 
-            enabled = True,            
+            enabled = True, 
+            alias = "de_ware_loper"           
                            
                            )
         
         
-        #   Maak een s3-bucket die encrypted is met je KMS-sleutel
+        #   Maak een s3-bucket die encrypted is met meerbedoelde KMS-sleutel 
         deEmmer = s3.Bucket(self, "VersleuteldeEmmer",
         bucket_name = "s3-bucket4scripts",
         access_control = s3.BucketAccessControl.PRIVATE,
@@ -57,7 +58,7 @@ class deCloud(Stack):
                      
         )
      
-       # Creëer een SG voor de webserver
+       # Creëer een SG voor de webserver 
         sg_webserver = ec2.SecurityGroup(self,"sgWebServer", 
                                          vpc = vpc_app,
                                          description = "sg_webserver vanuit CDK",
@@ -147,7 +148,7 @@ class deCloud(Stack):
         # Creëer een ACL voor de admin-server
         # Creëer een ACL voor de app-server      
         
-        # scripts in de bucket die je aan het begin hebt gemaakt 
+        # scripts in de seau  die je aan het begin hebt gemaakt 
         
       
         
