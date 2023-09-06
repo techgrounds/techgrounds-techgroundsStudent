@@ -14,16 +14,29 @@ class deCloud(Stack):
     def __init__(self, scope: Construct, id: str, **kwargs) -> None:
         super().__init__(scope, id, **kwargs)
 
-       
-        #   Maak een s3-bucket die encrypted is 
+        
+        # Maak gebruik van IAM in je infrastructuur 
+        Admin_Hes = iam.Role(self,'decloud-Admin', assumed_by = )
+        
+        
+        # Implementeer KMS in je infrastructuur
+        de_loper = kms.Key(self, "Loper",
+            enable_key_rotation = True, 
+            enabled = True,            
+                           
+                           )
+        
+        
+        #   Maak een s3-bucket die encrypted is met je KMS-sleutel
         deEmmer = s3.Bucket(self, "VersleuteldeEmmer",
         bucket_name = "s3-bucket4scripts",
         access_control = s3.BucketAccessControl.PRIVATE,
         encryption = s3.BucketEncryption.KMS,
         versioned = True,
-        block_public_access = s3.BlockPublicAccess.BLOCK_ALL
+        block_public_access = s3.BlockPublicAccess.BLOCK_ALL,
+        encryption_key = de_loper
         )
-        assert isinstance(deEmmer.encryption_key, kms.Key)
+        assert (deEmmer.encryption_key == de_loper)
 
        
        # Creëer een VPC voor de webserver
@@ -114,19 +127,19 @@ class deCloud(Stack):
                                                ] 
                                   )
         
+             
+                        
+           
         
         
-        
-                
-        # Implementeer KMS in je infrastructuur         
-        # IAM gebruiken in je infrastructuur
+              
         
         # Creëer een ACL voor de admin-server
         # Creëer een ACL voor de app-server      
         
-        # scripts in de bucket die je aan het begin hebt gemaakt
+        # scripts in de bucket die je aan het begin hebt gemaakt 
         
-        # Userdata uit laten voeren door instance
+      
         
          
                                   
