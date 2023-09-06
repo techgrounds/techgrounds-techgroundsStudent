@@ -160,4 +160,62 @@ Er lijkt geen wondermiddel te bestaan voor mij om sneller met de documentatie va
 ## Learnings
 Hoe meer ik van Python begrijp, hoe makkelijker ik met de CDK kan werken. 
 
+
+----
+
+# Log 05-09-20223
+
+
+## Dagverslag (1 zin)
+Onderdelen toegevoegd aan mijn stack, zoals de user-data voor de webapp en een backup-plan. 
+
+## Obstakels
+Veelal wat errors te verwerken gehad bij het gebruik van de command "cdk diff".
+
+
+## Oplossingen
+Bij de errors stond steeds een hanteerbare uitleg. Door deze uitleg goed te lezen heb ik al mijn errors kunnen verhelpen. 
+
+
+## Learnings
+Lees je error-berichten grondig door.
+
+---
+# Log 06-09-2023
+
+## Dagverslag (1 zin)
+
+
+## Obstakels
+
+
+## Oplossingen
+
+
+## Learnings
+
+
+---
+
+----
+
+# Log 05-09-20223
+
+
+## Dagverslag (1 zin)
+
+
+## Obstakels
+
+
+## Oplossingen
+
+
+## Learnings
+
+
+---
+
+
+
  
