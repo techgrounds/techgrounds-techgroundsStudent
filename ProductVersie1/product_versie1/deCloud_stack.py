@@ -16,7 +16,16 @@ class deCloud(Stack):
 
         
         # Maak gebruik van IAM in je infrastructuur 
-        Admin_Hes = iam.Role(self,'decloud-Admin', assumed_by = )
+        Instance_Admin = iam.Role(self,"deInstance-Admin",
+                             assumed_by = iam.ServicePrincipal("ec2.amazonaws.com"))
+        
+        Instance_Admin.add_managed_policy(iam.ManagedPolicy.from_aws_managed_policy_name("AdministratorAccess"))
+        
+        Gerant = iam.Role(self, "DeGerant",
+                          assumed_by = iam.ArnPrincipal("arn:aws:iam::042831144970:user/consommateur"),)
+        
+        Gerant.add_managed_policy(iam.ManagedPolicy.from_aws_managed_policy_name('AdministratorAccess'))
+
         
         
         # Implementeer KMS in je infrastructuur
@@ -113,7 +122,8 @@ class deCloud(Stack):
                                     machine_image = ec2.MachineImage.latest_amazon_linux(
                                         generation = ec2.AmazonLinuxGeneration.AMAZON_LINUX_2), 
                                     vpc = vpc_admin_server,
-                                    security_group = sg_admin_server                                    
+                                    security_group = sg_admin_server, 
+                                    role = Instance_Admin                                 
         ),
         # Creëer een backup van de webserver waarbij de backups 7 dagen behouden moeten blijven 
         
