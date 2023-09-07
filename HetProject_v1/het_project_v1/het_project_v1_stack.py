@@ -10,7 +10,7 @@ from aws_cdk import (
 )
 from constructs import Construct
 
-class deCloud(Stack):
+class HetProjectV1Stack(Stack):
     def __init__(self, scope: Construct, id: str, **kwargs) -> None:
         super().__init__(scope, id, **kwargs)
 
@@ -67,7 +67,10 @@ class deCloud(Stack):
                                          disable_inline_rules = False,
                                                                                  
         )
-        sg_webserver.add_ingress_rule(ec2.Peer.ipv4('10.20.20.0/24'), ec2.Port.tcp(22), "SSH toegang voor de adminServer")
+        sg_webserver.add_ingress_rule(ec2.Peer.ipv4(
+            '10.20.20.0/24'), ec2.Port.tcp(22), "SSH toegang voor de adminServer")
+        sg_webserver.connections.allow_from_any_ipv4(ec2.Port.tcp(80), "Wereldwijd toegankelijk")
+        sg_webserver.connections.allow_from_any_ipv4(ec2.Port.tcp(443), "Wereldwijd toegankelijk")
         
      
         # Creëer een webserver binnen "app-prd-vpc" die draait op linux         
@@ -114,8 +117,8 @@ class deCloud(Stack):
         
         # Creëer een vpc-peering connection in je infrastructuur         
         Cloud_Peering = ec2.CfnVPCPeeringConnection(self, "De_Gewenste_Peering_der_Clouds",
-         peer_vpc_id = "management-prd-vpc",
-        vpc_id = "app-prd-vpc",
+         peer_vpc_id = vpc_app.vpc_id,
+        vpc_id = vpc_admin_server.vpc_id,
         )   
              
         # Creëer een management-server binnen de VPC management-prd-vpc, deze zal werken op Linux     
@@ -129,7 +132,7 @@ class deCloud(Stack):
         ),
         # Creëer een backup van de webserver waarbij de backups 7 dagen behouden moeten blijven 
         
-        plan_BU_app = backup.BackupPlan(self, "plan_der_BU_app"
+        plan_BU_app = backup.BackupPlan(self, "draaiboek_BU_app"
                                         )
         BU_regel_wekelijks = backup.BackupPlanRule.weekly()
         
@@ -150,16 +153,3 @@ class deCloud(Stack):
         # Creëer een ACL voor de app-server      
         
         # scripts in de seau  die je aan het begin hebt gemaakt 
-        
-      
-        
-         
-                                  
-                                  
-        
-                      
-
-
-
-
-
