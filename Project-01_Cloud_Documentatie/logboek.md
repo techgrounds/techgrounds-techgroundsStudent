@@ -184,22 +184,21 @@ Lees je error-berichten grondig door.
 # Log 06-09-2023
 
 ## Dagverslag (1 zin)
-
+Stack verder uitgewerkt: IAM-role toegevoegd en een eigen KMS sleutel gegenereerd. 
 
 ## Obstakels
-
+Had al een tijdje de stack niet uitgezet, maar gebruik gemaakt van "cdk diff" om te kijken hoe de AWS-omgeving op de cloud zou reageren. Toen ik daadwerkelijk ging uitzetten, lukte dit niet. 
 
 ## Oplossingen
-
+Mijn code van A tot Z doorlopen.
 
 ## Learnings
-
+Codeer en test regelmatig. 
 
 ---
 
-----
 
-# Log 05-09-20223
+# Log 07-09-20223
 
 
 ## Dagverslag (1 zin)
