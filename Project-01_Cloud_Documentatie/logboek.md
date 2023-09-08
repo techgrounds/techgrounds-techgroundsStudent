@@ -201,19 +201,25 @@ Codeer en test regelmatig.
 # Log 07-09-20223
 
 
-## Dagverslag (1 zin)
 
+## Dagverslag (1 zin)
+Mijn stack in een nieuwe directory gegoten zodat ik hem weer kon zonder problemen kon uitzetten. 
 
 ## Obstakels
-
+Allereerst moest ik inloggen in de console om het CDK-Toolkit cloudformation template handmatig te verwijderen. Hierdoor kon ik wederom deployen via de CLI. Daarna kwamen behoorlijk wat bugs in mijn code aan het licht, doordat ik vanuit de nieuwe directory daadwerkelijk kon deployen. 
 
 ## Oplossingen
+De interpreter gaf precies aan op welke regel in de code de problemen zaten. Door die regels code te verbeteren kon ik voor het grootste gedeelte mijn problemen verhelpen. 
 
 
 ## Learnings
-
+Met een schone lei beginnen kan een hoop kopzorgen in de prullenbak doen verdwijnen. 
 
 ---
+
+# log 08-09-2023
+
+
 
 
 
