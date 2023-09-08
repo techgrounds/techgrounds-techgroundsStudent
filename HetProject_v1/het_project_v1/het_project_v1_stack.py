@@ -55,7 +55,8 @@ class HetProjectV1Stack(Stack):
                       nat_gateways = 0,
                       max_azs = 2,
                       ip_addresses = ec2.IpAddresses.cidr("10.10.0.0/24"),
-                      subnet_configuration = [ec2.SubnetConfiguration(name="Publiek",subnet_type=ec2.SubnetType.PUBLIC,)] 
+                      vpc_name = "VPClouterVoorDeApp",
+                      subnet_configuration = [ec2.SubnetConfiguration(name="Publiek_SN_app",subnet_type=ec2.SubnetType.PUBLIC,)] 
                      
         )
      
@@ -67,28 +68,36 @@ class HetProjectV1Stack(Stack):
                                          disable_inline_rules = False,
                                                                                  
         )
-        sg_webserver.add_ingress_rule(ec2.Peer.ipv4(
-            '10.20.20.0/24'), ec2.Port.tcp(22), "SSH toegang voor de adminServer")
+        sg_webserver.add_ingress_rule(ec2.Peer.ipv4('10.20.20.0/24'), ec2.Port.tcp(22), "SSH toegang voor de adminServer")
         sg_webserver.connections.allow_from_any_ipv4(ec2.Port.tcp(80), "Wereldwijd toegankelijk")
         sg_webserver.connections.allow_from_any_ipv4(ec2.Port.tcp(443), "Wereldwijd toegankelijk")
         
      
-        # Creëer een webserver binnen "app-prd-vpc" die draait op linux         
+       # user data definiëren 
+        eenvoud_UD = ec2.UserData.for_linux( shebang =  "#!/bin/bash")
+        eenvoud_UD.add_commands ( "yum -y install httpd",
+                                         "systemctl enable httpd",
+                                             "systemctl start httpd",
+                                            "echo '<html><h1>L.S., MOGE UW TOCHT NAAR DEZE PLAATS VOORSPOEDIG ZIJN GEWEEST</h1></html>' > /var/www/html/index.html"
+                 
+             )                                  
+        
+     
+     
+        # Creëer een webserver binnen "app-prd-vpc" die draait op linux en voeg user_data in voor website        
         app_server = ec2.Instance(self, "app_server", 
                                   vpc = vpc_app, 
                                   instance_type = ec2.InstanceType("t3a.micro"),
                                   machine_image = ec2.MachineImage.latest_amazon_linux(
                                     generation = ec2.AmazonLinuxGeneration.AMAZON_LINUX_2), 
                                   security_group = sg_webserver,
-                                  user_data = ec2.UserData.for_linux(shebang =  """#!/bin/bash
-                                    yum -y install httpd
-                                    systemctl enable httpd
-                                    systemctl start httpd
-                                    echo '<html><h1>L.S., MOGE UW TOCHT NAAR DEZE PLAATS VOORSPOEDIG ZIJN GEWEEST </h1></html>' >
-                                    /var/www/html/index.html"""
-                                    )
-                                               
-        )
+                                  user_data=eenvoud_UD
+                                                                         
+                                                                               
+                         )
+
+       
+        
         # webserver moet via http en https toegankelijk zijn 
         app_server.connections.allow_from_any_ipv4(ec2.Port.tcp(80), "Wereldwijd toegankelijk")
         app_server.connections.allow_from_any_ipv4(ec2.Port.tcp(443), "Wereldwijd toegankelijk")
@@ -101,10 +110,12 @@ class HetProjectV1Stack(Stack):
                             nat_gateways = 0,
                             max_azs = 2,
                             ip_addresses = ec2.IpAddresses.cidr("10.20.20.0/24"),
-                            subnet_configuration = [ec2.SubnetConfiguration(name="Publiek_Admin",subnet_type = ec2.SubnetType.PUBLIC,)]                            
+                            subnet_configuration = [ec2.SubnetConfiguration(name="Publiek_SN_Admin",subnet_type = ec2.SubnetType.PUBLIC,)]                            
                             
         )
         
+        Publiek_SN_Admin_id = vpc_admin_server.public_subnets[1].subnet_id
+       
         # Creëer een SG voor de admin-server          
         sg_admin_server = ec2.SecurityGroup(self,"sgAdminServer", 
                                          vpc = vpc_admin_server,
@@ -120,12 +131,23 @@ class HetProjectV1Stack(Stack):
          peer_vpc_id = vpc_app.vpc_id,
         vpc_id = vpc_admin_server.vpc_id,
         )   
+        # Creëer een route van je admin_server naar je VPC-peering naar je webserver 
+        admin_juiste_route = ec2.CfnRoute(self, "De_route_voor_de_admin",
+                                      route_table_id = vpc_admin_server.public_subnets[0].route_table.route_table_id, 
+                                      vpc_peering_connection_id = Cloud_Peering.attr_id,
+                                      destination_cidr_block = "10.10.10.0/24", 
+                                      
+                                )
+        # leg de meerbedoelde route vast voor de volledigheid 
+        log_admin_route = CfnOutput(self, "log_vd_route", 
+                                    value= admin_juiste_route.ref
+                                    )
+    
              
         # Creëer een management-server binnen de VPC management-prd-vpc, deze zal werken op Linux     
         admin_server = ec2.Instance(self, "admin_server", 
                                     instance_type = ec2.InstanceType("t3a.micro"), 
-                                    machine_image = ec2.MachineImage.latest_amazon_linux(
-                                        generation = ec2.AmazonLinuxGeneration.AMAZON_LINUX_2), 
+                                    machine_image =  ec2.WindowsImage(ec2.WindowsVersion.WINDOWS_SERVER_2019_ENGLISH_FULL_BASE),
                                     vpc = vpc_admin_server,
                                     security_group = sg_admin_server, 
                                     role = Instance_Admin                                 
@@ -141,15 +163,10 @@ class HetProjectV1Stack(Stack):
                                   resources = [backup.BackupResource.from_construct(app_server)
                                                ] 
                                   )
-        
-             
+                  
                         
-           
-        
-        
-              
-        
+                 
         # Creëer een ACL voor de admin-server
         # Creëer een ACL voor de app-server      
         
-        # scripts in de seau  die je aan het begin hebt gemaakt 
+    
