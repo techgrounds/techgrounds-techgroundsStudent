@@ -220,6 +220,39 @@ Met een schone lei beginnen kan een hoop kopzorgen in de prullenbak doen verdwij
 # log 08-09-2023
 
 
+## Dagverslag (1 zin)
+Voornamelijk bezig geweest met het creëren van een route van mijn Admin-server naar mijn app-server via de connectie van mijn VPC-peering. 
+
+## Obstakels
+Een Nieuwe class betekent soms ook nieuwe obstakels. 
+
+## Oplossingen
+Met het instrumentarium dat mij is aangereikt tijdens de cursus ben ik de obstakels te lijf gegaan. 
+
+## Learnings
+Wees niet al te terughoudend met het verzamelen van terugkoppeling. 
+
+---
+
+# Log 11-09-2022
+
+
+## Dagverslag (1 zin)
+
+
+## Obstakels
+
+
+## Oplossingen
+
+
+## Learnings
+
+
+---
+
+
+
 
 
 
