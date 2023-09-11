@@ -17,14 +17,18 @@ class HetProjectV1Stack(Stack):
         
         # Maak gebruik van IAM in je infrastructuur 
         Instance_Admin = iam.Role(self,"deInstance-Admin",
-                             assumed_by = iam.ServicePrincipal("ec2.amazonaws.com"))
+                             assumed_by = iam.ServicePrincipal("ec2.amazonaws.com")
+        )
         
-        Instance_Admin.add_managed_policy(iam.ManagedPolicy.from_aws_managed_policy_name("AdministratorAccess"))
+        Instance_Admin.add_managed_policy(iam.ManagedPolicy.from_aws_managed_policy_name("AdministratorAccess")
+        )
         
         Gerant = iam.Role(self, "DeGerant",
-                          assumed_by = iam.ArnPrincipal("arn:aws:iam::042831144970:user/consommateur"),)
+                          assumed_by = iam.ArnPrincipal("arn:aws:iam::042831144970:user/consommateur")
+        )
         
-        Gerant.add_managed_policy(iam.ManagedPolicy.from_aws_managed_policy_name('AdministratorAccess'))
+        Gerant.add_managed_policy(iam.ManagedPolicy.from_aws_managed_policy_name('AdministratorAccess')
+        )
 
         
         
@@ -34,7 +38,7 @@ class HetProjectV1Stack(Stack):
             enabled = True, 
             alias = "de_ware_loper"           
                            
-                           )
+        )
         
         
         #   Maak een s3-bucket die encrypted is met meerbedoelde KMS-sleutel 
@@ -76,13 +80,19 @@ class HetProjectV1Stack(Stack):
        # user data definiëren 
         eenvoud_UD = ec2.UserData.for_linux( shebang =  "#!/bin/bash")
         eenvoud_UD.add_commands ( "yum -y install httpd",
-                                         "systemctl enable httpd",
-                                             "systemctl start httpd",
-                                            "echo '<html><h1>L.S., MOGE UW TOCHT NAAR DEZE PLAATS VOORSPOEDIG ZIJN GEWEEST</h1></html>' > /var/www/html/index.html"
+                                    "systemctl enable httpd",
+                                        "systemctl start httpd",
+                                         "echo '<html><h1>L.S., MOGE UW TOCHT NAAR DEZE PLAATS VOORSPOEDIG ZIJN GEWEEST</h1></html>' > /var/www/html/index.html"
                  
-             )                                  
+        )                                  
         
-     
+         # Creëer wat key-pair zodat er veilig via een SSH-verbinding verbonden kan worden
+        sleutelpaar_app = ec2.CfnKeyPair(self, "Sleutelpaar_app_voor_SSH",
+                key_name= "Sleutelpaar_app",
+                key_type = "rsa",
+                key_format = "pem",
+        )
+                 
      
         # Creëer een webserver binnen "app-prd-vpc" die draait op linux en voeg user_data in voor website        
         app_server = ec2.Instance(self, "app_server", 
@@ -91,10 +101,11 @@ class HetProjectV1Stack(Stack):
                                   machine_image = ec2.MachineImage.latest_amazon_linux(
                                     generation = ec2.AmazonLinuxGeneration.AMAZON_LINUX_2), 
                                   security_group = sg_webserver,
-                                  user_data=eenvoud_UD
+                                  user_data= eenvoud_UD,
+                                  key_name =  sleutelpaar_app.key_name
                                                                          
                                                                                
-                         )
+        )
 
        
         
@@ -114,16 +125,16 @@ class HetProjectV1Stack(Stack):
                             
         )
         
-        Publiek_SN_Admin_id = vpc_admin_server.public_subnets[1].subnet_id
+        Publiek_SN_Admin_2 = vpc_admin_server.public_subnets[1]
        
         # Creëer een SG voor de admin-server          
         sg_admin_server = ec2.SecurityGroup(self,"sgAdminServer", 
                                          vpc = vpc_admin_server,
-                                         description = "sg_admin_server vanuit CDK",
+                                         description = "sg admin_server vanuit CDK",
                                          allow_all_outbound = True,
                                          disable_inline_rules = False,
         )
-        sg_admin_server.add_ingress_rule(ec2.Peer.ipv4('86.87.153.240/32'), ec2.Port.tcp(22), "SSH toegang naar de adminServer van overal") #dit voor nu, aangezien ik niet weer wat de ip-adressen zijn. 
+        sg_admin_server.add_ingress_rule(ec2.Peer.ipv4('86.87.153.240/32'), ec2.Port.tcp(3389), "RDP toegang naar de admin_Server voor de admin") 
 
         
         # Creëer een vpc-peering connection in je infrastructuur         
@@ -131,41 +142,74 @@ class HetProjectV1Stack(Stack):
          peer_vpc_id = vpc_app.vpc_id,
         vpc_id = vpc_admin_server.vpc_id,
         )   
-        # Creëer een route van je admin_server naar je VPC-peering naar je webserver 
+        # Creëer een route van je admin_server door je VPC-peering naar je webserver 
         admin_juiste_route = ec2.CfnRoute(self, "De_route_voor_de_admin",
                                       route_table_id = vpc_admin_server.public_subnets[0].route_table.route_table_id, 
                                       vpc_peering_connection_id = Cloud_Peering.attr_id,
                                       destination_cidr_block = "10.10.10.0/24", 
                                       
-                                )
+        )
+        
+         # Creëer een route van je admin_server door je VPC-peering naar je webserver ook voor je andere subnet 
+        admin_juiste_route2 = ec2.CfnRoute(self, "De_route_voor_de_admin_2",
+                                      route_table_id = Publiek_SN_Admin_2.route_table.route_table_id, 
+                                      vpc_peering_connection_id = Cloud_Peering.attr_id,
+                                      destination_cidr_block = "10.10.10.0/24", 
+                                      
+        )
         # leg de meerbedoelde route vast voor de volledigheid 
         log_admin_route = CfnOutput(self, "log_vd_route", 
                                     value= admin_juiste_route.ref
-                                    )
-    
-             
-        # Creëer een management-server binnen de VPC management-prd-vpc, deze zal werken op Linux     
+                                    
+        )
+
+        
+        # Creëer een route van je app_server door je VPC-peering naar je admin-server voor je 1e subnet in app-server 
+        route_tabel_app = ec2.CfnRouteTable(self, "De_enige_wijzer_vd_app",
+                            vpc_id = vpc_app.vpc_id,
+        )
+        
+        app_juiste_route = ec2.CfnRoute(self, "de_route_voor_de_app",
+                            route_table_id= route_tabel_app.attr_route_table_id,
+                            destination_cidr_block = "10.20.20.0/24",
+                            vpc_peering_connection_id = Cloud_Peering.attr_id
+        )
+        # Creëer een route van je app_server door je VPC-peering naar je admin-server voor je 2e subnet in app-server indien nodig
+        
+        # Creëer een user_data format voor je management-server
+        user_data_management_server = ec2.UserData.for_windows()
+        user_data_management_server.add_commands( """<powershell>
+                        $adminPassword = "B3h33rd@n"
+                        $adminPasswordSecure = ConvertTo-SecureString $adminPassword -AsPlainText -Force
+                        Set-LocalUser -Name "Admin" -Password $adminPasswordSecure
+                        </powershell>""" 
+        )
+        
+        # Creëer een management-server binnen de VPC management-prd-vpc, deze zal werken op Windows en moet via RDP toegankelijk zijn     
         admin_server = ec2.Instance(self, "admin_server", 
                                     instance_type = ec2.InstanceType("t3a.micro"), 
                                     machine_image =  ec2.WindowsImage(ec2.WindowsVersion.WINDOWS_SERVER_2019_ENGLISH_FULL_BASE),
                                     vpc = vpc_admin_server,
                                     security_group = sg_admin_server, 
-                                    role = Instance_Admin                                 
-        ),
+                                    role = Instance_Admin,
+                                    user_data = user_data_management_server                                
+        )
         # Creëer een backup van de webserver waarbij de backups 7 dagen behouden moeten blijven 
         
         plan_BU_app = backup.BackupPlan(self, "draaiboek_BU_app"
-                                        )
+        )
         BU_regel_wekelijks = backup.BackupPlanRule.weekly()
         
         plan_BU_app.add_rule(BU_regel_wekelijks)
+        
         plan_BU_app.add_selection(id = "louter_de_app_server", 
                                   resources = [backup.BackupResource.from_construct(app_server)
-                                               ] 
-                                  )
+                                    ] 
+        )
                   
                         
-                 
+       
+                
         # Creëer een ACL voor de admin-server
         # Creëer een ACL voor de app-server      
         
