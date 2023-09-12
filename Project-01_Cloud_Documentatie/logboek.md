@@ -238,6 +238,23 @@ Wees niet al te terughoudend met het verzamelen van terugkoppeling.
 
 
 ## Dagverslag (1 zin)
+Routes voor mijn route-tables aan mijn stack toegevoegd en een key-pair gecodeerd zodat ik via SSH met mijn app_Server kan verbinden. 
+
+## Obstakels
+Ik vind het soms lastig te constateren of ik de materie echt in alle volledigheid begrijp. Zo'n begrip heb ik nodig om de leerstukken creatief toe te kunnen passen. Dit laatste is dan weer handig omdat creatieve toepassingen mij vaak het grootste gevoel van voldoening geven en vaak ook een heel pragmatische toepassing omvatten. 
+
+## Oplossingen
+Mijn code vaker en sneller deployen, zodat ik daadwerkelijk kan zien hoe mijn code wordt uitgevoerd. Zeker in mijn casus, waarbij geen enkele andere student werkt in de CDK met python. 
+
+## Learnings
+MVP's creëren doe je  in een cyclus. Ik bedoel daarmee: codeer, deploy, debug, codeer deploy, debug etc. 
+
+---
+
+# Log 12-09-2022
+
+
+## Dagverslag (1 zin)
 
 
 ## Obstakels
@@ -250,7 +267,6 @@ Wees niet al te terughoudend met het verzamelen van terugkoppeling.
 
 
 ---
-
 
 
 
