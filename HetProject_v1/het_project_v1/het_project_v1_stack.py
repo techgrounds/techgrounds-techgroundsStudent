@@ -75,6 +75,8 @@ class HetProjectV1Stack(Stack):
         sg_webserver.add_ingress_rule(ec2.Peer.ipv4('10.20.20.0/24'), ec2.Port.tcp(22), "SSH toegang voor de adminServer")
         sg_webserver.connections.allow_from_any_ipv4(ec2.Port.tcp(80), "Wereldwijd toegankelijk")
         sg_webserver.connections.allow_from_any_ipv4(ec2.Port.tcp(443), "Wereldwijd toegankelijk")
+        sg_webserver.connections.allow_from(ec2.Peer.ipv4('10.20.20.0/24'), ec2.Port.tcp(22), "SSH toegang voor de adminServer")
+        
         
      
        # user data definiëren 
@@ -109,9 +111,10 @@ class HetProjectV1Stack(Stack):
 
        
         
-        # webserver moet via http en https toegankelijk zijn 
+        # webserver moet via http en https toegankelijk zijn en via ssh vanaf de beheerserver
         app_server.connections.allow_from_any_ipv4(ec2.Port.tcp(80), "Wereldwijd toegankelijk")
         app_server.connections.allow_from_any_ipv4(ec2.Port.tcp(443), "Wereldwijd toegankelijk")
+        app_server.connections.allow_from(ec2.Peer.ipv4('10.20.20.0/24'), ec2.Port.tcp(22), "SSH toegang voor de adminServer")
         
         
         
@@ -157,6 +160,20 @@ class HetProjectV1Stack(Stack):
                                       destination_cidr_block = "10.10.10.0/24", 
                                       
         )
+        
+        # Maak een route voor de subnetten van je webserver via je VPC-peering naar je beheerserver, ZIJN NU NOG NAAR ZICHZELF GELINKT
+        route_nd_beheerserver = ec2.CfnRoute(self, "route_naar_BS_voor_SN1",
+                                             route_table_id = vpc_app.public_subnets[0].route_table.route_table_id, 
+                                             vpc_peering_connection_id = Cloud_Peering.attr_id,
+                                             destination_cidr_block = "10.20.20.0/24"
+            )
+        route_nd_beheerserver2 = ec2.CfnRoute(self, "route_naar_BS_voor_SN2",
+                                             route_table_id = vpc_app.public_subnets[1].route_table.route_table_id, 
+                                             vpc_peering_connection_id = Cloud_Peering.attr_id,
+                                             destination_cidr_block = "10.20.20.0/24"
+            )
+        
+        
         # leg de meerbedoelde route vast voor de volledigheid 
         log_admin_route = CfnOutput(self, "log_vd_route", 
                                     value= admin_juiste_route.ref
@@ -174,7 +191,7 @@ class HetProjectV1Stack(Stack):
                             destination_cidr_block = "10.20.20.0/24",
                             vpc_peering_connection_id = Cloud_Peering.attr_id
         )
-        # Creëer een route van je app_server door je VPC-peering naar je admin-server voor je 2e subnet in app-server indien nodig
+        # Creëer een route van je app_server door je VPC-peering naar je admin-server voor je 2e subnet in app-server indien nodig 
         
         # Creëer een user_data format voor je management-server
         user_data_management_server = ec2.UserData.for_windows()
@@ -185,6 +202,11 @@ class HetProjectV1Stack(Stack):
                         </powershell>""" 
         )
         
+        sleutelpaar_beheerserver = ec2.CfnKeyPair(self, "sleutelpaar_beheerserver_voor_RDP",
+                key_name= "sleutelpaar_beheerserver",
+                key_type = "rsa",
+                key_format = "pem",
+        )
         # Creëer een management-server binnen de VPC management-prd-vpc, deze zal werken op Windows en moet via RDP toegankelijk zijn     
         admin_server = ec2.Instance(self, "admin_server", 
                                     instance_type = ec2.InstanceType("t3a.micro"), 
@@ -192,11 +214,12 @@ class HetProjectV1Stack(Stack):
                                     vpc = vpc_admin_server,
                                     security_group = sg_admin_server, 
                                     role = Instance_Admin,
-                                    user_data = user_data_management_server                                
+                                    user_data = user_data_management_server,
+                                    key_name = sleutelpaar_beheerserver.key_name,                               
         )
         # Creëer een backup van de webserver waarbij de backups 7 dagen behouden moeten blijven 
         
-        plan_BU_app = backup.BackupPlan(self, "draaiboek_BU_app"
+        plan_BU_app = backup.BackupPlan(self, "PDC_BU_app"
         )
         BU_regel_wekelijks = backup.BackupPlanRule.weekly()
         
