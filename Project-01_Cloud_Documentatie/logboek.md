@@ -255,6 +255,24 @@ MVP's creëren doe je  in een cyclus. Ik bedoel daarmee: codeer, deploy, debug, 
 
 
 ## Dagverslag (1 zin)
+Ik heb eerst mijn stack uitgezet en daarna geprobeerd via RDP en SSH te verbinden met mijn webserver. 
+
+## Obstakels
+Het lukt mij via RDP te connecteren. Helaas lukte het niet daarna in de RDP-omgeving met SSH in mijn webserver te belanden. 
+
+## Oplossingen
+Na navraag aan mijn peers blijken zij ook gedoe gehad te hebben hiermee. Zij hebben wat aanwijzingen kunnen geven om op 13-09 wel tot een succesvolle verbinding te komen. 
+
+## Learnings
+Ook al werken sommige mensen niet met AWS maar met andere clouddiensten, bij sommige algemene leerstukken kunnen zij  wel aanwijzingen geven die je situatie kunnen verbeteren. 
+
+---
+
+
+# Log [13/09/2023]
+
+
+## Dagverslag (1 zin)
 
 
 ## Obstakels
@@ -267,8 +285,6 @@ MVP's creëren doe je  in een cyclus. Ik bedoel daarmee: codeer, deploy, debug, 
 
 
 ---
-
-
 
 
 

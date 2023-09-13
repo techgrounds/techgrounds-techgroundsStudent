@@ -6,6 +6,7 @@ from aws_cdk import (
     aws_s3 as s3, 
     aws_kms as kms,
     aws_backup as backup,
+    CfnTag,
     aws_iam as iam
 )
 from constructs import Construct
@@ -58,7 +59,7 @@ class HetProjectV1Stack(Stack):
         vpc_app = ec2.Vpc(self, id = "app-prd-vpc", 
                       nat_gateways = 0,
                       max_azs = 2,
-                      ip_addresses = ec2.IpAddresses.cidr("10.10.0.0/24"),
+                      ip_addresses = ec2.IpAddresses.cidr("10.10.10.0/24"),
                       vpc_name = "VPClouterVoorDeApp",
                       subnet_configuration = [ec2.SubnetConfiguration(name="Publiek_SN_app",subnet_type=ec2.SubnetType.PUBLIC,)] 
                      
@@ -76,7 +77,8 @@ class HetProjectV1Stack(Stack):
         sg_webserver.connections.allow_from_any_ipv4(ec2.Port.tcp(80), "Wereldwijd toegankelijk")
         sg_webserver.connections.allow_from_any_ipv4(ec2.Port.tcp(443), "Wereldwijd toegankelijk")
         sg_webserver.connections.allow_from(ec2.Peer.ipv4('10.20.20.0/24'), ec2.Port.tcp(22), "SSH toegang voor de adminServer")
-        
+        sg_webserver.add_egress_rule(ec2.Peer.any_ipv4(), ec2.Port.tcp(443), "HTTPS wereldwijd toegankelijk tweede optie"
+        )
         
      
        # user data definiëren 
@@ -93,6 +95,10 @@ class HetProjectV1Stack(Stack):
                 key_name= "Sleutelpaar_app",
                 key_type = "rsa",
                 key_format = "pem",
+                tags= [CfnTag(
+                    key="sleutels_vd_app",
+                    value="sausje safety"
+                )]
         )
                  
      
@@ -103,7 +109,7 @@ class HetProjectV1Stack(Stack):
                                   machine_image = ec2.MachineImage.latest_amazon_linux(
                                     generation = ec2.AmazonLinuxGeneration.AMAZON_LINUX_2), 
                                   security_group = sg_webserver,
-                                  user_data= eenvoud_UD,
+                                  user_data = eenvoud_UD,
                                   key_name =  sleutelpaar_app.key_name
                                                                          
                                                                                
@@ -126,11 +132,9 @@ class HetProjectV1Stack(Stack):
                             ip_addresses = ec2.IpAddresses.cidr("10.20.20.0/24"),
                             subnet_configuration = [ec2.SubnetConfiguration(name="Publiek_SN_Admin",subnet_type = ec2.SubnetType.PUBLIC,)]                            
                             
-        )
-        
-        Publiek_SN_Admin_2 = vpc_admin_server.public_subnets[1]
-       
-        # Creëer een SG voor de admin-server          
+        )  
+          
+         # Creëer een SG voor de admin-server          
         sg_admin_server = ec2.SecurityGroup(self,"sgAdminServer", 
                                          vpc = vpc_admin_server,
                                          description = "sg admin_server vanuit CDK",
@@ -143,35 +147,34 @@ class HetProjectV1Stack(Stack):
         # Creëer een vpc-peering connection in je infrastructuur         
         Cloud_Peering = ec2.CfnVPCPeeringConnection(self, "De_Gewenste_Peering_der_Clouds",
          peer_vpc_id = vpc_app.vpc_id,
-        vpc_id = vpc_admin_server.vpc_id,
+        vpc_id = vpc_admin_server.vpc_id
         )   
-        # Creëer een route van je admin_server door je VPC-peering naar je webserver 
+        
+        # Creëer een route voor de subnetten van je beheerserver via je VPC-peering naar je webserver
         admin_juiste_route = ec2.CfnRoute(self, "De_route_voor_de_admin",
                                       route_table_id = vpc_admin_server.public_subnets[0].route_table.route_table_id, 
                                       vpc_peering_connection_id = Cloud_Peering.attr_id,
                                       destination_cidr_block = "10.10.10.0/24", 
                                       
-        )
-        
-         # Creëer een route van je admin_server door je VPC-peering naar je webserver ook voor je andere subnet 
+        )        
         admin_juiste_route2 = ec2.CfnRoute(self, "De_route_voor_de_admin_2",
-                                      route_table_id = Publiek_SN_Admin_2.route_table.route_table_id, 
+                                      route_table_id = vpc_admin_server.public_subnets[1].route_table.route_table_id, 
                                       vpc_peering_connection_id = Cloud_Peering.attr_id,
                                       destination_cidr_block = "10.10.10.0/24", 
                                       
         )
         
-        # Maak een route voor de subnetten van je webserver via je VPC-peering naar je beheerserver, ZIJN NU NOG NAAR ZICHZELF GELINKT
+        # Creëer een route voor de subnetten van je webserver via je VPC-peering naar je beheerserver
         route_nd_beheerserver = ec2.CfnRoute(self, "route_naar_BS_voor_SN1",
                                              route_table_id = vpc_app.public_subnets[0].route_table.route_table_id, 
                                              vpc_peering_connection_id = Cloud_Peering.attr_id,
                                              destination_cidr_block = "10.20.20.0/24"
-            )
+        )
         route_nd_beheerserver2 = ec2.CfnRoute(self, "route_naar_BS_voor_SN2",
                                              route_table_id = vpc_app.public_subnets[1].route_table.route_table_id, 
                                              vpc_peering_connection_id = Cloud_Peering.attr_id,
                                              destination_cidr_block = "10.20.20.0/24"
-            )
+        )
         
         
         # leg de meerbedoelde route vast voor de volledigheid 
@@ -181,16 +184,16 @@ class HetProjectV1Stack(Stack):
         )
 
         
-        # Creëer een route van je app_server door je VPC-peering naar je admin-server voor je 1e subnet in app-server 
-        route_tabel_app = ec2.CfnRouteTable(self, "De_enige_wijzer_vd_app",
-                            vpc_id = vpc_app.vpc_id,
-        )
+        # # KAN WAARSCHIJNLIJK WORDEN VERWIJDERD: Creëer een route van je app_server door je VPC-peering naar je admin-server voor je 1e subnet in app-server 
+        # route_tabel_app = ec2.CfnRouteTable(self, "De_enige_wijzer_vd_app",
+        #                     vpc_id = vpc_app.vpc_id,
+        # )
         
-        app_juiste_route = ec2.CfnRoute(self, "de_route_voor_de_app",
-                            route_table_id= route_tabel_app.attr_route_table_id,
-                            destination_cidr_block = "10.20.20.0/24",
-                            vpc_peering_connection_id = Cloud_Peering.attr_id
-        )
+        # app_juiste_route = ec2.CfnRoute(self, "de_route_voor_de_app",
+        #                     route_table_id= route_tabel_app.attr_route_table_id,
+        #                     destination_cidr_block = "10.20.20.0/24",
+        #                     vpc_peering_connection_id = Cloud_Peering.attr_id
+        # )
         # Creëer een route van je app_server door je VPC-peering naar je admin-server voor je 2e subnet in app-server indien nodig 
         
         # Creëer een user_data format voor je management-server
@@ -202,11 +205,16 @@ class HetProjectV1Stack(Stack):
                         </powershell>""" 
         )
         
-        sleutelpaar_beheerserver = ec2.CfnKeyPair(self, "sleutelpaar_beheerserver_voor_RDP",
-                key_name= "sleutelpaar_beheerserver",
-                key_type = "rsa",
-                key_format = "pem",
-        )
+        # sleutelpaar_beheerserver = ec2.CfnKeyPair(self, "sleutelpaar_beheerserver_voor_RDP", EVENTUEEL MAAR ;ÉÉN SLEUTEL NODIG
+        #         key_name= "sleutelpaar_beheerserver",
+        #         key_type = "rsa",
+        #         key_format = "pem",
+        #         description = "toegang tot de beheerserver",
+        #         tags= [CfnTag(
+        # key="huismeesterbosje",
+        # value="WD40_in_a_safety_way"
+        #     )]
+        # )
         # Creëer een management-server binnen de VPC management-prd-vpc, deze zal werken op Windows en moet via RDP toegankelijk zijn     
         admin_server = ec2.Instance(self, "admin_server", 
                                     instance_type = ec2.InstanceType("t3a.micro"), 
@@ -215,7 +223,7 @@ class HetProjectV1Stack(Stack):
                                     security_group = sg_admin_server, 
                                     role = Instance_Admin,
                                     user_data = user_data_management_server,
-                                    key_name = sleutelpaar_beheerserver.key_name,                               
+                                    key_name = sleutelpaar_app.key_name,                               
         )
         # Creëer een backup van de webserver waarbij de backups 7 dagen behouden moeten blijven 
         
