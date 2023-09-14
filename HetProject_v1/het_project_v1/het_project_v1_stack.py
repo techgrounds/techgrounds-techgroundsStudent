@@ -18,41 +18,45 @@ class HetProjectV1Stack(Stack):
         
         # Maak gebruik van IAM in je infrastructuur 
         Instance_Admin = iam.Role(self,"deInstance-Admin",
-                             assumed_by = iam.ServicePrincipal("ec2.amazonaws.com")
+                             assumed_by = iam.ServicePrincipal("ec2.amazonaws.com"),
+                             description = "Admin_spray voor onze beheerserver", 
+                             role_name = "Admin_spray_voor_ec2"
         )
         
         Instance_Admin.add_managed_policy(iam.ManagedPolicy.from_aws_managed_policy_name("AdministratorAccess")
         )
         
-        Gerant = iam.Role(self, "DeGerant",
-                          assumed_by = iam.ArnPrincipal("arn:aws:iam::042831144970:user/consommateur")
+        gerant = iam.Role (self, "deGerant",
+                          assumed_by = iam.ArnPrincipal("arn:aws:iam::042831144970:user/consommateur"), 
+                          description = "Admin_zalf voor YT zodat alle mogelijke problemen kunnen worden aangepakt",
+                          role_name = "Admin_zalf"
         )
         
-        Gerant.add_managed_policy(iam.ManagedPolicy.from_aws_managed_policy_name('AdministratorAccess')
+        gerant.add_managed_policy(iam.ManagedPolicy.from_aws_managed_policy_name('AdministratorAccess')
         )
 
         
         
-        # Implementeer KMS in je infrastructuur 
-        de_loper = kms.Key(self, "Loper",
-            enable_key_rotation = True, 
-            enabled = True, 
-            alias = "de_ware_loper"           
+        # # Implementeer KMS in je infrastructuur 
+        # de_loper = kms.Key(self, "Loper",
+        #     enable_key_rotation = True, 
+        #     enabled = True, 
+        #     alias = "de_ware_loper"           
                            
-        )
+        # )
         
         
-        #   Maak een s3-bucket die encrypted is met meerbedoelde KMS-sleutel 
-        deEmmer = s3.Bucket(self, "VersleuteldeEmmer",
-        bucket_name = "s3-bucket4scripts",
-        access_control = s3.BucketAccessControl.PRIVATE,
-        encryption = s3.BucketEncryption.KMS,
-        versioned = True,
-        block_public_access = s3.BlockPublicAccess.BLOCK_ALL,
-        encryption_key = de_loper,
-        removal_policy = cdk.RemovalPolicy.DESTROY
-        )
-        assert (deEmmer.encryption_key == de_loper)
+        # #   Maak een s3-bucket die encrypted is met meerbedoelde KMS-sleutel 
+        # deEmmer = s3.Bucket(self, "VersleuteldeEmmer",
+        # bucket_name = "s3-bucket4scripts",
+        # access_control = s3.BucketAccessControl.PRIVATE,
+        # encryption = s3.BucketEncryption.KMS,
+        # versioned = True,
+        # block_public_access = s3.BlockPublicAccess.BLOCK_ALL,
+        # encryption_key = de_loper,
+        # removal_policy = cdk.RemovalPolicy.DESTROY
+        # )
+        # assert (deEmmer.encryption_key == de_loper)
 
        
        # Creëer een VPC voor de webserver
@@ -86,13 +90,16 @@ class HetProjectV1Stack(Stack):
         eenvoud_UD.add_commands ( "yum -y install httpd",
                                     "systemctl enable httpd",
                                         "systemctl start httpd",
-                                         "echo '<html><h1>L.S., MOGE UW TOCHT NAAR DEZE PLAATS VOORSPOEDIG ZIJN GEWEEST</h1></html>' > /var/www/html/index.html"
+                                         """echo '<html><h1>L.S., Dit is wat plain text om mijn server wat body te geven, 
+                                         hoewel dit gek genoeg niet de body behelst</h1>
+                                         <b1> Ik wou dat ik de header was, zodat ik meer body kon geven aan dit alles <b1>                                         
+                                         </html>' > /var/www/html/index.html"""
                  
         )                                  
         
          # Creëer wat key-pair zodat er veilig via een SSH-verbinding verbonden kan worden
         sleutelpaar_app = ec2.CfnKeyPair(self, "Sleutelpaar_app_voor_SSH",
-                key_name= "Sleutelpaar_app",
+                key_name= "sleutelpaar_app",
                 key_type = "rsa",
                 key_format = "pem",
                 tags= [CfnTag(
@@ -184,7 +191,8 @@ class HetProjectV1Stack(Stack):
         )
 
         
-        # # KAN WAARSCHIJNLIJK WORDEN VERWIJDERD: Creëer een route van je app_server door je VPC-peering naar je admin-server voor je 1e subnet in app-server 
+        # # Kan waarschijnlijk worden verwijderd
+        # # Creëer een route van je app_server door je VPC-peering naar je admin-server voor je 1e subnet in app-server 
         # route_tabel_app = ec2.CfnRouteTable(self, "De_enige_wijzer_vd_app",
         #                     vpc_id = vpc_app.vpc_id,
         # )
@@ -194,7 +202,7 @@ class HetProjectV1Stack(Stack):
         #                     destination_cidr_block = "10.20.20.0/24",
         #                     vpc_peering_connection_id = Cloud_Peering.attr_id
         # )
-        # Creëer een route van je app_server door je VPC-peering naar je admin-server voor je 2e subnet in app-server indien nodig 
+        # # Creëer een route van je app_server door je VPC-peering naar je admin-server voor je 2e subnet in app-server indien nodig 
         
         # Creëer een user_data format voor je management-server
         user_data_management_server = ec2.UserData.for_windows()
@@ -205,13 +213,14 @@ class HetProjectV1Stack(Stack):
                         </powershell>""" 
         )
         
-        # sleutelpaar_beheerserver = ec2.CfnKeyPair(self, "sleutelpaar_beheerserver_voor_RDP", EVENTUEEL MAAR ;ÉÉN SLEUTEL NODIG
+        ## Je hebt maar een sleutel nodig, kijk maar wat je hiermee doet.
+        # sleutelpaar_beheerserver = ec2.CfnKeyPair(self, "sleutelpaar_beheerserver_voor_RDP",
         #         key_name= "sleutelpaar_beheerserver",
         #         key_type = "rsa",
         #         key_format = "pem",
         #         description = "toegang tot de beheerserver",
         #         tags= [CfnTag(
-        # key="huismeesterbosje",
+        # key="huismeester_bosje",
         # value="WD40_in_a_safety_way"
         #     )]
         # )
@@ -239,9 +248,7 @@ class HetProjectV1Stack(Stack):
         )
                   
                         
-       
+    #    Zet je user_data in je nieuw gemaakte bucket en executeer het daarvandaan. Gebruik hierbij Asset. 
                 
-        # Creëer een ACL voor de admin-server
-        # Creëer een ACL voor de app-server      
-        
+
     
