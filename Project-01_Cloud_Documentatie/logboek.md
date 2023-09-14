@@ -273,6 +273,23 @@ Ook al werken sommige mensen niet met AWS maar met andere clouddiensten, bij som
 
 
 ## Dagverslag (1 zin)
+Mijn code zo aangepast dat ik in ieder geval overal dezelfde CIDR-notaties gebruik waar dat zou moeten en daarnaast ben ik bezig geweest met mijn deployment. 
+
+## Obstakels
+Het pem-bestand dat ik nodig had voor het connecteren met mijn app-server werd steeds niet herkend als een pem-bestand. Dit pem-bestand had ik zelf gemaakt door de plain text van mijn key te plakken in een text file. Hier zou het probleem kunnen zitten. 
+
+## Oplossingen
+Ik beschik nog niet over een daadwerkelijke oplossing. De belangrijkste taak voor morgen is dus: connecteren met de webserver via SSH. 
+
+## Learnings
+Vandaag heeft niet tot een one-liner geleid die in dit kader genoemd kan worden. Ik heb wel hier en daar wat soundbites opgevangen die mijn algemene begrip van het CDK en python hebben vergroot. 
+
+---
+
+# Log [datum]
+
+
+## Dagverslag (1 zin)
 
 
 ## Obstakels
