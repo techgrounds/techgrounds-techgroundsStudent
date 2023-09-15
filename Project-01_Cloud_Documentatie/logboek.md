@@ -286,7 +286,26 @@ Vandaag heeft niet tot een one-liner geleid die in dit kader genoemd kan worden.
 
 ---
 
-# Log [datum]
+# Log [14/09/2023]
+
+
+## Dagverslag (1 zin)
+Belangrijkste van de dag: het is gelukt te connecteren met mijn webserver via mijn beheerserver. 
+
+## Obstakels
+Het vernietigen van mijn infrastructuur ging niet volledig automatisch. 
+
+## Oplossingen
+Ik heb ingelogd op mijn console en heb handmatig een en ander vernietigd. 
+
+## Learnings
+OOk in de tech-wereld zijn er meerdere wegen naar Rome. 
+
+---
+
+---
+
+# Log [15-09-2023]
 
 
 ## Dagverslag (1 zin)
@@ -302,7 +321,5 @@ Vandaag heeft niet tot een one-liner geleid die in dit kader genoemd kan worden.
 
 
 ---
-
-
 
  

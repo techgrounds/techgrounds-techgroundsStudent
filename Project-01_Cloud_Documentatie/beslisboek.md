@@ -1,13 +1,13 @@
 
 # Doel van document
-Tijdens het implementeren van het ontwerp zal ik beslissingen maken over o.a. diensten die we gaan gebruiken. In dit document zal ik de overwegingen uitschrijven en de besluiten onderbouwen. Dit document zal ook al mijn assumpties   en verbeteringen bevatten. Voorts zal dit document dienen als basis voor mijn ontwerpdocumentatie. In dit document zal ook input van de PO verwerkt worden. 
+Tijdens het implementeren van het ontwerp zal ik beslissingen maken over o.a. diensten die we gaan gebruiken. In dit document zal ik de overwegingen uitschrijven en de besluiten onderbouwen. Dit document zal ook al mijn assumpties  en verbeteringen bevatten. Voorts zal dit document dienen als basis voor mijn ontwerpdocumentatie. In dit document zal ook input van de PO verwerkt worden. 
 
 # Epic Exploratie
 
 ## Overzicht van de eisen van PO
 ### Alle VM disks moeten encrypted zijn.
-We zullen dit project gaan uitvoeren in de AWS-omgeving. Er zal dus niet gewerkt worden met entiteiten die letterlijk "VM-disks" worden genoemd. EC2-Instances zijn de eniteiten waar de besturingssystemen op zullen worden gedraaid. Deze gebruiken als root-volume  een EBS-volume of een instance store volume. Gezien het feit dat EBS-volumes gebruiken kunnen maken van de Amazon EBS-encryptie kunnen we aannemen dat PO op basis van EBS-volumes zal willen werken.  
-### De webserver moet dagelijks gebackupt worden. De backups moeten 7 dagen behouden worden. 
+We zullen dit project gaan uitvoeren in de AWS-omgeving. Er zal dus niet gewerkt worden met entiteiten die letterlijk "VM-disks" worden genoemd. EC2-Instances zijn de entiteiten waar de besturingssystemen op zullen worden gedraaid. Deze gebruiken als root-volume  een EBS-volume of een instance store volume. Gezien het feit dat EBS-volumes gebruiken kunnen maken van de Amazon EBS-encryptie kunnen we aannemen dat PO op basis van EBS-volumes zal willen werken.  
+### De webserver moet dagelijks geback-upt worden. De backups moeten 7 dagen behouden worden.  
 Dit moet in AWS te regelen zijn met de AWS-backup. De Huidige gang van zaken bevragen om duidelijk te krijgen in hoeverre al gebruik wordt gemaakt van AWS-backup 
 
 ### De webserver moet op een geautomatiseerde manier geïnstalleerd worden.

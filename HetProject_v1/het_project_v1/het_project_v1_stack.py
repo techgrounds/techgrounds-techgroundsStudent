@@ -2,9 +2,11 @@ import aws_cdk as cdk
 from aws_cdk import (
     Stack,
     CfnOutput,
+    Duration,
     aws_ec2 as ec2,
     aws_s3 as s3, 
     aws_kms as kms,
+    aws_events as events, 
     aws_backup as backup,
     CfnTag,
     aws_iam as iam
@@ -37,26 +39,26 @@ class HetProjectV1Stack(Stack):
 
         
         
-        # # Implementeer KMS in je infrastructuur 
-        # de_loper = kms.Key(self, "Loper",
-        #     enable_key_rotation = True, 
-        #     enabled = True, 
-        #     alias = "de_ware_loper"           
+        # Implementeer KMS in je infrastructuur 
+        de_loper = kms.Key(self, "Loper",
+            enable_key_rotation = True, 
+            enabled = True, 
+            alias = "de_ware_loper"           
                            
-        # )
+        )
         
         
-        # #   Maak een s3-bucket die encrypted is met meerbedoelde KMS-sleutel 
-        # deEmmer = s3.Bucket(self, "VersleuteldeEmmer",
-        # bucket_name = "s3-bucket4scripts",
-        # access_control = s3.BucketAccessControl.PRIVATE,
-        # encryption = s3.BucketEncryption.KMS,
-        # versioned = True,
-        # block_public_access = s3.BlockPublicAccess.BLOCK_ALL,
-        # encryption_key = de_loper,
-        # removal_policy = cdk.RemovalPolicy.DESTROY
-        # )
-        # assert (deEmmer.encryption_key == de_loper)
+        #   Maak een s3-bucket die encrypted is met meerbedoelde KMS-sleutel 
+        deEmmer = s3.Bucket(self, "VersleuteldeEmmer",
+        bucket_name = "s3-bucket4scripts",
+        access_control = s3.BucketAccessControl.PRIVATE,
+        encryption = s3.BucketEncryption.KMS,
+        versioned = True,
+        block_public_access = s3.BlockPublicAccess.BLOCK_ALL,
+        encryption_key = de_loper,
+        removal_policy = cdk.RemovalPolicy.DESTROY
+        )
+        assert (deEmmer.encryption_key == de_loper)
 
        
        # Creëer een VPC voor de webserver
@@ -236,11 +238,24 @@ class HetProjectV1Stack(Stack):
         )
         # Creëer een backup van de webserver waarbij de backups 7 dagen behouden moeten blijven 
         
-        plan_BU_app = backup.BackupPlan(self, "PDC_BU_app"
+        onze_kluis = backup.BackupVault(self, "de_enige_kluis",
+                                        backup_vault_name="onze_kluis",
+                                        removal_policy=cdk.RemovalPolicy.DESTROY
         )
-        BU_regel_wekelijks = backup.BackupPlanRule.weekly()
+       
+        plan_BU_app = backup.BackupPlan(self, "PDC_BU_app", 
+                                        backup_plan_name = "plan_der_dagelijkse_site_backup", 
+                                        backup_vault = onze_kluis
+        )
+        plan_BU_app.add_rule(backup.BackupPlanRule( delete_after = Duration.days(7), 
+                                                rule_name = "dagelijkse_back_up",
+                                                schedule_expression = events.Schedule.cron(
+                                                    minute = "07",
+                                                    hour = "01",)
+                                            )            
+                                    ) 
         
-        plan_BU_app.add_rule(BU_regel_wekelijks)
+        
         
         plan_BU_app.add_selection(id = "louter_de_app_server", 
                                   resources = [backup.BackupResource.from_construct(app_server)
