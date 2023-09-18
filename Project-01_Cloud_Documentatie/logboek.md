@@ -309,6 +309,23 @@ OOk in de tech-wereld zijn er meerdere wegen naar Rome.
 
 
 ## Dagverslag (1 zin)
+Vandaag heb ik een paar dingen veranderd aan mijn stack alvorens mijn presentatie voor te bereiden en te geven. 
+
+## Obstakels
+Uiteindelijk had ik te weinig tijd om al het voorgaande volledig uit te kunnen voeren. 
+
+## Oplossingen
+Zoals Casper zei: "Je moet soms  harde keuzes maken in plaats van alles beetje doen"
+
+## Learnings
+Ik zal beter met mijn tijd moeten omgaan. Daarnaast zal ik ook beter de core-documentatie in de gaten moeten blijven houden. Hierdoor kan ik steeds zien of een nieuwe aanpassing aan de stack wel echt past bij de eisen van de cliënt. Vandaag kwam ik er namelijk achter dat een aantal coderingen niet het gewenste resultaat zouden opleveren. 
+
+
+---
+# Log [18-09-2023]
+
+
+## Dagverslag (1 zin)
 
 
 ## Obstakels
