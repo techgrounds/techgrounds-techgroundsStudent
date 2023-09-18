@@ -119,7 +119,16 @@ class HetProjectV1Stack(Stack):
                                     generation = ec2.AmazonLinuxGeneration.AMAZON_LINUX_2), 
                                   security_group = sg_webserver,
                                   user_data = eenvoud_UD,
-                                  key_name =  sleutelpaar_app.key_name
+                                  key_name =  sleutelpaar_app.key_name,
+                                  block_devices =  [ec2.BlockDevice(
+                                        device_name= "/dev/sdh",
+                                        volume= ec2.BlockDeviceVolume.ebs(8, 
+                                        encrypted = True, 
+                                        delete_on_termination = True
+                                        
+                                        )                             
+                                    )
+                                    ]
                                                                          
                                                                                
         )
@@ -234,7 +243,16 @@ class HetProjectV1Stack(Stack):
                                     security_group = sg_admin_server, 
                                     role = Instance_Admin,
                                     user_data = user_data_management_server,
-                                    key_name = sleutelpaar_app.key_name,                               
+                                    key_name = sleutelpaar_app.key_name, 
+                                    block_devices =  [ec2.BlockDevice(
+                                        device_name= "xvdh",
+                                        volume= ec2.BlockDeviceVolume.ebs(30, 
+                                        encrypted = True, 
+                                        delete_on_termination = True
+                                        
+                                        )                             
+                                    )
+                                    ]
         )
         # Creëer een backup van de webserver waarbij de backups 7 dagen behouden moeten blijven 
         
