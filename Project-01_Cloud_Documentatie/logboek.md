@@ -326,6 +326,22 @@ Ik zal beter met mijn tijd moeten omgaan. Daarnaast zal ik ook beter de core-doc
 
 
 ## Dagverslag (1 zin)
+In mijn stack heb ik de VM-disks benoemd die mijn instances gebruiken, zodat ik ook kan stipuleren dat de disks versleuteld moeten zijn.  
+
+## Obstakels
+Root-devices zul je altijd nodig hebben, maar deze zijn in principe niet versleuteld. 
+
+## Oplossingen
+Er is een go-around. We zouden de root kunnen baseren op een snapshot en dan zou die meerbedoelde root wél versleuteld kunnen worden. 
+
+## Learnings
+Met een nieuw taakje komt een nieuw probleempje, maar ook een nieuwe oplossing. 
+
+---
+# Log [19-09-2023]
+
+
+## Dagverslag (1 zin)
 
 
 ## Obstakels
@@ -338,5 +354,6 @@ Ik zal beter met mijn tijd moeten omgaan. Daarnaast zal ik ook beter de core-doc
 
 
 ---
+
 
  
