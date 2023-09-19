@@ -122,7 +122,7 @@ class HetProjectV1Stack(Stack):
                                   key_name =  sleutelpaar_app.key_name,
                                   block_devices =  [ec2.BlockDevice(
                                         device_name= "/dev/sdh",
-                                        volume= ec2.BlockDeviceVolume.ebs(8, 
+                                        volume= ec2.BlockDeviceVolume.ebs(12, 
                                         encrypted = True, 
                                         delete_on_termination = True
                                         
