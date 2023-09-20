@@ -342,16 +342,16 @@ Met een nieuw taakje komt een nieuw probleempje, maar ook een nieuwe oplossing.
 
 
 ## Dagverslag (1 zin)
-
+Vandaag vooral gewerkt aan mijn presentatie in het kader van de ontwikkeling van onze soft skills  over assertiviteit.
 
 ## Obstakels
-
+Sommige artikelen stonden achter een pay-wall. 
 
 ## Oplossingen
-
+Ik heb gelukkig ook andere bronnen kunnen vinden
 
 ## Learnings
-
+Assertiviteit valt meer te trainen dan ik dacht. 
 
 ---
 
