@@ -355,5 +355,21 @@ Assertiviteit valt meer te trainen dan ik dacht.
 
 ---
 
+# Log [datum]
+
+
+## Dagverslag (1 zin)
+
+
+## Obstakels
+
+
+## Oplossingen
+
+
+## Learnings
+
+
+---
 
  

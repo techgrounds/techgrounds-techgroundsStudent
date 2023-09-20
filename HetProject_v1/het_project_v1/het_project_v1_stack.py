@@ -83,8 +83,8 @@ class HetProjectV1Stack(Stack):
         sg_webserver.connections.allow_from_any_ipv4(ec2.Port.tcp(80), "Wereldwijd toegankelijk")
         sg_webserver.connections.allow_from_any_ipv4(ec2.Port.tcp(443), "Wereldwijd toegankelijk")
         sg_webserver.connections.allow_from(ec2.Peer.ipv4('10.20.20.0/24'), ec2.Port.tcp(22), "SSH toegang voor de adminServer")
-        sg_webserver.add_egress_rule(ec2.Peer.any_ipv4(), ec2.Port.tcp(443), "HTTPS wereldwijd toegankelijk tweede optie"
-        )
+        sg_webserver.add_egress_rule(ec2.Peer.any_ipv4(), ec2.Port.tcp(443), "HTTPS wereldwijd toegankelijk tweede optie")
+        sg_webserver.connections.allow_to_any_ipv4(ec2.Port.tcp(443), "Via HTTPS Wereldwijd toegankelijk")
         
      
        # user data definiëren 
@@ -139,8 +139,9 @@ class HetProjectV1Stack(Stack):
         app_server.connections.allow_from_any_ipv4(ec2.Port.tcp(80), "Wereldwijd toegankelijk")
         app_server.connections.allow_from_any_ipv4(ec2.Port.tcp(443), "Wereldwijd toegankelijk")
         app_server.connections.allow_from(ec2.Peer.ipv4('10.20.20.0/24'), ec2.Port.tcp(22), "SSH toegang voor de adminServer")
+        app_server.connections.allow_to_any_ipv4(ec2.Port.tcp(443), "Via HTTPS Wereldwijd toegankelijk")
         
-        
+        # Creëer een Certificaat voor je webserver 
         
         
         # Creëer een VPC voor de Management server        
