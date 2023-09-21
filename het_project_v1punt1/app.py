@@ -3,7 +3,7 @@ import os
 
 import aws_cdk as cdk
 
-from het_project_v1punt1.het_project_v1punt1_stack import HetProjectV1Punt1Stack
+from Het_project_v1punt1.het_project_v1punt1_stack import HetProjectV1Punt1Stack
 
 
 app = cdk.App()
@@ -20,7 +20,7 @@ HetProjectV1Punt1Stack(app, "HetProjectV1Punt1Stack",
     # Uncomment the next line if you know exactly what Account and Region you
     # want to deploy the stack to. */
 
-    #env=cdk.Environment(account='123456789012', region='us-east-1'),
+    env=cdk.Environment(account='042831144970', region='eu-central-1'),
 
     # For more information, see https://docs.aws.amazon.com/cdk/latest/guide/environments.html
     )

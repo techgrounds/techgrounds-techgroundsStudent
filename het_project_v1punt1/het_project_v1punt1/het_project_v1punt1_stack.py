@@ -9,11 +9,12 @@ from aws_cdk import (
     aws_events as events, 
     aws_backup as backup,
     CfnTag,
-    aws_iam as iam
+    aws_iam as iam,
+    aws_certificatemanager as acm
 )
 from constructs import Construct
 
-class HetProjectV1Stack(Stack):
+class HetProjectV1Punt1Stack(Stack):
     def __init__(self, scope: Construct, id: str, **kwargs) -> None:
         super().__init__(scope, id, **kwargs)
 
@@ -43,8 +44,8 @@ class HetProjectV1Stack(Stack):
         de_loper = kms.Key(self, "Loper",
             enable_key_rotation = True, 
             enabled = True, 
-            alias = "de_ware_loper"           
-                           
+            alias = "de_ware_loper",
+            removal_policy = cdk.RemovalPolicy.DESTROY                     
         )
         
         
@@ -141,7 +142,9 @@ class HetProjectV1Stack(Stack):
         app_server.connections.allow_from(ec2.Peer.ipv4('10.20.20.0/24'), ec2.Port.tcp(22), "SSH toegang voor de adminServer")
         app_server.connections.allow_to_any_ipv4(ec2.Port.tcp(443), "Via HTTPS Wereldwijd toegankelijk")
         
-        # Creëer een Certificaat voor je webserver 
+        # # Creëer een Certificaat voor je webserver NB TLS 1.2 of hoger
+        # acm.Certificate.from_certificate_arn(self, "PasParTout", certificate_arn)
+        
         
         
         # Creëer een VPC voor de Management server        
