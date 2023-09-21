@@ -355,6 +355,23 @@ Assertiviteit valt meer te trainen dan ik dacht.
 
 ---
 
+# Log [20-09-2023]
+
+
+## Dagverslag (1 zin)
+Soft-skill-presentatie verder voorbereid en gehouden en daarna nieuwe stack aangemaakt voor versie 1.1
+
+## Obstakels
+Presenteren gaat nog niet soepel, maar de hele presentatie een keertje hardop uitspreken verbeterd het resultaat wel wat voor mij. 
+Het lukte daarnaast niet meteen een nieuwe stack succesvol aan te maken. 
+## Oplossingen
+Python en het cdk vormen geen goed team bij bepaalde naamgevingen van de map waar je app in staat.
+
+## Learnings
+Kind kan de was doen: sommige naamgevingen vermijden wij simpelweg. 
+
+---
+
 # Log [datum]
 
 
@@ -371,5 +388,6 @@ Assertiviteit valt meer te trainen dan ik dacht.
 
 
 ---
+
 
  
