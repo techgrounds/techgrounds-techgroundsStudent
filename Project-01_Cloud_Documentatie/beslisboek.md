@@ -70,14 +70,11 @@ KMS
 AWS Backup  
 AWS Firewall      
 S3  
-VPC Peering(?)  
-EBS  
-Cloudwatch  
-Trusted Advisor  
-Cloudformation  
-Secret Key Manager(?)  
-EFS (?)  
-AWS Shield (?)  
+VPC Peering
+EBS 
+Cloudwatch   
+Cloudformation    
+
 
 
 
