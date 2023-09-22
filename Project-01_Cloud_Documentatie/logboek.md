@@ -376,6 +376,263 @@ Kind kan de was doen: bepaalde naamgeving vermijden wij simpelweg.
 
 
 ## Dagverslag (1 zin)
+Het was vandaag tijd om een certificaat m.b.t. TLS 1.2 of hoger te creëren, zodat mijn webserver via HTTPS bereikbaar is. 
+
+## Obstakels
+Vandaag cirkelde al mijn obstakels om de volgende vraag: Welk gratis certificaat kan ik gebruiken in de AWS-omgeving?
+
+## Oplossingen
+AWS CM is tegenwoordig vrij flexibel. Ik kan zou dus kunnen kiezen voor een certificaat gemaakt via www.letsencrypt.com of voor een certificaat dat ik zelf zou maken in linux. 
+
+## Learnings
+De learning heeft geen betrekking op het voorgaande van de log van deze dag stipuleer ik voor de volledigheid. De learning is: zorg dat je een goede balans vindt tussen vragen stellen en werken in stilte. 
+---
+
+# Log [22/092023]
+
+
+## Dagverslag (1 zin)
+Ziek                
+
+## Obstakels
+NVT
+
+## Oplossingen
+NVT
+
+## Learnings
+NVT
+
+---
+
+ # Log [25/09/2023]
+
+
+## Dagverslag (1 zin)
+
+
+## Obstakels
+
+
+## Oplossingen
+
+
+## Learnings
+
+
+---
+# Log [datum]
+
+
+## Dagverslag (1 zin)
+
+
+## Obstakels
+
+
+## Oplossingen
+
+
+## Learnings
+
+
+---
+# Log [datum]
+
+
+## Dagverslag (1 zin)
+
+
+## Obstakels
+
+
+## Oplossingen
+
+
+## Learnings
+
+
+---
+# Log [datum]
+
+
+## Dagverslag (1 zin)
+
+
+## Obstakels
+
+
+## Oplossingen
+
+
+## Learnings
+
+
+---
+# Log [datum]
+
+
+## Dagverslag (1 zin)
+
+
+## Obstakels
+
+
+## Oplossingen
+
+
+## Learnings
+
+
+---
+# Log [datum]
+
+
+## Dagverslag (1 zin)
+
+
+## Obstakels
+
+
+## Oplossingen
+
+
+## Learnings
+
+
+---
+# Log [datum]
+
+
+## Dagverslag (1 zin)
+
+
+## Obstakels
+
+
+## Oplossingen
+
+
+## Learnings
+
+
+---
+# Log [datum]
+
+
+## Dagverslag (1 zin)
+
+
+## Obstakels
+
+
+## Oplossingen
+
+
+## Learnings
+
+
+---
+# Log [datum]
+
+
+## Dagverslag (1 zin)
+
+
+## Obstakels
+
+
+## Oplossingen
+
+
+## Learnings
+
+
+---
+# Log [datum]
+
+
+## Dagverslag (1 zin)
+
+
+## Obstakels
+
+
+## Oplossingen
+
+
+## Learnings
+
+
+---
+# Log [datum]
+
+
+## Dagverslag (1 zin)
+
+
+## Obstakels
+
+
+## Oplossingen
+
+
+## Learnings
+
+
+---
+# Log [datum]
+
+
+## Dagverslag (1 zin)
+
+
+## Obstakels
+
+
+## Oplossingen
+
+
+## Learnings
+
+
+---
+# Log [datum]
+
+
+## Dagverslag (1 zin)
+
+
+## Obstakels
+
+
+## Oplossingen
+
+
+## Learnings
+
+
+---
+# Log [datum]
+
+
+## Dagverslag (1 zin)
+
+
+## Obstakels
+
+
+## Oplossingen
+
+
+## Learnings
+
+
+---
+# Log [datum]
+
+
+## Dagverslag (1 zin)
 
 
 ## Obstakels
@@ -389,5 +646,3 @@ Kind kan de was doen: bepaalde naamgeving vermijden wij simpelweg.
 
 ---
 
-
- 
