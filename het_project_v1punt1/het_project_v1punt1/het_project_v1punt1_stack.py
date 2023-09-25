@@ -40,26 +40,26 @@ class HetProjectV1Punt1Stack(Stack):
 
         
         
-        # Implementeer KMS in je infrastructuur 
-        de_loper = kms.Key(self, "Loper",
-            enable_key_rotation = True, 
-            enabled = True, 
-            alias = "de_ware_loper",
-            removal_policy = cdk.RemovalPolicy.DESTROY                     
-        )
+        # # Implementeer KMS in je infrastructuur 
+        # de_loper = kms.Key(self, "Loper",
+        #     enable_key_rotation = True, 
+        #     enabled = True, 
+        #     alias = "de_ware_loper",
+        #     removal_policy = cdk.RemovalPolicy.DESTROY                     
+        # )
         
         
-        #   Maak een s3-bucket die encrypted is met meerbedoelde KMS-sleutel 
-        deEmmer = s3.Bucket(self, "VersleuteldeEmmer",
-        bucket_name = "s3-bucket4scripts",
-        access_control = s3.BucketAccessControl.PRIVATE,
-        encryption = s3.BucketEncryption.KMS,
-        versioned = True,
-        block_public_access = s3.BlockPublicAccess.BLOCK_ALL,
-        encryption_key = de_loper,
-        removal_policy = cdk.RemovalPolicy.DESTROY
-        )
-        assert (deEmmer.encryption_key == de_loper)
+        # #   Maak een s3-bucket die encrypted is met meerbedoelde KMS-sleutel 
+        # deEmmer = s3.Bucket(self, "VersleuteldeEmmer",
+        # bucket_name = "s3-bucket4scripts",
+        # access_control = s3.BucketAccessControl.PRIVATE,
+        # encryption = s3.BucketEncryption.KMS,
+        # versioned = True,
+        # block_public_access = s3.BlockPublicAccess.BLOCK_ALL,
+        # encryption_key = de_loper,
+        # removal_policy = cdk.RemovalPolicy.DESTROY
+        # )
+        # assert (deEmmer.encryption_key == de_loper)
 
        
        # Creëer een VPC voor de webserver
@@ -67,7 +67,7 @@ class HetProjectV1Punt1Stack(Stack):
                       nat_gateways = 0,
                       max_azs = 2,
                       ip_addresses = ec2.IpAddresses.cidr("10.10.10.0/24"),
-                      vpc_name = "VPClouterVoorDeApp",
+                      vpc_name = "VPClouterVoorDeApp", 
                       subnet_configuration = [ec2.SubnetConfiguration(name="Publiek_SN_app",subnet_type=ec2.SubnetType.PUBLIC,)] 
                      
         )
@@ -143,7 +143,9 @@ class HetProjectV1Punt1Stack(Stack):
         app_server.connections.allow_to_any_ipv4(ec2.Port.tcp(443), "Via HTTPS Wereldwijd toegankelijk")
         
         # # Creëer een Certificaat voor je webserver NB TLS 1.2 of hoger
-        # acm.Certificate.from_certificate_arn(self, "PasParTout", certificate_arn)
+        acm.Certificate.from_certificate_arn(self, "PasParTout", 
+                                             "arn:aws:acm:eu-central-1:042831144970:certificate/1773a525-257a-4ba8-932d-dd1af6c0f422"
+        )
         
         
         
