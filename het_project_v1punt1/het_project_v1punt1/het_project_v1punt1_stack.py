@@ -10,7 +10,9 @@ from aws_cdk import (
     aws_backup as backup,
     CfnTag,
     aws_iam as iam,
-    aws_certificatemanager as acm
+    aws_certificatemanager as acm,
+    aws_elasticloadbalancing as elb, 
+    aws_autoscaling as autoscaling
 )
 from constructs import Construct
 
@@ -143,7 +145,7 @@ class HetProjectV1Punt1Stack(Stack):
         app_server.connections.allow_to_any_ipv4(ec2.Port.tcp(443), "Via HTTPS Wereldwijd toegankelijk")
         
         # # Creëer een Certificaat voor je webserver NB TLS 1.2 of hoger
-        acm.Certificate.from_certificate_arn(self, "PasParTout", 
+        certificaat = acm.Certificate.from_certificate_arn(self, "PasParTout", 
                                              "arn:aws:acm:eu-central-1:042831144970:certificate/1773a525-257a-4ba8-932d-dd1af6c0f422"
         )
         
@@ -286,7 +288,34 @@ class HetProjectV1Punt1Stack(Stack):
                                     ] 
         )
                   
-                        
+    # Creëer een lb voor je webserver
+    
+        lb = elb.LoadBalancer(self, "LB", 
+                              vpc = vpc_app,
+                              internet_facing=True
+        )
+    #  Creëer een auto scaling group
+        schalingsunit = autoscaling.AutoScalingGroup(self, "Schaler",
+                                                 vpc = vpc_app,
+                                                 max_capacity = 3, 
+                                                 instance_type = ec2.InstanceType.of(
+                                                    ec2.InstanceClass.T3A, ec2.InstanceSize.MICRO
+                                                 ),
+                                                 user_data = eenvoud_UD,
+                                                 machineImage = 
+                                                 
+                                                 )
+    # Creëer een Listener van HTTP naar HTTPS voor je lb
+    
+        luisteraar = lb.add_listener(
+            external_port = 80,
+            internal_port = 443,
+            ssl_certificate_arn = "arn:aws:acm:eu-central-1:042831144970:certificate/1773a525-257a-4ba8-932d-dd1af6c0f422"
+        )
+        
+        
+    # Creëer een Target-group voor je LB
+    
     #    Zet je user_data in je nieuw gemaakte bucket en executeer het daarvandaan. Gebruik hierbij Asset. 
                 
 
