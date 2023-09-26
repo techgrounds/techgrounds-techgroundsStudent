@@ -295,7 +295,7 @@ class HetProjectV1Punt1Stack(Stack):
                               internet_facing=True
         )
     #  Creëer een auto scaling group
-        schalingsunit = autoscaling.AutoScalingGroup(self, "Schaler",
+        schalingsunit = autoscaling.AutoScalingGroup(self, "deSchaler",
                                                  vpc = vpc_app,
                                                  max_capacity = 3, 
                                                  instance_type = ec2.InstanceType.of(
