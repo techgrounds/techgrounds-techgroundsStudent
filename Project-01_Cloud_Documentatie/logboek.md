@@ -409,19 +409,19 @@ NVT
 
 
 ## Dagverslag (1 zin)
-
+Via een instance in linux VM ingegaan om een SSC te maken. 
 
 ## Obstakels
-
+Ik dacht voor de volledigheid meteen gebruik te maken van mijn SSC en mijn server via HTTPS te bezoeken. Dit lukte echter niet. 
 
 ## Oplossingen
-
+De "sensible defaults" van AWS zorgen ervoor dat de ALB het probleem waarvoor ik kwam te staan zal tackelen. 
 
 ## Learnings
-
+Zorg ervoor dat je de "sensible defaults" voor je laat werken. 
 
 ---
-# Log [datum]
+# Log [26/09/2023]
 
 
 ## Dagverslag (1 zin)
