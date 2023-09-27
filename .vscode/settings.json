@@ -4,16 +4,19 @@
         "Boto",
         "certificatemanager",
         "consommateur",
+        "elbv",
         "instanceof",
         "letsencrypt",
         "linux",
         "Schaler",
+        "Schaleur",
         "schalingsunit",
         "seau",
         "Shikha",
         "Synthia",
         "Userdata",
-        "venv"
+        "venv",
+        "xvdh"
     ],
     "python.analysis.typeCheckingMode": "off"
 }

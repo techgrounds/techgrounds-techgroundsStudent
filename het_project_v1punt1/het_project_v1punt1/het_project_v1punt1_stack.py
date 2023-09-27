@@ -12,6 +12,7 @@ from aws_cdk import (
     aws_iam as iam,
     aws_certificatemanager as acm,
     aws_elasticloadbalancing as elb, 
+    aws_elasticloadbalancingv2 as elbv2,
     aws_autoscaling as autoscaling
 )
 from constructs import Construct
@@ -290,30 +291,30 @@ class HetProjectV1Punt1Stack(Stack):
                   
     # Creëer een lb voor je webserver
     
-        lb = elb.LoadBalancer(self, "LB", 
+        lb = elbv2.ApplicationLoadBalancer(self, "LB", 
                               vpc = vpc_app,
                               internet_facing=True
         )
     #  Creëer een auto scaling group
-        schalingsunit = autoscaling.AutoScalingGroup(self, "deSchaler",
+        schalingsunit = autoscaling.AutoScalingGroup(self, "deSchaleur",
                                                  vpc = vpc_app,
+                                                 min_capacity = 1,
                                                  max_capacity = 3, 
                                                  instance_type = ec2.InstanceType.of(
                                                     ec2.InstanceClass.T3A, ec2.InstanceSize.MICRO
                                                  ),
                                                  user_data = eenvoud_UD,
-                                                 machineImage = 
+                                                 machine_image = ec2.AmazonLinuxImage(generation=ec2.AmazonLinuxGeneration.AMAZON_LINUX_2),
                                                  
                                                  )
     # Creëer een Listener van HTTP naar HTTPS voor je lb
     
-        luisteraar = lb.add_listener(
-            external_port = 80,
-            internal_port = 443,
-            ssl_certificate_arn = "arn:aws:acm:eu-central-1:042831144970:certificate/1773a525-257a-4ba8-932d-dd1af6c0f422"
+        luisteraar = lb.add_listener("Luisteraar",
+            port = 80,
+        #   ssl_certificate_arn = "arn:aws:acm:eu-central-1:042831144970:certificate/1773a525-257a-4ba8-932d-dd1af6c0f422"
         )
-        
-        
+        luisteraar.add_targets("Babysitter", port=443, targets=[schalingsunit])
+        luisteraar.connections.allow_default_port_from_any_ipv4("Toegankelijk voor eenieder")
     # Creëer een Target-group voor je LB
     
     #    Zet je user_data in je nieuw gemaakte bucket en executeer het daarvandaan. Gebruik hierbij Asset. 
