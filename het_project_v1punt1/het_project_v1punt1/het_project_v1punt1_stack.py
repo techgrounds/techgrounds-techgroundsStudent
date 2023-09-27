@@ -293,7 +293,8 @@ class HetProjectV1Punt1Stack(Stack):
     
         lb = elbv2.ApplicationLoadBalancer(self, "LB", 
                               vpc = vpc_app,
-                              internet_facing=True
+                              internet_facing=True,
+                              load_balancer_name = "stabilateur"
         )
     #  Creëer een auto scaling group
         schalingsunit = autoscaling.AutoScalingGroup(self, "deSchaleur",
@@ -305,19 +306,28 @@ class HetProjectV1Punt1Stack(Stack):
                                                  ),
                                                  user_data = eenvoud_UD,
                                                  machine_image = ec2.AmazonLinuxImage(generation=ec2.AmazonLinuxGeneration.AMAZON_LINUX_2),
-                                                 
-                                                 )
-    # Creëer een Listener van HTTP naar HTTPS voor je lb
+                                                health_check = autoscaling.HealthCheck.ec2(
+                                                grace = Duration.minutes(3)
+                                                        )
+              )
+    # Creëer een Listener HTTPS-style
     
         luisteraar = lb.add_listener("Luisteraar",
-            port = 80,
-        #   ssl_certificate_arn = "arn:aws:acm:eu-central-1:042831144970:certificate/1773a525-257a-4ba8-932d-dd1af6c0f422"
+            port = 443,
+            certificates =  [certificaat]
+            
+    #   ssl_certificate_arn = "arn:aws:acm:eu-central-1:042831144970:certificate/1773a525-257a-4ba8-932d-dd1af6c0f422"
         )
         luisteraar.add_targets("Babysitter", port=443, targets=[schalingsunit])
         luisteraar.connections.allow_default_port_from_any_ipv4("Toegankelijk voor eenieder")
+        
+    # Een redirect creëren voor de load balancer zodat alle HTTP verzoeken via HTTPS gaan. 
+        lb.add_redirect ()
+    
     # Creëer een Target-group voor je LB
     
     #    Zet je user_data in je nieuw gemaakte bucket en executeer het daarvandaan. Gebruik hierbij Asset. 
                 
 
+    # Maak je Target Group!!!!
     
