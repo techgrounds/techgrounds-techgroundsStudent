@@ -425,19 +425,19 @@ Zorg ervoor dat je de "sensible defaults" voor je laat werken.
 
 
 ## Dagverslag (1 zin)
-
+IaC-dagje: begonnen met het coderen van een Load Balancer en een auto-scaling group. 
 
 ## Obstakels
-
+Ik kreeg te maken met voor mij nieuwe classes met dus nieuwe methods en parameters. 
 
 ## Oplossingen
-
+Back to the drawing board: gebruik gemaakt van de basis-documentatie om mijn stack te kunnen ontwikkelen. 
 
 ## Learnings
-
+Alleen als je met een ASG werkt in de console is een launch template "mandatory". 
 
 ---
-# Log [datum]
+# Log [27-09-2023]
 
 
 ## Dagverslag (1 zin)
