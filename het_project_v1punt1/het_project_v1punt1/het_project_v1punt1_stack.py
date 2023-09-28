@@ -67,7 +67,6 @@ class HetProjectV1Punt1Stack(Stack):
        
        # Creëer een VPC voor de webserver
         vpc_app = ec2.Vpc(self, id = "app-prd-vpc", 
-                      nat_gateways = 0,
                       max_azs = 2,
                       ip_addresses = ec2.IpAddresses.cidr("10.10.10.0/24"),
                       vpc_name = "VPClouterVoorDeApp", 
@@ -145,11 +144,7 @@ class HetProjectV1Punt1Stack(Stack):
         app_server.connections.allow_from(ec2.Peer.ipv4('10.20.20.0/24'), ec2.Port.tcp(22), "SSH toegang voor de adminServer")
         app_server.connections.allow_to_any_ipv4(ec2.Port.tcp(443), "Via HTTPS Wereldwijd toegankelijk")
         
-        # # Creëer een Certificaat voor je webserver NB TLS 1.2 of hoger
-        certificaat = acm.Certificate.from_certificate_arn(self, "PasParTout", 
-                                             "arn:aws:acm:eu-central-1:042831144970:certificate/1773a525-257a-4ba8-932d-dd1af6c0f422"
-        )
-        
+                
         
         
         # Creëer een VPC voor de Management server        
@@ -288,13 +283,21 @@ class HetProjectV1Punt1Stack(Stack):
                                   resources = [backup.BackupResource.from_construct(app_server)
                                     ] 
         )
-                  
-    # Creëer een lb voor je webserver
+     # Creëer een Certificaat voor je webserver NB TLS 1.2 of hoger
+        certificaat = acm.Certificate.from_certificate_arn(self, "PasParTout", 
+                                             "arn:aws:acm:eu-central-1:042831144970:certificate/8e0b523f-ab79-49cd-9c2d-2a51f2bc028b"
+        )              
+    # maak een SG voor je load balancer
+    
+    
+    
+    # Creëer een load balancer voor je webserver
     
         lb = elbv2.ApplicationLoadBalancer(self, "LB", 
                               vpc = vpc_app,
                               internet_facing=True,
-                              load_balancer_name = "stabilateur"
+                              load_balancer_name = "stabilateur",
+                              security_group = sg_webserver
         )
     #  Creëer een auto scaling group
         schalingsunit = autoscaling.AutoScalingGroup(self, "deSchaleur",
@@ -304,25 +307,35 @@ class HetProjectV1Punt1Stack(Stack):
                                                  instance_type = ec2.InstanceType.of(
                                                     ec2.InstanceClass.T3A, ec2.InstanceSize.MICRO
                                                  ),
+                                                 security_group = sg_webserver,
                                                  user_data = eenvoud_UD,
                                                  machine_image = ec2.AmazonLinuxImage(generation=ec2.AmazonLinuxGeneration.AMAZON_LINUX_2),
                                                 health_check = autoscaling.HealthCheck.ec2(
                                                 grace = Duration.minutes(3)
                                                         )
-              )
-    # Creëer een Listener HTTPS-style
+        )
+    
+    
+     # Een redirect creëren voor de load balancer zodat alle HTTP verzoeken via HTTPS gaan. 
+        lb.add_redirect ()
+        # Creëer een Listener HTTPS-style
     
         luisteraar = lb.add_listener("Luisteraar",
             port = 443,
-            certificates =  [certificaat]
-            
-    #   ssl_certificate_arn = "arn:aws:acm:eu-central-1:042831144970:certificate/1773a525-257a-4ba8-932d-dd1af6c0f422"
+            certificates =  [certificaat],
+             protocol=elbv2.ApplicationProtocol.HTTPS,
+              ssl_policy=elbv2.SslPolicy.RECOMMENDED 
         )
-        luisteraar.add_targets("Babysitter", port=443, targets=[schalingsunit])
-        luisteraar.connections.allow_default_port_from_any_ipv4("Toegankelijk voor eenieder")
+        ## dit zou mijn redirect moeten opvangen
+        # HTTP_luisteraar = lb.add_listener("Luisteren_zal_je", 
+        #                                   port = 80, 
+        #                                   open = True
+        # )
         
-    # Een redirect creëren voor de load balancer zodat alle HTTP verzoeken via HTTPS gaan. 
-        lb.add_redirect ()
+        luisteraar.add_targets("deVloot", port=443, targets=[schalingsunit])
+        # luisteraar.connections.allow_default_port_from_any_ipv4("Toegankelijk voor eenieder")
+        
+   
     
     # Creëer een Target-group voor je LB
     
