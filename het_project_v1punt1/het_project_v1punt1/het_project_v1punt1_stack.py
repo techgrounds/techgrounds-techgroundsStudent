@@ -69,8 +69,11 @@ class HetProjectV1Punt1Stack(Stack):
         vpc_app = ec2.Vpc(self, id = "app-prd-vpc", 
                       max_azs = 2,
                       ip_addresses = ec2.IpAddresses.cidr("10.10.10.0/24"),
-                      vpc_name = "VPClouterVoorDeApp", 
-                      subnet_configuration = [ec2.SubnetConfiguration(name="Publiek_SN_app",subnet_type=ec2.SubnetType.PUBLIC,)] 
+                      vpc_name = "VPC_app_prd", 
+                      subnet_configuration = [
+                                                ec2.SubnetConfiguration(name = "Publiek_SN_app",subnet_type = ec2.SubnetType.PUBLIC,),
+                                                ec2.SubnetConfiguration(name = "Private_SN_app", subnet_type = ec2.SubnetType.PRIVATE_WITH_EGRESS )                                                                                            
+                                             ] 
                      
         )
      
@@ -88,6 +91,7 @@ class HetProjectV1Punt1Stack(Stack):
         sg_webserver.connections.allow_from(ec2.Peer.ipv4('10.20.20.0/24'), ec2.Port.tcp(22), "SSH toegang voor de adminServer")
         sg_webserver.add_egress_rule(ec2.Peer.any_ipv4(), ec2.Port.tcp(443), "HTTPS wereldwijd toegankelijk tweede optie")
         sg_webserver.connections.allow_to_any_ipv4(ec2.Port.tcp(443), "Via HTTPS Wereldwijd toegankelijk")
+        sg_webserver.connections.allow_to_any_ipv4(ec2.Port.tcp(80), "Via HTTP Wereldwijd toegankelijk")
         
      
        # user data definiëren 
@@ -288,17 +292,21 @@ class HetProjectV1Punt1Stack(Stack):
                                              "arn:aws:acm:eu-central-1:042831144970:certificate/8e0b523f-ab79-49cd-9c2d-2a51f2bc028b"
         )              
     # maak een SG voor je load balancer
-    
+        sg_lb = ec2.SecurityGroup(self, "Load_Balancer_SG", 
+                              vpc = vpc_app, 
+                                allow_all_outbound = True
+                        ) 
     
     
     # Creëer een load balancer voor je webserver
     
         lb = elbv2.ApplicationLoadBalancer(self, "LB", 
                               vpc = vpc_app,
-                              internet_facing=True,
-                              load_balancer_name = "stabilateur",
-                              security_group = sg_webserver
+                              internet_facing = True,
+                              load_balancer_name = "DeStabilateur",
+                            #   security_group = sg_lb
         )
+    # Creëer een sg voor je auto scaling group  
     #  Creëer een auto scaling group
         schalingsunit = autoscaling.AutoScalingGroup(self, "deSchaleur",
                                                  vpc = vpc_app,
@@ -307,12 +315,16 @@ class HetProjectV1Punt1Stack(Stack):
                                                  instance_type = ec2.InstanceType.of(
                                                     ec2.InstanceClass.T3A, ec2.InstanceSize.MICRO
                                                  ),
-                                                 security_group = sg_webserver,
                                                  user_data = eenvoud_UD,
                                                  machine_image = ec2.AmazonLinuxImage(generation=ec2.AmazonLinuxGeneration.AMAZON_LINUX_2),
-                                                health_check = autoscaling.HealthCheck.ec2(
-                                                grace = Duration.minutes(3)
-                                                        )
+                                                # health_check = autoscaling.HealthCheck.ec2(
+                                                # grace = Duration.minutes(3)
+                                                #         ),
+                                                 key_name =  sleutelpaar_app.key_name,
+                                                 
+                                                #  associate_public_ip_address = False  ##Voor later, maar gebeurt sowieso niet doordat ze in PSN komen
+                                               
+                                                 
         )
     
     
@@ -323,16 +335,18 @@ class HetProjectV1Punt1Stack(Stack):
         luisteraar = lb.add_listener("Luisteraar",
             port = 443,
             certificates =  [certificaat],
-             protocol=elbv2.ApplicationProtocol.HTTPS,
-              ssl_policy=elbv2.SslPolicy.RECOMMENDED 
-        )
+             protocol = elbv2.ApplicationProtocol.HTTPS,
+              ssl_policy = elbv2.SslPolicy.RECOMMENDED_TLS 
+        ) 
         ## dit zou mijn redirect moeten opvangen
         # HTTP_luisteraar = lb.add_listener("Luisteren_zal_je", 
         #                                   port = 80, 
         #                                   open = True
         # )
         
-        luisteraar.add_targets("deVloot", port=443, targets=[schalingsunit])
+        luisteraar.add_targets("deVloot", port=443, targets = [schalingsunit])
+        luisteraar.connections.allow_default_port_from_any_ipv4("Open tot de wereld")
+        schalingsunit.scale_on_request_count("AModestLoad", target_requests_per_minute=60)
         # luisteraar.connections.allow_default_port_from_any_ipv4("Toegankelijk voor eenieder")
         
    
@@ -342,5 +356,4 @@ class HetProjectV1Punt1Stack(Stack):
     #    Zet je user_data in je nieuw gemaakte bucket en executeer het daarvandaan. Gebruik hierbij Asset. 
                 
 
-    # Maak je Target Group!!!!
     
