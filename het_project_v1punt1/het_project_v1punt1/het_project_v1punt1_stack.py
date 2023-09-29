@@ -73,8 +73,8 @@ class HetProjectV1Punt1Stack(Stack):
                       subnet_configuration = [
                                                 ec2.SubnetConfiguration(name = "Publiek_SN_app",subnet_type = ec2.SubnetType.PUBLIC,),
                                                 ec2.SubnetConfiguration(name = "Private_SN_app", subnet_type = ec2.SubnetType.PRIVATE_WITH_EGRESS )                                                                                            
-                                             ] 
-                     
+                                             ],
+                     nat_gateways = 1 
         )
      
        # Creëer een SG voor de webserver 
@@ -126,6 +126,7 @@ class HetProjectV1Punt1Stack(Stack):
                                     generation = ec2.AmazonLinuxGeneration.AMAZON_LINUX_2), 
                                   security_group = sg_webserver,
                                   user_data = eenvoud_UD,
+                                  vpc_subnets = ec2.SubnetSelection(subnet_type=ec2.SubnetType.PUBLIC),
                                   key_name =  sleutelpaar_app.key_name,
                                   block_devices =  [ec2.BlockDevice(
                                         device_name= "/dev/sdh",
@@ -295,21 +296,37 @@ class HetProjectV1Punt1Stack(Stack):
         sg_lb = ec2.SecurityGroup(self, "Load_Balancer_SG", 
                               vpc = vpc_app, 
                                 allow_all_outbound = True
-                        ) 
+        ) 
     
-    
+        sg_lb.connections.allow_from_any_ipv4(ec2.Port.tcp(80), "Wereldwijd toegankelijk")
+        sg_lb.connections.allow_from_any_ipv4(ec2.Port.tcp(443), "Wereldwijd toegankelijk")
     # Creëer een load balancer voor je webserver
     
         lb = elbv2.ApplicationLoadBalancer(self, "LB", 
                               vpc = vpc_app,
                               internet_facing = True,
                               load_balancer_name = "DeStabilateur",
-                            #   security_group = sg_lb
+                              security_group = sg_lb,
+                              vpc_subnets = ec2.SubnetSelection(subnet_type= ec2.SubnetType.PRIVATE_WITH_EGRESS),
         )
     # Creëer een sg voor je auto scaling group  
+        sg_asg = ec2.SecurityGroup(self, "Schalingsunit_SG", 
+                              vpc = vpc_app, 
+                                allow_all_outbound = True
+        ) 
+        
+        sg_asg.connections.allow_from_any_ipv4(ec2.Port.tcp(80), "Wereldwijd toegankelijk")
+        sg_asg.connections.allow_from_any_ipv4(ec2.Port.tcp(443), "Wereldwijd toegankelijk")
+        
+        sg_asg.add_ingress_rule(ec2.SecurityGroup.from_security_group_id(self, "LoadBalancerSGRefHTTPS",
+                                                                         sg_asg.security_group_id),
+                                                                        ec2.Port.tcp(443),
+                                                             "Allow HTTPS-verkeer via de Listener "
+        )
     #  Creëer een auto scaling group
         schalingsunit = autoscaling.AutoScalingGroup(self, "deSchaleur",
                                                  vpc = vpc_app,
+                                                 desired_capacity = 1,
                                                  min_capacity = 1,
                                                  max_capacity = 3, 
                                                  instance_type = ec2.InstanceType.of(
@@ -317,16 +334,18 @@ class HetProjectV1Punt1Stack(Stack):
                                                  ),
                                                  user_data = eenvoud_UD,
                                                  machine_image = ec2.AmazonLinuxImage(generation=ec2.AmazonLinuxGeneration.AMAZON_LINUX_2),
-                                                # health_check = autoscaling.HealthCheck.ec2(
-                                                # grace = Duration.minutes(3)
-                                                #         ),
-                                                 key_name =  sleutelpaar_app.key_name,
+                                                health_check = autoscaling.HealthCheck.ec2(
+                                                grace = Duration.minutes(3)
+                                                        ),
+                                                default_instance_warmup = Duration.minutes(1),
+                                                security_group = sg_asg,
+                                                key_name =  sleutelpaar_app.key_name,
                                                  
                                                 #  associate_public_ip_address = False  ##Voor later, maar gebeurt sowieso niet doordat ze in PSN komen
                                                
                                                  
         )
-    
+        
     
      # Een redirect creëren voor de load balancer zodat alle HTTP verzoeken via HTTPS gaan. 
         lb.add_redirect ()
@@ -336,7 +355,7 @@ class HetProjectV1Punt1Stack(Stack):
             port = 443,
             certificates =  [certificaat],
              protocol = elbv2.ApplicationProtocol.HTTPS,
-              ssl_policy = elbv2.SslPolicy.RECOMMENDED_TLS 
+              ssl_policy = elbv2.SslPolicy.RECOMMENDED 
         ) 
         ## dit zou mijn redirect moeten opvangen
         # HTTP_luisteraar = lb.add_listener("Luisteren_zal_je", 
@@ -345,8 +364,10 @@ class HetProjectV1Punt1Stack(Stack):
         # )
         
         luisteraar.add_targets("deVloot", port=443, targets = [schalingsunit])
+        schalingsunit.scale_on_request_count("drukteInDeTent", target_requests_per_minute=77)
         luisteraar.connections.allow_default_port_from_any_ipv4("Open tot de wereld")
-        schalingsunit.scale_on_request_count("AModestLoad", target_requests_per_minute=60)
+        luisteraar.connections.allow_from_any_ipv4(ec2.Port.tcp(80), "Wereldwijd toegankelijk")
+        luisteraar.connections.allow_from_any_ipv4(ec2.Port.tcp(443), "Wereldwijd toegankelijk")
         # luisteraar.connections.allow_default_port_from_any_ipv4("Toegankelijk voor eenieder")
         
    
@@ -355,5 +376,10 @@ class HetProjectV1Punt1Stack(Stack):
     
     #    Zet je user_data in je nieuw gemaakte bucket en executeer het daarvandaan. Gebruik hierbij Asset. 
                 
-
+# Meteen kunnen checken of de site online is --->
+        cdk.CfnOutput(
+            self,
+            "lb_DNS_locatie",
+            value=lb.load_balancer_dns_name
+        )
     
