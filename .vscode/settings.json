@@ -4,6 +4,7 @@
         "Boto",
         "certificatemanager",
         "consommateur",
+        "elasticloadbalancingv",
         "elbv",
         "instanceof",
         "letsencrypt",

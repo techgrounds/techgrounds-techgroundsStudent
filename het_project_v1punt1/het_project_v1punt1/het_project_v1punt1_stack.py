@@ -11,7 +11,6 @@ from aws_cdk import (
     CfnTag,
     aws_iam as iam,
     aws_certificatemanager as acm,
-    aws_elasticloadbalancing as elb, 
     aws_elasticloadbalancingv2 as elbv2,
     aws_autoscaling as autoscaling
 )
@@ -85,11 +84,10 @@ class HetProjectV1Punt1Stack(Stack):
                                          disable_inline_rules = False,
                                                                                  
         )
-        sg_webserver.add_ingress_rule(ec2.Peer.ipv4('10.20.20.0/24'), ec2.Port.tcp(22), "SSH toegang voor de adminServer")
+        # sg_webserver.add_ingress_rule(ec2.Peer.ipv4('10.20.20.0/24'), ec2.Port.tcp(22), "SSH toegang voor de adminServer")
         sg_webserver.connections.allow_from_any_ipv4(ec2.Port.tcp(80), "Wereldwijd toegankelijk")
         sg_webserver.connections.allow_from_any_ipv4(ec2.Port.tcp(443), "Wereldwijd toegankelijk")
         sg_webserver.connections.allow_from(ec2.Peer.ipv4('10.20.20.0/24'), ec2.Port.tcp(22), "SSH toegang voor de adminServer")
-        sg_webserver.add_egress_rule(ec2.Peer.any_ipv4(), ec2.Port.tcp(443), "HTTPS wereldwijd toegankelijk tweede optie")
         sg_webserver.connections.allow_to_any_ipv4(ec2.Port.tcp(443), "Via HTTPS Wereldwijd toegankelijk")
         sg_webserver.connections.allow_to_any_ipv4(ec2.Port.tcp(80), "Via HTTP Wereldwijd toegankelijk")
         
@@ -143,11 +141,11 @@ class HetProjectV1Punt1Stack(Stack):
 
        
         
-        # webserver moet via http en https toegankelijk zijn en via ssh vanaf de beheerserver
-        app_server.connections.allow_from_any_ipv4(ec2.Port.tcp(80), "Wereldwijd toegankelijk")
-        app_server.connections.allow_from_any_ipv4(ec2.Port.tcp(443), "Wereldwijd toegankelijk")
-        app_server.connections.allow_from(ec2.Peer.ipv4('10.20.20.0/24'), ec2.Port.tcp(22), "SSH toegang voor de adminServer")
-        app_server.connections.allow_to_any_ipv4(ec2.Port.tcp(443), "Via HTTPS Wereldwijd toegankelijk")
+        # # webserver moet via http en https toegankelijk zijn en via ssh vanaf de beheerserver
+        # app_server.connections.allow_from_any_ipv4(ec2.Port.tcp(80), "Wereldwijd toegankelijk")
+        # app_server.connections.allow_from_any_ipv4(ec2.Port.tcp(443), "Wereldwijd toegankelijk")
+        # app_server.connections.allow_from(ec2.Peer.ipv4('10.20.20.0/24'), ec2.Port.tcp(22), "SSH toegang voor de adminServer")
+        # app_server.connections.allow_to_any_ipv4(ec2.Port.tcp(443), "Via HTTPS Wereldwijd toegankelijk")
         
                 
         
@@ -192,18 +190,28 @@ class HetProjectV1Punt1Stack(Stack):
         )
         
         # Creëer een route voor de subnetten van je webserver via je VPC-peering naar je beheerserver
-        route_nd_beheerserver = ec2.CfnRoute(self, "route_naar_BS_voor_SN1",
+        route_nd_beheerserver_Publiek = ec2.CfnRoute(self, "route_naar_BHS_voor_Publiek_SN1",
                                              route_table_id = vpc_app.public_subnets[0].route_table.route_table_id, 
                                              vpc_peering_connection_id = Cloud_Peering.attr_id,
                                              destination_cidr_block = "10.20.20.0/24"
         )
-        route_nd_beheerserver2 = ec2.CfnRoute(self, "route_naar_BS_voor_SN2",
+        route_nd_beheerserver_Publiek2 = ec2.CfnRoute(self, "route_naar_BHS_voor_Publiek_SN2",
                                              route_table_id = vpc_app.public_subnets[1].route_table.route_table_id, 
                                              vpc_peering_connection_id = Cloud_Peering.attr_id,
                                              destination_cidr_block = "10.20.20.0/24"
         )
         
-        
+        route_nd_beheerserver_Privaat = ec2.CfnRoute(self, "route_naar_BHS_voor_Privaat_SN1",
+                                             route_table_id = vpc_app.private_subnets[0].route_table.route_table_id, 
+                                             vpc_peering_connection_id = Cloud_Peering.attr_id,
+                                             destination_cidr_block = "10.20.20.0/24"
+        )
+        route_nd_beheerserver_Privaat2 = ec2.CfnRoute(self, "route_naar_BHS_voor_Privaat_SN2",
+                                             route_table_id = vpc_app.private_subnets[1].route_table.route_table_id, 
+                                             vpc_peering_connection_id = Cloud_Peering.attr_id,
+                                             destination_cidr_block = "10.20.20.0/24"
+        )
+                                                    
         # leg de meerbedoelde route vast voor de volledigheid 
         log_admin_route = CfnOutput(self, "log_vd_route", 
                                     value= admin_juiste_route.ref
@@ -307,7 +315,7 @@ class HetProjectV1Punt1Stack(Stack):
                               internet_facing = True,
                               load_balancer_name = "DeStabilateur",
                               security_group = sg_lb,
-                              vpc_subnets = ec2.SubnetSelection(subnet_type= ec2.SubnetType.PRIVATE_WITH_EGRESS),
+                              vpc_subnets = ec2.SubnetSelection(subnet_type = ec2.SubnetType.PUBLIC),
         )
     # Creëer een sg voor je auto scaling group  
         sg_asg = ec2.SecurityGroup(self, "Schalingsunit_SG", 
@@ -319,12 +327,13 @@ class HetProjectV1Punt1Stack(Stack):
         sg_asg.connections.allow_from_any_ipv4(ec2.Port.tcp(443), "Wereldwijd toegankelijk")
         
         sg_asg.add_ingress_rule(ec2.SecurityGroup.from_security_group_id(self, "LoadBalancerSGRefHTTPS",
-                                                                         sg_asg.security_group_id),
+                                                                         sg_lb.security_group_id),
                                                                         ec2.Port.tcp(443),
                                                              "Allow HTTPS-verkeer via de Listener "
         )
+        sg_asg.add_ingress_rule(ec2.Peer.ipv4('10.20.20.0/24'), ec2.Port.tcp(22), "SSH toegang voor de adminServer")
     #  Creëer een auto scaling group
-        schalingsunit = autoscaling.AutoScalingGroup(self, "deSchaleur",
+        schalingsunit = autoscaling.AutoScalingGroup(self, "de_Schaleur",
                                                  vpc = vpc_app,
                                                  desired_capacity = 1,
                                                  min_capacity = 1,
@@ -334,9 +343,9 @@ class HetProjectV1Punt1Stack(Stack):
                                                  ),
                                                  user_data = eenvoud_UD,
                                                  machine_image = ec2.AmazonLinuxImage(generation=ec2.AmazonLinuxGeneration.AMAZON_LINUX_2),
-                                                health_check = autoscaling.HealthCheck.ec2(
+                                                health_check = autoscaling.HealthCheck.elb(
                                                 grace = Duration.minutes(3)
-                                                        ),
+                                                 ),
                                                 default_instance_warmup = Duration.minutes(1),
                                                 security_group = sg_asg,
                                                 key_name =  sleutelpaar_app.key_name,
@@ -347,24 +356,35 @@ class HetProjectV1Punt1Stack(Stack):
         )
         
     
-     # Een redirect creëren voor de load balancer zodat alle HTTP verzoeken via HTTPS gaan. 
-        lb.add_redirect ()
         # Creëer een Listener HTTPS-style
     
+        # dit zou mijn redirect moeten opvangen
+        # HTTP_luisteraar = lb.add_listener("Luisteren_zal_je", 
+        # #                                   port = 80, 
+        # #                                   open = True
+        # )
+        
+        
         luisteraar = lb.add_listener("Luisteraar",
             port = 443,
             certificates =  [certificaat],
              protocol = elbv2.ApplicationProtocol.HTTPS,
               ssl_policy = elbv2.SslPolicy.RECOMMENDED 
         ) 
-        ## dit zou mijn redirect moeten opvangen
-        # HTTP_luisteraar = lb.add_listener("Luisteren_zal_je", 
-        #                                   port = 80, 
-        #                                   open = True
-        # )
         
-        luisteraar.add_targets("deVloot", port=443, targets = [schalingsunit])
-        schalingsunit.scale_on_request_count("drukteInDeTent", target_requests_per_minute=77)
+        # Een redirect creëren voor de load balancer zodat alle HTTP verzoeken via HTTPS gaan. 
+        lb.add_redirect ()
+        
+        # Creëer een target group
+        tg = elbv2.ApplicationTargetGroup(self, "TG_LB",
+                                          vpc = vpc_app,
+                                          port = 443,
+                                          protocol = elbv2.ApplicationProtocol.HTTPS,
+                                          targets = [schalingsunit]                                   
+        )
+        
+        luisteraar.add_targets("de_Vloot", port=443, targets = [tg])
+        schalingsunit.scale_on_request_count("drukteInDeZaak", target_requests_per_minute=65)
         luisteraar.connections.allow_default_port_from_any_ipv4("Open tot de wereld")
         luisteraar.connections.allow_from_any_ipv4(ec2.Port.tcp(80), "Wereldwijd toegankelijk")
         luisteraar.connections.allow_from_any_ipv4(ec2.Port.tcp(443), "Wereldwijd toegankelijk")
@@ -372,11 +392,11 @@ class HetProjectV1Punt1Stack(Stack):
         
    
     
-    # Creëer een Target-group voor je LB
+        # Creëer een Target-group voor je LB
     
-    #    Zet je user_data in je nieuw gemaakte bucket en executeer het daarvandaan. Gebruik hierbij Asset. 
+        #  Zet je user_data in je nieuw gemaakte bucket en executeer het daarvandaan. Gebruik hierbij Asset. 
                 
-# Meteen kunnen checken of de site online is --->
+        # Meteen kunnen checken of de site online is --->
         cdk.CfnOutput(
             self,
             "lb_DNS_locatie",
