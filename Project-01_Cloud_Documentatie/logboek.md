@@ -437,23 +437,23 @@ Back to the drawing board: gebruik gemaakt van de basis-documentatie om mijn sta
 Alleen als je met een ASG werkt in de console is een launch template "mandatory". 
 
 ---
-# Log [27-09-2023]
+# Log [29-09-2023]
 
 
 ## Dagverslag (1 zin)
-
+Vandaag een presentatie moeten houden over de progressie van Versie 1punt1
 
 ## Obstakels
-
+De load balancer kan geen healthy target vinden om al het verkeer naar toe te leiden. 
 
 ## Oplossingen
-
+Ik heb deze foutmelding het middelpunt van mijn presentatie gemaakt, in de hoop dat iemand mij een zetje kon geven in de goede richting.
 
 ## Learnings
-
+Ook in de Iac-wereld zul je geduld moeten betrachten en zal een oplossing voor een hardnekkig IaC-probleem in de regel niet magisch eensklaps verschijnen.
 
 ---
-# Log [datum]
+# Log [02/10/2023]
 
 
 ## Dagverslag (1 zin)
