@@ -344,9 +344,9 @@ class HetProjectV1Punt1Stack(Stack):
                                                  user_data = eenvoud_UD,
                                                  machine_image = ec2.AmazonLinuxImage(generation=ec2.AmazonLinuxGeneration.AMAZON_LINUX_2),
                                                 health_check = autoscaling.HealthCheck.elb(
-                                                grace = Duration.minutes(3)
+                                                grace = Duration.minutes(4)
                                                  ),
-                                                default_instance_warmup = Duration.minutes(1),
+                                                default_instance_warmup = Duration.seconds(5),
                                                 security_group = sg_asg,
                                                 key_name =  sleutelpaar_app.key_name,
                                                  
@@ -376,14 +376,22 @@ class HetProjectV1Punt1Stack(Stack):
         lb.add_redirect ()
         
         # Creëer een target group
-        tg = elbv2.ApplicationTargetGroup(self, "TG_LB",
-                                          vpc = vpc_app,
-                                          port = 443,
-                                          protocol = elbv2.ApplicationProtocol.HTTPS,
-                                          targets = [schalingsunit]                                   
-        )
+        # tg = elbv2.ApplicationTargetGroup(self, "TG_LB",
+        #                                   vpc = vpc_app,
+        #                                   port = 443,
+        #                                   protocol = elbv2.ApplicationProtocol.HTTPS,
+        #                                   targets = [schalingsunit],
+        #                                   target_group_name = "de-Vl00t"                                  
+        # )
         
-        luisteraar.add_targets("de_Vloot", port=443, targets = [tg])
+        luisteraar.add_targets("de_Vloot", port=443, 
+                               target_group_name = "Vl00t4Cynthia", targets =  [schalingsunit]
+        )
+        # # tg als target_group
+        # luisteraar.add_action(  "de_Verwijzing",
+        #     action =elbv2.ListenerAction.forward(
+        #         target_groups=[tg],
+            # ),
         schalingsunit.scale_on_request_count("drukteInDeZaak", target_requests_per_minute=65)
         luisteraar.connections.allow_default_port_from_any_ipv4("Open tot de wereld")
         luisteraar.connections.allow_from_any_ipv4(ec2.Port.tcp(80), "Wereldwijd toegankelijk")
