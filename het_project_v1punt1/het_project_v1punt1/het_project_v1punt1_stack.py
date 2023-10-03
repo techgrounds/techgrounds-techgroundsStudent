@@ -21,24 +21,24 @@ class HetProjectV1Punt1Stack(Stack):
         super().__init__(scope, id, **kwargs)
 
         
-        # Maak gebruik van IAM in je infrastructuur 
-        Instance_Admin = iam.Role(self,"deInstance-Admin",
-                             assumed_by = iam.ServicePrincipal("ec2.amazonaws.com"),
-                             description = "Admin_spray voor onze beheerserver", 
-                             role_name = "Admin_spray_voor_ec2"
-        )
+        # # Maak gebruik van IAM in je infrastructuur 
+        # Instance_Admin = iam.Role(self,"deInstance-Admin",
+        #                      assumed_by = iam.ServicePrincipal("ec2.amazonaws.com"),
+        #                      description = "Admin_spray voor onze beheerserver", 
+        #                      role_name = "Admin_spray_voor_ec2"
+        # )
         
-        Instance_Admin.add_managed_policy(iam.ManagedPolicy.from_aws_managed_policy_name("AdministratorAccess")
-        )
+        # Instance_Admin.add_managed_policy(iam.ManagedPolicy.from_aws_managed_policy_name("AdministratorAccess")
+        # )
         
-        gerant = iam.Role (self, "deGerant",
-                          assumed_by = iam.ArnPrincipal("arn:aws:iam::042831144970:user/consommateur"), 
-                          description = "Admin_zalf voor YT zodat alle mogelijke problemen kunnen worden aangepakt",
-                          role_name = "Admin_zalf"
-        )
+        # gerant = iam.Role (self, "deGerant",
+        #                   assumed_by = iam.ArnPrincipal("arn:aws:iam::042831144970:user/consommateur"), 
+        #                   description = "Admin_zalf voor YT zodat alle mogelijke problemen kunnen worden aangepakt",
+        #                   role_name = "Admin_zalf"
+        # )
         
-        gerant.add_managed_policy(iam.ManagedPolicy.from_aws_managed_policy_name('AdministratorAccess')
-        )
+        # gerant.add_managed_policy(iam.ManagedPolicy.from_aws_managed_policy_name('AdministratorAccess')
+        # )
 
         
         
@@ -94,12 +94,12 @@ class HetProjectV1Punt1Stack(Stack):
      
        # user data definiëren 
         eenvoud_UD = ec2.UserData.for_linux( shebang =  "#!/bin/bash")
-        eenvoud_UD.add_commands ( "yum -y install httpd",
+        eenvoud_UD.add_commands ( "yum update -y", 
+                                 "yum -y install httpd",
                                     "systemctl enable httpd",
                                         "systemctl start httpd",
-                                         """echo '<html><h1>L.S., Dit is wat plain text om mijn server wat body te geven, 
-                                         hoewel dit gek genoeg niet de body behelst</h1>
-                                         <b1> Ik wou dat ik de header was, zodat ik meer body kon geven aan dit alles <b1>                                         
+                                         """echo '<html><h1>L.S., plain text 4 wat body, hoewel dit geen body is. /h1>
+                                         <b1> Ik wou dat ik 1 header was, zodat wat body kon geven aan 't geheel. <b1>                                         
                                          </html>' > /var/www/html/index.html"""
                  
         )                                  
@@ -138,17 +138,8 @@ class HetProjectV1Punt1Stack(Stack):
                                                                          
                                                                                
         )
-
-       
-        
-        # # webserver moet via http en https toegankelijk zijn en via ssh vanaf de beheerserver
-        # app_server.connections.allow_from_any_ipv4(ec2.Port.tcp(80), "Wereldwijd toegankelijk")
-        # app_server.connections.allow_from_any_ipv4(ec2.Port.tcp(443), "Wereldwijd toegankelijk")
-        # app_server.connections.allow_from(ec2.Peer.ipv4('10.20.20.0/24'), ec2.Port.tcp(22), "SSH toegang voor de adminServer")
-        # app_server.connections.allow_to_any_ipv4(ec2.Port.tcp(443), "Via HTTPS Wereldwijd toegankelijk")
-        
-                
-        
+     
+                       
         
         # Creëer een VPC voor de Management server        
         vpc_admin_server = ec2.Vpc(self, "management-prd-vpc", 
@@ -258,7 +249,7 @@ class HetProjectV1Punt1Stack(Stack):
                                     machine_image =  ec2.WindowsImage(ec2.WindowsVersion.WINDOWS_SERVER_2019_ENGLISH_FULL_BASE),
                                     vpc = vpc_admin_server,
                                     security_group = sg_admin_server, 
-                                    role = Instance_Admin,
+                                    # role = Instance_Admin,
                                     user_data = user_data_management_server,
                                     key_name = sleutelpaar_app.key_name, 
                                     block_devices =  [ec2.BlockDevice(
@@ -298,12 +289,13 @@ class HetProjectV1Punt1Stack(Stack):
     #     )
      # Creëer een Certificaat voor je webserver NB TLS 1.2 of hoger
         certificaat = acm.Certificate.from_certificate_arn(self, "PasParTout", 
-                                             "arn:aws:acm:eu-central-1:042831144970:certificate/63353ec9-a89a-4c7f-b9b2-7964fe46bfad"
+                                             "arn:aws:acm:eu-central-1:042831144970:certificate/850a4382-eb7e-4389-879c-d25780b64119"
         )              
     # maak een SG voor je load balancer
         sg_lb = ec2.SecurityGroup(self, "Load_Balancer_SG", 
                               vpc = vpc_app, 
-                                allow_all_outbound = True
+                                allow_all_outbound = True,
+                                disable_inline_rules = False,
         ) 
     
         sg_lb.connections.allow_from_any_ipv4(ec2.Port.tcp(80), "Wereldwijd toegankelijk")
@@ -315,12 +307,14 @@ class HetProjectV1Punt1Stack(Stack):
                               internet_facing = True,
                               load_balancer_name = "deStabilateur",
                               security_group = sg_lb,
-                            #   vpc_subnets = ec2.SubnetSelection(subnet_type = ec2.SubnetType.PUBLIC),
+                              vpc_subnets = ec2.SubnetSelection(subnet_type = ec2.SubnetType.PUBLIC),
+                             idle_timeout = Duration.minutes (4),
         )
     # Creëer een sg voor je auto scaling group  
-        sg_asg = ec2.SecurityGroup(self, "Schalingsunit_SG", 
+        sg_asg = ec2.SecurityGroup(self, "ASG_SG", 
                               vpc = vpc_app, 
-                                allow_all_outbound = True
+                                allow_all_outbound = True,
+                                disable_inline_rules = False,
         ) 
         
         sg_asg.connections.allow_from_any_ipv4(ec2.Port.tcp(80), "Wereldwijd toegankelijk")
@@ -329,7 +323,7 @@ class HetProjectV1Punt1Stack(Stack):
         sg_asg.add_ingress_rule(ec2.SecurityGroup.from_security_group_id(self, "LoadBalancerSGRefHTTPS",
                                                                          sg_lb.security_group_id),
                                                                         ec2.Port.tcp(443),
-                                                             "Allow HTTPS-verkeer via de Listener "
+                                                               "Allow HTTPS-verkeer via de Luisteraar"
         )
         sg_asg.add_ingress_rule(ec2.Peer.ipv4('10.20.20.0/24'), ec2.Port.tcp(22), "SSH toegang voor de adminServer")
     #  Creëer een auto scaling group
@@ -337,6 +331,7 @@ class HetProjectV1Punt1Stack(Stack):
                                                  vpc = vpc_app,
                                                  min_capacity = 1,
                                                  max_capacity = 3, 
+                                                 desired_capacity = 1,
                                                  instance_type = ec2.InstanceType("t3a.micro"),
                                                 machine_image = ec2.MachineImage.latest_amazon_linux(
                                                 generation = ec2.AmazonLinuxGeneration.AMAZON_LINUX_2),
@@ -357,57 +352,54 @@ class HetProjectV1Punt1Stack(Stack):
     
         # Creëer een Listener HTTPS-style
     
-        # dit zou mijn redirect moeten opvangen
-        # HTTP_luisteraar = lb.add_listener("Luisteren_zal_je", 
-        #                                   port = 80, 
-        #                                   open = True
-        # )
+        # dit gaat  mijn redirect moeten opvangen
+        HTTP_luisteraar = lb.add_listener("Luisteren_zal_je", 
+                                          port = 80, 
+                                          open = True
+        )
+        
+        HTTP_luisteraar.add_action(
+            "HTTP-verwijzing",
+            action = elbv2.ListenerAction.redirect(
+                protocol = "HTTPS",
+                port = "443"
+                    )
+        )
         
         
         luisteraar = lb.add_listener("Luisteraar",
             port = 443,
             certificates =  [certificaat],
-            open = True
+        #     open = True,
         #      protocol = elbv2.ApplicationProtocol.HTTPS,
-        # #       ssl_policy = elbv2.SslPolicy.RECOMMENDED 
+        #       ssl_policy = elbv2.SslPolicy.RECOMMENDED 
         ) 
         
         # Een redirect creëren voor de load balancer zodat alle HTTP verzoeken via HTTPS gaan. 
         # lb.add_redirect ()
         
-        # Creëer een target group
-        # tg = elbv2.ApplicationTargetGroup(self, "TG_LB",
-        #                                   vpc = vpc_app,
-        #                                   port = 443,
-        #                                   protocol = elbv2.ApplicationProtocol.HTTPS,
-        #                                   targets = [schalingsunit],
-        #                                   target_group_name = "de-Vl00t"                                  
-        # )
         
         luisteraar.add_targets("de_Vloot", port = 443, 
-                               target_group_name = "Vl00t4Cynthia", targets =  [schalingsunit]
+                               target_group_name = "Vl00t4Cynthia", targets = [schalingsunit]
         )
-        # # tg als target_group
-        # luisteraar.add_action(  "de_Verwijzing",
-        #     action =elbv2.ListenerAction.forward(
-        #         target_groups=[tg],
-            # ),
-        schalingsunit.scale_on_request_count("drukteInDeZaak", target_requests_per_minute = 3)
-        luisteraar.connections.allow_default_port_from_any_ipv4("Open tot de wereld")
-        # luisteraar.connections.allow_from_any_ipv4(ec2.Port.tcp(80), "Wereldwijd toegankelijk")
+      
+        schalingsunit.scale_on_cpu_utilization("drukteInDeZaak", target_utilization_percent = 80)
+        
+        luisteraar.connections.allow_default_port_from_any_ipv4("Via HTTPS luisteren naar de wereld")
+        luisteraar.connections.allow_from_any_ipv4(ec2.Port.tcp(80), "Wereldwijd toegankelijk")
         luisteraar.connections.allow_from_any_ipv4(ec2.Port.tcp(443), "Wereldwijd toegankelijk")
-        # # luisteraar.connections.allow_default_port_from_any_ipv4("Toegankelijk voor eenieder")
+        HTTP_luisteraar.connections.allow_default_port_from_any_ipv4("Via HTTP luisteren naar de wereld")
         
    
     
-        # Creëer een Target-group voor je LB
+       
     
         #  Zet je user_data in je nieuw gemaakte bucket en executeer het daarvandaan. Gebruik hierbij Asset. 
                 
-        # Meteen kunnen checken of de site online is --->
-        cdk.CfnOutput(
-            self,
-            "lb_DNS_locatie",
-            value=lb.load_balancer_dns_name
-        )
+        # # Meteen kunnen checken of de site online is --->
+        # cdk.CfnOutput(
+        #     self,
+        #     "lb_DNS_locatie",
+        #     value=lb.load_balancer_dns_name
+        # )
     

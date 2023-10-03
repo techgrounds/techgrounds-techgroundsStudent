@@ -457,13 +457,13 @@ Ook in de Iac-wereld zul je geduld moeten betrachten en zal een oplossing voor e
 
 
 ## Dagverslag (1 zin)
-
+Foutcode "Bad gateway 502" proberen te verhelpen.
 
 ## Obstakels
-
+Het lukt mij niet de instance van mijn ASG te bereiken. 
 
 ## Oplossingen
-
+Mijn listener louter afstellen op de 80 port om zodoende een beter beeld te krijgen van wat wél werkt in mijn stack. 
 
 ## Learnings
 CLS schoont je scherm op on CMD. 
@@ -473,19 +473,19 @@ CLS schoont je scherm op on CMD.
 
 
 ## Dagverslag (1 zin)
-
+Wederom de foutcode "Bad gateway 502" proberen te verhelpen.
 
 ## Obstakels
-
+De gedachte dat mijn certificaat en verbinding blokkeert via HTTPS. 
 
 ## Oplossingen
-
+Een werkend certificaat van een peer verwerkt in mijn stack. 
 
 ## Learnings
 "clear" doet in linux wat "cls" doet in CMD. 
 
 ---
-# Log [datum]
+# Log [04/10/2023]
 
 
 ## Dagverslag (1 zin)
