@@ -271,34 +271,34 @@ class HetProjectV1Punt1Stack(Stack):
                                     )
                                     ]
         )
-        # Creëer een backup van de webserver waarbij de backups 7 dagen behouden moeten blijven 
+    #     # Creëer een backup van de webserver waarbij de backups 7 dagen behouden moeten blijven 
         
-        onze_kluis = backup.BackupVault(self, "de_enige_kluis",
-                                        backup_vault_name="onze_kluis",
-                                        removal_policy=cdk.RemovalPolicy.DESTROY
-        )
+    #     onze_kluis = backup.BackupVault(self, "de_enige_kluis",
+    #                                     backup_vault_name="onze_kluis",
+    #                                     removal_policy=cdk.RemovalPolicy.DESTROY
+    #     )
        
-        plan_BU_app = backup.BackupPlan(self, "PDC_BU_app", 
-                                        backup_plan_name = "plan_der_dagelijkse_site_backup", 
-                                        backup_vault = onze_kluis
-        )
-        plan_BU_app.add_rule(backup.BackupPlanRule( delete_after = Duration.days(7), 
-                                                rule_name = "dagelijkse_back_up",
-                                                schedule_expression = events.Schedule.cron(
-                                                    minute = "07",
-                                                    hour = "01",)
-                                            )            
-                                    ) 
+    #     plan_BU_app = backup.BackupPlan(self, "PDC_BU_app", 
+    #                                     backup_plan_name = "plan_der_dagelijkse_site_backup", 
+    #                                     backup_vault = onze_kluis
+    #     )
+    #     plan_BU_app.add_rule(backup.BackupPlanRule( delete_after = Duration.days(7), 
+    #                                             rule_name = "dagelijkse_back_up",
+    #                                             schedule_expression = events.Schedule.cron(
+    #                                                 minute = "07",
+    #                                                 hour = "01",)
+    #                                         )            
+    #                                 ) 
         
         
         
-        plan_BU_app.add_selection(id = "louter_de_app_server", 
-                                  resources = [backup.BackupResource.from_construct(app_server)
-                                    ] 
-        )
+    #     plan_BU_app.add_selection(id = "louter_de_app_server", 
+    #                               resources = [backup.BackupResource.from_construct(app_server)
+    #                                 ] 
+    #     )
      # Creëer een Certificaat voor je webserver NB TLS 1.2 of hoger
         certificaat = acm.Certificate.from_certificate_arn(self, "PasParTout", 
-                                             "arn:aws:acm:eu-central-1:042831144970:certificate/8e0b523f-ab79-49cd-9c2d-2a51f2bc028b"
+                                             "arn:aws:acm:eu-central-1:042831144970:certificate/63353ec9-a89a-4c7f-b9b2-7964fe46bfad"
         )              
     # maak een SG voor je load balancer
         sg_lb = ec2.SecurityGroup(self, "Load_Balancer_SG", 
@@ -313,9 +313,9 @@ class HetProjectV1Punt1Stack(Stack):
         lb = elbv2.ApplicationLoadBalancer(self, "LB", 
                               vpc = vpc_app,
                               internet_facing = True,
-                              load_balancer_name = "DeStabilateur",
+                              load_balancer_name = "deStabilateur",
                               security_group = sg_lb,
-                              vpc_subnets = ec2.SubnetSelection(subnet_type = ec2.SubnetType.PUBLIC),
+                            #   vpc_subnets = ec2.SubnetSelection(subnet_type = ec2.SubnetType.PUBLIC),
         )
     # Creëer een sg voor je auto scaling group  
         sg_asg = ec2.SecurityGroup(self, "Schalingsunit_SG", 
@@ -335,20 +335,19 @@ class HetProjectV1Punt1Stack(Stack):
     #  Creëer een auto scaling group
         schalingsunit = autoscaling.AutoScalingGroup(self, "de_Schaleur",
                                                  vpc = vpc_app,
-                                                 desired_capacity = 1,
                                                  min_capacity = 1,
                                                  max_capacity = 3, 
-                                                 instance_type = ec2.InstanceType.of(
-                                                    ec2.InstanceClass.T3A, ec2.InstanceSize.MICRO
-                                                 ),
-                                                 user_data = eenvoud_UD,
-                                                 machine_image = ec2.AmazonLinuxImage(generation=ec2.AmazonLinuxGeneration.AMAZON_LINUX_2),
+                                                 instance_type = ec2.InstanceType("t3a.micro"),
+                                                machine_image = ec2.MachineImage.latest_amazon_linux(
+                                                generation = ec2.AmazonLinuxGeneration.AMAZON_LINUX_2),
+                                                user_data = eenvoud_UD,
                                                 health_check = autoscaling.HealthCheck.elb(
-                                                grace = Duration.minutes(4)
+                                                grace = Duration.seconds(45)
                                                  ),
-                                                default_instance_warmup = Duration.seconds(5),
+                                                default_instance_warmup = Duration.seconds(10),
                                                 security_group = sg_asg,
                                                 key_name =  sleutelpaar_app.key_name,
+                                                auto_scaling_group_name = "ASG4deVl00t"
                                                  
                                                 #  associate_public_ip_address = False  ##Voor later, maar gebeurt sowieso niet doordat ze in PSN komen
                                                
@@ -360,20 +359,21 @@ class HetProjectV1Punt1Stack(Stack):
     
         # dit zou mijn redirect moeten opvangen
         # HTTP_luisteraar = lb.add_listener("Luisteren_zal_je", 
-        # #                                   port = 80, 
-        # #                                   open = True
+        #                                   port = 80, 
+        #                                   open = True
         # )
         
         
         luisteraar = lb.add_listener("Luisteraar",
             port = 443,
             certificates =  [certificaat],
-             protocol = elbv2.ApplicationProtocol.HTTPS,
-              ssl_policy = elbv2.SslPolicy.RECOMMENDED 
+            open = True
+        #      protocol = elbv2.ApplicationProtocol.HTTPS,
+        # #       ssl_policy = elbv2.SslPolicy.RECOMMENDED 
         ) 
         
         # Een redirect creëren voor de load balancer zodat alle HTTP verzoeken via HTTPS gaan. 
-        lb.add_redirect ()
+        # lb.add_redirect ()
         
         # Creëer een target group
         # tg = elbv2.ApplicationTargetGroup(self, "TG_LB",
@@ -384,7 +384,7 @@ class HetProjectV1Punt1Stack(Stack):
         #                                   target_group_name = "de-Vl00t"                                  
         # )
         
-        luisteraar.add_targets("de_Vloot", port=443, 
+        luisteraar.add_targets("de_Vloot", port = 443, 
                                target_group_name = "Vl00t4Cynthia", targets =  [schalingsunit]
         )
         # # tg als target_group
@@ -392,11 +392,11 @@ class HetProjectV1Punt1Stack(Stack):
         #     action =elbv2.ListenerAction.forward(
         #         target_groups=[tg],
             # ),
-        schalingsunit.scale_on_request_count("drukteInDeZaak", target_requests_per_minute=65)
+        schalingsunit.scale_on_request_count("drukteInDeZaak", target_requests_per_minute = 3)
         luisteraar.connections.allow_default_port_from_any_ipv4("Open tot de wereld")
-        luisteraar.connections.allow_from_any_ipv4(ec2.Port.tcp(80), "Wereldwijd toegankelijk")
+        # luisteraar.connections.allow_from_any_ipv4(ec2.Port.tcp(80), "Wereldwijd toegankelijk")
         luisteraar.connections.allow_from_any_ipv4(ec2.Port.tcp(443), "Wereldwijd toegankelijk")
-        # luisteraar.connections.allow_default_port_from_any_ipv4("Toegankelijk voor eenieder")
+        # # luisteraar.connections.allow_default_port_from_any_ipv4("Toegankelijk voor eenieder")
         
    
     

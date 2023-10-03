@@ -466,10 +466,10 @@ Ook in de Iac-wereld zul je geduld moeten betrachten en zal een oplossing voor e
 
 
 ## Learnings
-
+CLS schoont je scherm op on CMD. 
 
 ---
-# Log [datum]
+# Log [03/10/2023]
 
 
 ## Dagverslag (1 zin)
@@ -482,7 +482,7 @@ Ook in de Iac-wereld zul je geduld moeten betrachten en zal een oplossing voor e
 
 
 ## Learnings
-
+"clear" doet in linux wat "cls" doet in CMD. 
 
 ---
 # Log [datum]
