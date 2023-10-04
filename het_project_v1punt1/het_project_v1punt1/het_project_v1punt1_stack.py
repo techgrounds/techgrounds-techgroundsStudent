@@ -21,47 +21,51 @@ class HetProjectV1Punt1Stack(Stack):
         super().__init__(scope, id, **kwargs)
 
         
-        # # Maak gebruik van IAM in je infrastructuur 
-        # Instance_Admin = iam.Role(self,"deInstance-Admin",
-        #                      assumed_by = iam.ServicePrincipal("ec2.amazonaws.com"),
-        #                      description = "Admin_spray voor onze beheerserver", 
-        #                      role_name = "Admin_spray_voor_ec2"
-        # )
+        # Maak gebruik van IAM in je infrastructuur 
+        Instance_Admin = iam.Role(self,"deInstance-Admin",
+                             assumed_by = iam.ServicePrincipal("ec2.amazonaws.com"),
+                             description = "Admin_spray voor onze beheerserver", 
+                             role_name = "Admin_spray_voor_ec2"
+        )
         
-        # Instance_Admin.add_managed_policy(iam.ManagedPolicy.from_aws_managed_policy_name("AdministratorAccess")
-        # )
+        Instance_Admin.add_managed_policy(iam.ManagedPolicy.from_aws_managed_policy_name("AdministratorAccess")
+        )
         
-        # gerant = iam.Role (self, "deGerant",
-        #                   assumed_by = iam.ArnPrincipal("arn:aws:iam::042831144970:user/consommateur"), 
-        #                   description = "Admin_zalf voor YT zodat alle mogelijke problemen kunnen worden aangepakt",
-        #                   role_name = "Admin_zalf"
-        # )
+        gerant = iam.Role (self, "deGerant",
+                          assumed_by = iam.ArnPrincipal("arn:aws:iam::042831144970:user/consommateur"), 
+                          description = "Admin_zalf voor YT zodat alle mogelijke problemen kunnen worden aangepakt",
+                          role_name = "Admin_zalf"
+        )
         
-        # gerant.add_managed_policy(iam.ManagedPolicy.from_aws_managed_policy_name('AdministratorAccess')
-        # )
+        gerant.add_managed_policy(iam.ManagedPolicy.from_aws_managed_policy_name('AdministratorAccess')
+        )
 
+        # Maak een admin group die het geheel kan beheren. 
+        AdminGroup = iam.Group(self,'Admin',group_name='AdminGroup' , managed_policies = 
+            [iam.ManagedPolicy.from_aws_managed_policy_name('AdministratorAccess')
+            ]
+        )
+        
+        # Implementeer KMS in je infrastructuur 
+        de_loper = kms.Key(self, "Loper",
+            enable_key_rotation = True, 
+            enabled = True, 
+            alias = "de_ware_loper",
+            removal_policy = cdk.RemovalPolicy.DESTROY                     
+        )
         
         
-        # # Implementeer KMS in je infrastructuur 
-        # de_loper = kms.Key(self, "Loper",
-        #     enable_key_rotation = True, 
-        #     enabled = True, 
-        #     alias = "de_ware_loper",
-        #     removal_policy = cdk.RemovalPolicy.DESTROY                     
-        # )
-        
-        
-        # #   Maak een s3-bucket die encrypted is met meerbedoelde KMS-sleutel 
-        # deEmmer = s3.Bucket(self, "VersleuteldeEmmer",
-        # bucket_name = "s3-bucket4scripts",
-        # access_control = s3.BucketAccessControl.PRIVATE,
-        # encryption = s3.BucketEncryption.KMS,
-        # versioned = True,
-        # block_public_access = s3.BlockPublicAccess.BLOCK_ALL,
-        # encryption_key = de_loper,
-        # removal_policy = cdk.RemovalPolicy.DESTROY
-        # )
-        # assert (deEmmer.encryption_key == de_loper)
+        #   Maak een s3-bucket die encrypted is met meerbedoelde KMS-sleutel 
+        deEmmer = s3.Bucket(self, "VersleuteldeEmmer",
+        bucket_name = "s3-bucket4scripts",
+        access_control = s3.BucketAccessControl.PRIVATE,
+        encryption = s3.BucketEncryption.KMS,
+        versioned = True,
+        block_public_access = s3.BlockPublicAccess.BLOCK_ALL,
+        encryption_key = de_loper,
+        removal_policy = cdk.RemovalPolicy.DESTROY
+        )
+        assert (deEmmer.encryption_key == de_loper)
 
        
        # Creëer een VPC voor de webserver
@@ -94,13 +98,13 @@ class HetProjectV1Punt1Stack(Stack):
      
        # user data definiëren 
         eenvoud_UD = ec2.UserData.for_linux( shebang =  "#!/bin/bash")
-        eenvoud_UD.add_commands ( "yum update -y", 
-                                 "yum -y install httpd",
-                                    "systemctl enable httpd",
-                                        "systemctl start httpd",
-                                         """echo '<html><h1>L.S., plain text 4 wat body, hoewel dit geen body is. /h1>
-                                         <b1> Ik wou dat ik 1 header was, zodat wat body kon geven aan 't geheel. <b1>                                         
-                                         </html>' > /var/www/html/index.html"""
+        eenvoud_UD.add_commands( "yum -y install httpd mod_ssl",
+                                 "systemctl enable httpd",
+                                 "systemctl start httpd",
+                                """echo "<html><h1>L.S., We zijn online!!</h1>
+                                 <b> We hebben echter niets te bieden voor u, waardige lezer. </b>                                         
+                                 </html>" | cat > /var/www/html/index.html""",
+                                 "sudo touch /healthchecks.txt"
                  
         )                                  
         
@@ -210,27 +214,11 @@ class HetProjectV1Punt1Stack(Stack):
         )
 
         
-        # # Kan waarschijnlijk worden verwijderd
-        # # Creëer een route van je app_server door je VPC-peering naar je admin-server voor je 1e subnet in app-server 
-        # route_tabel_app = ec2.CfnRouteTable(self, "De_enige_wijzer_vd_app",
-        #                     vpc_id = vpc_app.vpc_id,
-        # )
-        
-        # app_juiste_route = ec2.CfnRoute(self, "de_route_voor_de_app",
-        #                     route_table_id= route_tabel_app.attr_route_table_id,
-        #                     destination_cidr_block = "10.20.20.0/24",
-        #                     vpc_peering_connection_id = Cloud_Peering.attr_id
-        # )
-        # # Creëer een route van je app_server door je VPC-peering naar je admin-server voor je 2e subnet in app-server indien nodig 
+      
         
         # Creëer een user_data format voor je management-server
         user_data_management_server = ec2.UserData.for_windows()
-        user_data_management_server.add_commands( """<powershell>
-                        $adminPassword = "B3h33rd@n"
-                        $adminPasswordSecure = ConvertTo-SecureString $adminPassword -AsPlainText -Force
-                        Set-LocalUser -Name "Admin" -Password $adminPasswordSecure
-                        </powershell>""" 
-        )
+        user_data_management_server.add_commands()
         
         ## Je hebt maar een sleutel nodig, kijk maar wat je hiermee doet.
         # sleutelpaar_beheerserver = ec2.CfnKeyPair(self, "sleutelpaar_beheerserver_voor_RDP",
@@ -262,34 +250,34 @@ class HetProjectV1Punt1Stack(Stack):
                                     )
                                     ]
         )
-    #     # Creëer een backup van de webserver waarbij de backups 7 dagen behouden moeten blijven 
+        # Creëer een backup van de webserver waarbij de backups 7 dagen behouden moeten blijven 
         
-    #     onze_kluis = backup.BackupVault(self, "de_enige_kluis",
-    #                                     backup_vault_name="onze_kluis",
-    #                                     removal_policy=cdk.RemovalPolicy.DESTROY
-    #     )
+        onze_kluis = backup.BackupVault(self, "de_enige_kluis",
+                                        backup_vault_name="onze_kluis",
+                                        removal_policy=cdk.RemovalPolicy.DESTROY
+        )
        
-    #     plan_BU_app = backup.BackupPlan(self, "PDC_BU_app", 
-    #                                     backup_plan_name = "plan_der_dagelijkse_site_backup", 
-    #                                     backup_vault = onze_kluis
-    #     )
-    #     plan_BU_app.add_rule(backup.BackupPlanRule( delete_after = Duration.days(7), 
-    #                                             rule_name = "dagelijkse_back_up",
-    #                                             schedule_expression = events.Schedule.cron(
-    #                                                 minute = "07",
-    #                                                 hour = "01",)
-    #                                         )            
-    #                                 ) 
+        plan_BU_app = backup.BackupPlan(self, "PDC_BU_app", 
+                                        backup_plan_name = "plan_der_dagelijkse_site_backup", 
+                                        backup_vault = onze_kluis
+        )
+        plan_BU_app.add_rule(backup.BackupPlanRule( delete_after = Duration.days(7), 
+                                                rule_name = "dagelijkse_back_up",
+                                                schedule_expression = events.Schedule.cron(
+                                                    minute = "07",
+                                                    hour = "01",)
+                                            )            
+                                    ) 
         
         
         
-    #     plan_BU_app.add_selection(id = "louter_de_app_server", 
-    #                               resources = [backup.BackupResource.from_construct(app_server)
-    #                                 ] 
-    #     )
-     # Creëer een Certificaat voor je webserver NB TLS 1.2 of hoger
+        plan_BU_app.add_selection(id = "louter_de_app_server", 
+                                  resources = [backup.BackupResource.from_construct(app_server)
+                                    ] 
+        )
+     # Creëer een Certificaat voor je webserver 
         certificaat = acm.Certificate.from_certificate_arn(self, "PasParTout", 
-                                             "arn:aws:acm:eu-central-1:042831144970:certificate/850a4382-eb7e-4389-879c-d25780b64119"
+                                             "arn:aws:acm:eu-central-1:042831144970:certificate/8e0b523f-ab79-49cd-9c2d-2a51f2bc028b"
         )              
     # maak een SG voor je load balancer
         sg_lb = ec2.SecurityGroup(self, "Load_Balancer_SG", 
@@ -308,8 +296,14 @@ class HetProjectV1Punt1Stack(Stack):
                               load_balancer_name = "deStabilateur",
                               security_group = sg_lb,
                               vpc_subnets = ec2.SubnetSelection(subnet_type = ec2.SubnetType.PUBLIC),
-                             idle_timeout = Duration.minutes (4),
+                              idle_timeout = Duration.minutes (17),
+                               http2_enabled=False,
+
         )
+        
+        lb_metrics = lb.metrics 
+        metric_connection_count = lb_metrics.active_connection_count()
+
     # Creëer een sg voor je auto scaling group  
         sg_asg = ec2.SecurityGroup(self, "ASG_SG", 
                               vpc = vpc_app, 
@@ -331,28 +325,24 @@ class HetProjectV1Punt1Stack(Stack):
                                                  vpc = vpc_app,
                                                  min_capacity = 1,
                                                  max_capacity = 3, 
-                                                 desired_capacity = 1,
                                                  instance_type = ec2.InstanceType("t3a.micro"),
                                                 machine_image = ec2.MachineImage.latest_amazon_linux(
                                                 generation = ec2.AmazonLinuxGeneration.AMAZON_LINUX_2),
                                                 user_data = eenvoud_UD,
                                                 health_check = autoscaling.HealthCheck.elb(
-                                                grace = Duration.seconds(45)
+                                                grace = Duration.seconds(27)
                                                  ),
-                                                default_instance_warmup = Duration.seconds(10),
+                                                default_instance_warmup = Duration.seconds(20),
                                                 security_group = sg_asg,
                                                 key_name =  sleutelpaar_app.key_name,
                                                 auto_scaling_group_name = "ASG4deVl00t"
                                                  
-                                                #  associate_public_ip_address = False  ##Voor later, maar gebeurt sowieso niet doordat ze in PSN komen
-                                               
+                                                                                             
                                                  
         )
         
     
-        # Creëer een Listener HTTPS-style
-    
-        # dit gaat  mijn redirect moeten opvangen
+        # Creëer een Listener HTTP-focus
         HTTP_luisteraar = lb.add_listener("Luisteren_zal_je", 
                                           port = 80, 
                                           open = True
@@ -375,31 +365,29 @@ class HetProjectV1Punt1Stack(Stack):
         #       ssl_policy = elbv2.SslPolicy.RECOMMENDED 
         ) 
         
-        # Een redirect creëren voor de load balancer zodat alle HTTP verzoeken via HTTPS gaan. 
-        # lb.add_redirect ()
-        
-        
+               
         luisteraar.add_targets("de_Vloot", port = 443, 
-                               target_group_name = "Vl00t4Cynthia", targets = [schalingsunit]
+                               target_group_name = "Vl00t4Cynthia", targets = [schalingsunit],
+                                #  health_check=elbv2.HealthCheck(
+                                #             path="/ping",
+                                #          interval= Duration.seconds(90),
+                                #          healthy_threshold_count = 2,
+                                #          timeout = Duration.seconds(60),
+                                #          unhealthy_threshold_count = (10)
+                                         
+        #          )
         )
       
-        schalingsunit.scale_on_cpu_utilization("drukteInDeZaak", target_utilization_percent = 80)
+        schalingsunit.scale_on_request_count("drukteInDeZaak", target_requests_per_minute = 4)
         
-        luisteraar.connections.allow_default_port_from_any_ipv4("Via HTTPS luisteren naar de wereld")
-        luisteraar.connections.allow_from_any_ipv4(ec2.Port.tcp(80), "Wereldwijd toegankelijk")
-        luisteraar.connections.allow_from_any_ipv4(ec2.Port.tcp(443), "Wereldwijd toegankelijk")
-        HTTP_luisteraar.connections.allow_default_port_from_any_ipv4("Via HTTP luisteren naar de wereld")
-        
-   
+         
     
        
     
-        #  Zet je user_data in je nieuw gemaakte bucket en executeer het daarvandaan. Gebruik hierbij Asset. 
-                
-        # # Meteen kunnen checken of de site online is --->
-        # cdk.CfnOutput(
-        #     self,
-        #     "lb_DNS_locatie",
-        #     value=lb.load_balancer_dns_name
-        # )
+        # Meteen kunnen checken of de site online is --->
+        cdk.CfnOutput(
+            self,
+            "lb_DNS_locatie",
+            value=lb.load_balancer_dns_name
+        )
     

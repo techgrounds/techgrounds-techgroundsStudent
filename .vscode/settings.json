@@ -6,6 +6,8 @@
         "consommateur",
         "elasticloadbalancingv",
         "elbv",
+        "healthcheck",
+        "healthchecks",
         "instanceof",
         "letsencrypt",
         "linux",
